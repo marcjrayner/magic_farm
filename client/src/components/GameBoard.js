@@ -16,7 +16,7 @@ const GameBoard = ({grid}) => {
             <>
                 <h2>Game Board</h2>
                 
-                <main id="game-board" className="grid-length-5 grid-height-2">
+                <main id="game-board" className="grid grid-length-5 grid-height-2">
                     
                      {cells}
             

@@ -5,8 +5,8 @@ class ChoiceCardContainer extends Component {
 
     render() {
         return (
-            <div>
-                <h2>Choice Card Container</h2>
+            <div id="choice-card-container">
+                {/* <h2>Choice Card Container</h2> */}
                 <ChoiceCard />
             </div>
         )
