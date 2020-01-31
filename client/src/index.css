@@ -14,15 +14,14 @@ code {
 
 .grid {
   grid-gap: 1px;
-  /* background-color: lightgray; */
-  
+  display: grid;
 }
 
 #game-board {
   border: 1px solid black; 
   margin: 0 15%;
-  display: grid;
-  grid-gap: 1px;
+  /* display: grid; */
+  /* grid-gap: 1px; */
 }
 
 .grid-length-5{
@@ -50,10 +49,6 @@ code {
 
 .grid-row-3{
   grid-row-start: 3;
-}
-
-.grid-row-2{
-  grid-row: 3;
 }
 
 .grid-row-4{

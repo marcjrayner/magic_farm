@@ -1,29 +1,26 @@
 import React from 'react';
-import Cell from './Cell';
+// import Cell from './Cell';
+import Grid from './Grid';
 
 const GameBoard = ({grid}) => {
 
-    const cells = grid.map((cell, index) => {
-        return (
+    // const cells = grid.map((cell, index) => {
+    //     return (
 
-            <Cell key={index} cell={cell} />
+    //         <Cell key={index} cell={cell} />
 
-        )
+    //     )
 
-    });
+    // });
 
     return (
             <>
                 <h2>Game Board</h2>
                 
-                <main id="game-board" className="grid grid-length-5 grid-height-2">
-                    
-                     {cells}
-            
-                </main>
+            <Grid width="16" height="8" gridName="gameboard-container" />
 
             </>
-        )
+        );
 }
 
 export default GameBoard;

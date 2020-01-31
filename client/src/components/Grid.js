@@ -1,4 +1,4 @@
-import React, {Component, useState} from 'react';
+import React from 'react';
 import Cell from './Cell';
 
 const Grid = (props) => {
@@ -37,10 +37,18 @@ const Grid = (props) => {
 
     });
 
+    const gridStyle = 
+        { gridTemplateRows: 'repeat(' + props.height + ', 20px)',
+        gridTemplateColumns: 'repeat(' + props.width + ', 20px)'
+    };
+
     return (
         <>
 
-            <main id={'grid ' + props.gridName} className={'grid' + ' grid-length-' + props.width + ' grid-height-' + props.height}>
+            <main
+            style={gridStyle}
+
+            className={'grid ' + props.gridName}>
 
                 {cells}
 
