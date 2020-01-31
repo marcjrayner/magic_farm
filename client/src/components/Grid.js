@@ -37,8 +37,10 @@ const Grid = (props) => {
 
     });
 
-    const gridStyle = 
-        { gridTemplateRows: 'repeat(' + props.height + ', 20px)',
+    const gridStyle = {
+        display: 'grid',
+        gridGap: '1px',
+        gridTemplateRows: 'repeat(' + props.height + ', 20px)',
         gridTemplateColumns: 'repeat(' + props.width + ', 20px)'
     };
 
