@@ -1,11 +1,21 @@
-import React , {useState} from 'react';
+import React from 'react';
 
-const Cell = ({cell}) => {
+const Cell = (props) => {
 
-    // const [empty, setEmpty] = useState(cell.empty);
+    // console.log(props.cell);
+    
+
+    const x = props.cell.position ? props.cell.position[0] : null;
+    // console.log(x);
+    const y = props.cell.position ? props.cell.position[1] : null;
 
         return (
-            <article className={"cell " + (cell.empty? 'empty' : 'full') } />
+       
+            <article
+                className={`cell ` + (props.cell.empty? `empty` : `full`) 
+                + ` grid-column-`+ x + ` grid-row-`+ y
+            }
+         />
         )
 }
 

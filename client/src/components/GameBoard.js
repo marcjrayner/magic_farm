@@ -1,31 +1,29 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Cell from './Cell';
 
-class GameBoard extends Component {
+const GameBoard = ({grid}) => {
 
-   
-        constructor(props) {
-            super(props);
-            this.state = {
-                cell: {
-                    empty: true
-                }
-            };
-        }
-
-
-    render() {
+    const cells = grid.map((cell, index) => {
         return (
+
+            <Cell key={index} cell={cell} />
+
+        )
+
+    });
+
+    return (
             <>
                 <h2>Game Board</h2>
-                 <Cell cell={this.state.cell} />
                 
-
+                <main id="game-board" className="grid-length-5 grid-height-2">
+                    
+                     {cells}
             
+                </main>
 
             </>
         )
-    }
 }
 
 export default GameBoard;
