@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.cell {
+  width: 20px;
+  height: 20px;
+}
+
+.empty {
+  background-color: grey;
+}
+
+.full {
+  background-color: red;
+}
