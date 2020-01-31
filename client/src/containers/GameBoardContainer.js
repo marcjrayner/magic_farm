@@ -3,7 +3,15 @@ import GameBoard from '../components/GameBoard';
 
 class GameBoardContainer extends Component {
 
-
+    constructor(props){
+        super(props);
+        this.state = {
+            boardData: {
+                width: 20,
+                height: 10
+            }
+        };
+    }
     
 
     render() {
@@ -11,7 +19,7 @@ class GameBoardContainer extends Component {
 
             <>
             <h2>Game Board Container</h2>
-            <GameBoard />
+            <GameBoard boardData={this.state.boardData}/>
                 
             </>
         );
