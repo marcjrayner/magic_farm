@@ -4,8 +4,9 @@ import Room from './Room';
 
 const ChoiceCard = (props) => {
 
-    const [room, setRoom] = useState(props.choiceData);
-    //     {
+    const room = props.choiceData;
+    //  This is what a room data looks like  
+    // {
     //         cellArray: [
     //                 [1,1],[2,1],
     //                 [1,2],[2,2]
@@ -19,25 +20,29 @@ const ChoiceCard = (props) => {
     //         });
             
     function handleChange(e) {
-    props.onCardSelected(e.target.key);
-    // console.log(e.target.key);
+    props.onCardSelected(e.target.value);
+    console.log(e.target.value);
     }
 
     function handleHover(e){
+        // props.onCardHover()
         
     }
     
         return (
             <article
+            
             className="card"
             onClick={handleChange}
-            onHover={handleHover} >
+            onHover={handleHover}
+             >
                 
         <h2>{room.roomName}</h2>
                 <Grid
                 width={room.roomMaxWidth}
                 height={room.roomMaxHeight}
-                gridName="choice-room-container" >
+                gridName={"choice-" + props.choiceType + "-container"}
+                 >
                     <Room room={room} />
                 </Grid> 
             

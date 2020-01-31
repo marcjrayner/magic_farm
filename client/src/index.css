@@ -43,11 +43,12 @@ code {
 
 #choice-card-container {
   display: flex;
-
+  
 }
 
 #choice-card-container > * {
   width: 20%;
+  margin: 1rem;
 }
 
 .room-card-grid {

@@ -44,8 +44,6 @@ class ChoiceCardContainer extends Component {
         this.setState({selectedCard: cardID});
     } 
 
-    
-
     render() {
         return (
             <div id="choice-card-container">
@@ -55,6 +53,7 @@ class ChoiceCardContainer extends Component {
                     return (
                         <ChoiceCard
                             key={index}
+                            value={index}
                             onCardSelected={this.handleCardSelected}
                             type={this.state.choiceType}
                             choiceData={card}
