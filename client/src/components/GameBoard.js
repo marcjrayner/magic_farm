@@ -4,15 +4,6 @@ import Grid from './Grid';
 
 const GameBoard = ({grid}) => {
 
-    // const cells = grid.map((cell, index) => {
-    //     return (
-
-    //         <Cell key={index} cell={cell} />
-
-    //     )
-
-    // });
-
     return (
             <>
                 <h2>Game Board</h2>
