@@ -1,24 +1,27 @@
-import React from 'react';
+import React,{useState} from 'react';
 import Cell from '../components/Cell';
 
 const RoomContainer = ({ grid }) => {
 
-    const cells = grid.map((cell, index) => {
-        return (
-            <Cell key={index} cell={cell} />
-        )
+    const [boardData, setBoardData] = useState(
+        {
+            'boardData': {
+                'width': 20,
+                'height': 10
+            }
+        }
+    );
 
-    });
+    // const cells = grid.map((cell, index) => {
+    //     return (
+    //         <Cell key={index} cell={cell} />
+    //     )
+
+    // });
 
     return (
         <>
-
-            <main className="grid room-card-grid grid-length-5 grid-height-5">
-
-                {cells}
-
-            </main>
-
+            <GameBoard boardData={this.state.boardData} />
         </>
     )
 }

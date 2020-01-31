@@ -3,36 +3,38 @@ import Cell from './Cell';
 
 const Grid = (props) => {
 
+    // sets x and y
     const x = props.width;
     const y = props.height;
-    // const area = x * y;
     const blankGrid = [];
 
-            // For every x row in the grid, loop through
-            for (var j = 1; j <= x; j++) {
+    // For every x row in the grid, loop through
+    for (var j = 1; j <= x; j++) {
 
-                for (var k = 1; k <= y; k++) {
-                    // For each cell, create a blank position array
-                    const position = [];
+        // For every y column in the grid, loop through
+        for (var k = 1; k <= y; k++) {
+            
+            // For each cell, create a blank position array
+            const position = [];
 
-                    position.push(j);
-                    position.push(k);
+            // Add co-ordinates to array
+            position.push(j);
+            position.push(k);
 
-                    const cell = {
-                        'empty': true,
-                        'position': position
-                    };
-
-                    blankGrid.push(cell);
-                }
-            }
-        
+            // Create an empty cell
+            const cell = {
+                'empty': true,
+                'position': position
+            };
+            
+            blankGrid.push(cell);
+        }
+    }
 
     const cells = blankGrid.map((cell, index) => {
+        
         return (
-
             <Cell key={index} cell={cell} />
-
         )
 
     });
