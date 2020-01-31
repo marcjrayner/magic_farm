@@ -20,7 +20,20 @@ class ChoiceCardContainer extends Component {
                 roomType: 'red',
                 roomContents: [],
                 roomName: '2x2 Square'
-            }
+            },
+
+                {
+                    cellArray: [
+                        [1, 1], [2, 1],
+                        [3, 1], [4, 1]
+                    ],
+                    roomMaxWidth: 4,
+                    roomMaxHeight: 1,
+                    roomStatus: 'room',
+                    roomType: 'red',
+                    roomContents: [],
+                    roomName: '4x1 Rectangle'
+                }
         ]
             
         }
