@@ -3,18 +3,23 @@ import Cell from './Cell';
 
 class GameBoard extends Component {
 
-    // const gridData = [
+   
+        constructor(props) {
+            super(props);
+            this.state = {
+                cell: {
+                    empty: true
+                }
+            };
+        }
 
-    // ];
-
-    // const [grid, setGrid] = useState(gridData)
-    // )
 
     render() {
         return (
             <>
                 <h2>Game Board</h2>
-                <Cell cell="{empty: true}" />
+                 <Cell cell={this.state.cell} />
+                
 
             
 
