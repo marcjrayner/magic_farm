@@ -8,7 +8,10 @@ const GameBoard = (props) => {
             <>
                 <h2>Game Board</h2>
                 
-            <Grid width={props.boardData.width} height={props.boardData.height} gridName="gameboard-container" />
+            <Grid
+                width={props.boardData.width}
+                height={props.boardData.height}
+                gridName="gameboard-container" />
 
             </>
         );
