@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import RoomContainer from '../containers/RoomContainer';
+import Grid from './Grid';
 
 class ChoiceCard extends Component {
 
@@ -55,7 +56,8 @@ class ChoiceCard extends Component {
         return (
             <article className="card">
                 <h2>Room Choice 1</h2>
-                <RoomContainer grid={this.state.blankgrid} />
+                {/* <RoomContainer grid={this.state.blankgrid} /> */}
+                <Grid width="5" height="5" gridName="choice-room-container" />
 
                 
 

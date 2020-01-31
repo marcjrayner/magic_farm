@@ -1,22 +1,17 @@
-import React, {Component} from 'react';
+import React, {Component, useState} from 'react';
+import Cell from './Cell';
 
-const BlankGrid = (props) => {
+const Grid = (props) => {
 
-    createBlankGrid(props.width, props.height) {
-
-        let x = width;
-        let y = height;
-        let area = x * y;
-        const blankGrid = [];
-
-        // Loop through the total number of cells
-        for (var i = 0; i <= area; i++) {
+    const x = props.width;
+    const y = props.height;
+    // const area = x * y;
+    const blankGrid = [];
 
             // For every x row in the grid, loop through
-            for (var j = 0; j <= x; j++) {
+            for (var j = 1; j <= x; j++) {
 
-                for (var k = 0; k <= y; k++) {
-
+                for (var k = 1; k <= y; k++) {
                     // For each cell, create a blank position array
                     const position = [];
 
@@ -31,13 +26,30 @@ const BlankGrid = (props) => {
                     blankGrid.push(cell);
                 }
             }
-        }
+        
 
-            return blankGrid;
+    const cells = blankGrid.map((cell, index) => {
+        return (
 
-        }
+            <Cell key={index} cell={cell} />
+
+        )
+
+    });
+
+    return (
+        <>
+
+            <main id={'grid ' + props.gridName} className={'grid' + ' grid-length-' + props.width + ' grid-height-' + props.height}>
+
+                {cells}
+
+            </main>
+
+        </>
+    )
 
 }
 
 
-export default BlankGrid;
+export default Grid;
