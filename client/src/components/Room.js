@@ -1,13 +1,20 @@
 import React from 'react';
-import Grid from './Grid';
 import Cell from './Cell';
 
 const Room = (props) => {
 
-    const room = props.room;
-    // const position = props.position;
-    const translateX = props.position[0];
-    const translateY = props.position[1];
+    // So far there are two types of room creation; One on a grid, one on a card.
+    // Rooms that are created on a card should appear as a default [1,1]
+    // Rooms thare are created as objects on the gameBoard can be given a custom objectPosition e.g. [5, 8]
+
+    console.log(props);
+    
+    const room = props.room;    
+    let initialPosition = []
+        if (props.position !== null){ initialPosition = props.position;}
+    else { initialPosition = [1,1]; }   
+    const translateX = initialPosition[0];
+    const translateY = initialPosition[1];
     // const x = room.roomMaxWidth;
     // const y = room.roomMaxHeight;
     // // const room = props.room;

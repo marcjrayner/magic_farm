@@ -1,9 +1,11 @@
 import React, {useState} from 'react';
-import Grid from '../components/Grid';
 import Room from '../components/Room';
 
 const ChoiceCard = (props) => {
 
+    const [selectedCard, setSelectedCard] = useState(false);
+
+    const card = props.choiceData.objectData;
     //  This is what a room data looks like  
     // {
     //     objectType: 'Room',
@@ -11,25 +13,21 @@ const ChoiceCard = (props) => {
     //     objectData: {}}
     // }
         
+    console.log(props)
+    function selectCard(e) {
+        setSelectedCard(e.target.key)
+    }
+
     return (
-        <article className="card"
+        <article className={"card " + (selectedCard? 'selected-card ' : '')}
+            onClick={selectCard}
             // onClick={handleChange}
             // onHover={handleHover}
              >
-            
-            {(() => {
-                switch (props.type) {
-                    case 'Room':
-                        const room = props.choiceData;
-                        return (
-                            <>
-                            <h2> {room.roomName} </h2>
-                            <Room room={room} />
-                            </>);
-                    case 'Animal': return null
-                }
-            })}
-    
+
+                <Room room={card}
+                position={props.choiceData.objectPosition}
+                />
 
             </article>
         )

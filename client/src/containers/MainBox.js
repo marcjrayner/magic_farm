@@ -78,6 +78,7 @@ class MainBox extends Component {
                     {
                         objectType: 'Room',
                         objectPosition: null,
+                        objectData: {
                         cellArray: [
                             [1, 1], [2, 1],
                             [3, 1], [4, 1]
@@ -88,7 +89,7 @@ class MainBox extends Component {
                         roomType: 'red',
                         roomContents: [],
                         roomName: '4x1 Rectangle'
-                    }
+                    }}
                 ]
 
             }

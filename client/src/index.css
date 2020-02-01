@@ -41,9 +41,7 @@ code {
   z-index: 0;
 }
 
-.room {
-  display: grid;
-}
+
 /* 
 .full {
   background-color: red;
