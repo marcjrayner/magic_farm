@@ -20,11 +20,12 @@ const Room = (props) => {
         const y = roomCell[1] + (translateY - 1);
         position.push(x);
         position.push(y);
+        const name = ('' + room.roomType + ' ' + room.roomStatus +'-'+position)
 
         const cell = {
             'empty': true,
             'position': position,
-            'affiliation': room.id
+            'affiliation': name
         };
 
         return (
@@ -32,18 +33,20 @@ const Room = (props) => {
         )
     });
 
-    // const roomStyle = {
-    //     display: 'grid',
-    //     gridGap: '1px',
-    //     gridTemplateRows: 'repeat(' + y + ', 20px)',
-    //     gridTemplateColumns: 'repeat(' + x + ', 20px)'
-    // };
+    const roomStyle = {
+        display: 'grid',
+        gridGap: '1px',
+        gridTemplateRows: 'repeat(' + room.roomMaxHeight + ', 20px)',
+        gridTemplateColumns: 'repeat(' + room.roomMaxWidth + ', 20px)',
+        gridRowStart: translateX,
+        gridColumnStart: translateY
+    };
 
     return(
 
         <>
         <aside className="room"
-        // style={roomStyle}
+        style={roomStyle}
         id={"["+translateX+","+translateY+"]"} >
             {roomRender}
         </aside>

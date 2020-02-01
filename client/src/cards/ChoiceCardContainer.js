@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import ChoiceCard from '../components/ChoiceCard.js';
+import ChoiceCard from '../cards/ChoiceCard';
 
 const ChoiceCardContainer = (props) => {
 

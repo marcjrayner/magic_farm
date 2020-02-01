@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import Grid from './Grid';
-import Room from './Room';
+import Grid from '../components/Grid';
+import Room from '../components/Room';
 
 const ChoiceCard = (props) => {
 

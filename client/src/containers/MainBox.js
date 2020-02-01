@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import GameBoardContainer from './GameBoardContainer';
-import ChoiceCardContainer from './ChoiceCardContainer';
+import ChoiceCardContainer from '../cards/ChoiceCardContainer';
 
 class MainBox extends Component {
 

@@ -46,7 +46,10 @@ const Cell = (props) => {
                 onMouseOver={handleHover}
                 onMouseOut={handleHoverOff}
                 style={cellStyle}
-                className={`cell` + (props.cell.empty ? ` empty` : ` full`) + (props.cell.affiliation !== null ? 'props.cell.affiliation' : '') +( hover && props.cell.affiliation == null ? ' cell-hover' : '') }
+                className={`cell `
+                + (props.cell.empty ? `empty ` : ` full `)
+                + (props.cell.affiliation !== null ? (props.cell.affiliation +' ') : ' ')
+                + ( hover && props.cell.affiliation == null ? 'cell-hover ' : '') }
          />
         )
 }
