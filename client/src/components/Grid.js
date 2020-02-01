@@ -18,7 +18,8 @@ const Grid = (props) => {
             ); 
             case "Animal": return(
                 <p key={index}>this will be an animal</p>
-            ); 
+            );
+            default: return null;
         }
 
     });
