@@ -1,11 +1,31 @@
 import React from 'react';
 import Cell from './Cell';
+import Room from './Room';
 
 const Grid = (props) => {
 
+    const grid = props.gridData;
+
+    console.log(grid);
+    const objects = props.objectsArray.map((object, index) => {
+
+        switch(object.objectType){
+            case "Room": return(
+                <Room
+                key={index}
+                room={object.objectData}
+                position={object.objectPosition}/>
+            ); 
+            case "Animal": return(
+                <p key={index}>this will be an animal</p>
+            ); 
+        }
+
+    });
+
     // sets x and y
-    const x = props.width;
-    const y = props.height;
+    const x = grid.width;
+    const y = grid.height;
     const blankGrid = [];
 
     // For every x row in the grid, loop through
@@ -24,14 +44,15 @@ const Grid = (props) => {
             // Create an empty cell
             const cell = {
                 'empty': true,
-                'position': position
+                'position': position,
+                'affiliation': null
             };
             
             blankGrid.push(cell);
         }
     }
 
-    const cells = blankGrid.map((cell, index) => {
+    const blankCells = blankGrid.map((cell, index) => {
         
         return (
             <Cell key={index} cell={cell} />
@@ -42,26 +63,25 @@ const Grid = (props) => {
     const gridStyle = {
         display: 'grid',
         gridGap: '1px',
-        gridTemplateRows: 'repeat(' + props.height + ', 20px)',
-        gridTemplateColumns: 'repeat(' + props.width + ', 20px)'
+        gridTemplateRows: 'repeat(' + y + ', ' + grid.cellSize +'px)',
+        gridTemplateColumns: 'repeat(' + x + ', ' + grid.cellSize +'px)'
     };
 
     return (
         <>
+        {/* Create a Grid Container */}
+        <main style={gridStyle} className={'grid ' + props.id}>
 
-            <main
-            style={gridStyle}
+        {/* Load in the Objects of the Grid    */}
+            {objects}
+            
+        {/* Load in the Blank Cells Of The Grid */}
+            {blankCells}
 
-            className={'grid ' + props.gridName}>
-
-                {cells}
-
-            </main>
-
+        </main>
         </>
     )
 
 }
-
 
 export default Grid;

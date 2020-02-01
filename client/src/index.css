@@ -24,6 +24,11 @@ code {
   height: 100%;
 }
 
+
+.cell-hover {
+  opacity: 0.2; 
+}
+
 .empty {
   background-color: lightgrey;
   /* border: 1px solid grey; */
@@ -49,6 +54,7 @@ code {
 #choice-card-container > * {
   width: 20%;
   margin: 1rem;
+  padding-bottom: 2rem;
 }
 
 .room-card-grid {

@@ -1,29 +1,42 @@
-import React, { Component } from 'react';
-import GameBoard from '../components/GameBoard';
+import React from 'react'; 
+import Grid from '../components/Grid';
 
-class GameBoardContainer extends Component {
-
-    constructor(props){
-        super(props);
-        this.state = {
-            boardData: {
-                width: 20,
-                height: 10
-            }
-        };
-    }
+const GameBoardContainer = (props) => {
     
-
-    render() {
-        return (
-
-            <>
+    return (
+        <>
             <h2>Game Board Container</h2>
-            <GameBoard boardData={this.state.boardData}/>
-                
-            </>
-        );
-    }
-}
+            
+            <Grid
+                gridData={props.gameBoardData.gridData}
+                objectsArray={props.gameBoardData.objectsArray}
+                id="game-board-grid"
+                />
+        </>
+    )
+};
 
 export default GameBoardContainer;
+
+// gridData: {
+//     width: 20,
+//         height: 10,
+//             cellsize: 20
+// },
+// objectsArray: [
+//     {
+//         objectType: 'Room',
+//         objectPosition: [1, 1],
+//         objectData: {
+//             cellArray: [
+//                 [1, 1], [2, 1],
+//                 [1, 2], [2, 2]
+//             ],
+//             roomMaxWidth: 2,
+//             roomMaxHeight: 2,
+//             roomStatus: 'room',
+//             roomType: 'red',
+//             roomContents: [],
+//             roomName: '2x2 Square'
+//         }
+//     }]

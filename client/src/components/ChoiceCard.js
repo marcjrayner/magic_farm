@@ -4,51 +4,50 @@ import Room from './Room';
 
 const ChoiceCard = (props) => {
 
-    const room = props.choiceData;
     //  This is what a room data looks like  
     // {
-    //         cellArray: [
-    //                 [1,1],[2,1],
-    //                 [1,2],[2,2]
-    //             ],
-    //             roomMaxWidth: 2,
-    //             roomMaxHeight: 2,
-    //             roomStatus: 'room',
-    //             roomType: 'red',
-    //             roomContents: [],
-    //             roomName: '2x2 Square'
-    //         });
-            
-    function handleChange(e) {
-    props.onCardSelected(e.target.value);
-    console.log(e.target.value);
-    }
-
-    function handleHover(e){
-        // props.onCardHover()
+    //     objectType: 'Room',
+    //     objectPosition: null,
+    //     objectData: {}}
+    // }
         
-    }
-    
-        return (
-            <article
-            
-            className="card"
-            onClick={handleChange}
-            onHover={handleHover}
+    return (
+        <article className="card"
+            // onClick={handleChange}
+            // onHover={handleHover}
              >
-                
-        <h2>{room.roomName}</h2>
-                <Grid
-                width={room.roomMaxWidth}
-                height={room.roomMaxHeight}
-                gridName={"choice-" + props.choiceType + "-container"}
-                 >
-                    <Room room={room} />
-                </Grid> 
             
+            {(() => {
+                switch (props.type) {
+                    case 'Room':
+                        const room = props.choiceData;
+                        return (
+                            <>
+                            <h2> {room.roomName} </h2>
+                            <Room room={room} />
+                            </>);
+                    case 'Animal': return null
+                }
+            })}
+    
+
             </article>
         )
 
-}
+};
 
 export default ChoiceCard;
+
+{/* <h2>{room.roomName}</h2>
+    <Grid
+
+        gridData={this.state.gridData}
+        objectsArray={this.state.objectsArray}
+        id="game-board-grid"
+        width={room.roomMaxWidth}
+        height={room.roomMaxHeight}
+        room={room}
+        gridName={"choice-" + props.choiceType + "-container"}
+    >
+        <Room room={room} />
+    </Grid>  */}
