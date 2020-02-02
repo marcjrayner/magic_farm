@@ -13,6 +13,10 @@ class ChoiceCardContainer extends Component {
 
     makeCardSelection(id){
        
+        if (id === null ){
+            this.setState({selectedCardID: null});
+            return null;
+        }
         this.setState( {selectedCardID: id});
         const cardIndex = this.props.choiceCardData.cardArray.findIndex((card) => {
             return card.id === id;

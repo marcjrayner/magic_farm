@@ -17,6 +17,7 @@ const ChoiceCard = (props) => {
 
             if (props.choiceData.id === props.selectedCardID) {
                 props.clearSelection();
+                props.clickMethod(null);
                 console.log(`because already selected, unselected: ` + props.choiceData.id)
             
             } else {
@@ -30,8 +31,9 @@ const ChoiceCard = (props) => {
     }
 
     return (
-        <article className={"card " + (props.selectedCardID === props.choiceData.id ? 'selected-card ' : '') +
-            ((props.selectedCardID !== props.choiceData.id && props.globalCardSelected !== null) ? 'unselected ' : '')}
+        <article className={"card "
+        + (props.selectedCardID === props.choiceData.id ? 'selected-card ' : '')
+        + ((props.selectedCardID !== props.choiceData.id && props.globalCardSelected !== null) ? 'unselected ' : '')}
             onClick={selectCard}
             // style={cardStyle}
             // onClick={handleChange}
