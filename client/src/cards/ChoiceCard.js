@@ -1,9 +1,8 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Room from '../components/Room';
 
 const ChoiceCard = (props) => {
 
-    const [selectedCard, setSelectedCard] = useState(false);
 
     const card = props.choiceData.objectData;
     //  This is what a room data looks like  
@@ -20,11 +19,10 @@ const ChoiceCard = (props) => {
 
     function selectCard(e){
        
-            console.log(e.target.id)
-
-        props.clickMethod({objectType: props.choiceData.objectType, 
-            objectData: props.choiceData.objectData});
-            setSelectedCard(!selectedCard);
+            console.log(props.choiceData.id)
+        
+            props.clickMethod(props.choiceData.id);
+            // setSelectedCard(!selectedCard);
 
     }
 
@@ -33,7 +31,8 @@ const ChoiceCard = (props) => {
     }
 
     return (
-        <article className={"card " + (selectedCard? 'selected-card ' : '')}
+        <article className={"card " + (props.selectedCardID === props.choiceData.id ? 'selected-card ' : '') +
+            ((props.selectedCardID !== props.choiceData.id && props.globalCardSelected !== null) ? 'unselected ' : '')}
             onClick={selectCard}
             // style={cardStyle}
             // onClick={handleChange}
@@ -43,8 +42,7 @@ const ChoiceCard = (props) => {
                 <Room 
                 clickMethod={doNothing}
                 hoverMethod={doNothing}
-                className={'card-content '
-                    + ((!selectedCard && props.globalCardSelected !== null) ? 'unselected ' : '')}
+                className={'card-content '}
                 room={card}
                 position={props.choiceData.objectPosition}
                 />

@@ -23,7 +23,8 @@ class MainBox extends Component {
                 },
                 
                 objectsArray: [
-                    {   objectType: 'Room',
+                    {   id: 'GBR1',
+                        objectType: 'Room',
                         objectPosition: [1, 1],
                         objectData: {
                             cellArray: [
@@ -40,6 +41,7 @@ class MainBox extends Component {
                     },
 
                     {
+                        id: 'GBR2',
                         objectType: 'Room',
                         objectPosition: [10, 5],
                         objectData: {
@@ -61,7 +63,7 @@ class MainBox extends Component {
                 selectedCard: null,
                 choiceType: 'Room',
                 cardArray: [
-                    {
+                    {   id: 'CC1',
                         objectType: 'Room',
                         objectPosition: null,
                         objectData: {
@@ -77,8 +79,7 @@ class MainBox extends Component {
                             roomName: '2x2 Square'
                         }
                     },
-
-                    {
+                    {   id: 'CC2',
                         objectType: 'Room',
                         objectPosition: null,
                         objectData: {
