@@ -6,7 +6,7 @@ const Grid = (props) => {
 
     const grid = props.gridData;
 
-    console.log(grid);
+    // console.log(grid);
     const objects = props.objectsArray.map((object, index) => {
 
         switch(object.objectType){

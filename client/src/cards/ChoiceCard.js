@@ -13,16 +13,14 @@ const ChoiceCard = (props) => {
     //     objectData: {}}
     // }
         
-    console.log(props)
+    // console.log(props)
     // function selectCard(e) {
     //     setSelectedCard(e.target.key)
     // }
 
-    let cardStyle = {};
-
     function selectCard(e){
         if (selectedCard === false){
-            console.log(e.target)
+            console.log(e.target.id)
 
         props.clickMethod({objectType: props.choiceData.objectType, 
             objectData: props.choiceData.objectData});

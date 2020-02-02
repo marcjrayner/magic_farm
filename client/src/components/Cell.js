@@ -28,28 +28,28 @@ const Cell = (props) => {
     //     // setHover(true);
     // }
 
-    // function handleHover(){
-    //     // const cellRef = [x, y];
-    //     // console.log(props.cell.position)
-    //     setHover(true);
-    // }
+    function handleHover(){
+        // const cellRef = [x, y];
+        // console.log(props.cell.position)
+        setHover(true);
+    }
 
-    // function handleHoverOff(){
-    //     setHover(false);
-    // }
+    function handleHoverOff(){
+        setHover(false);
+    }
 
     // Returns a cell
         return (
        
             <article
                 onClick={props.clickMethod}
-                // onMouseOver={handleHover}
-                // onMouseOut={handleHoverOff}
+                onMouseOver={handleHover}
+                onMouseOut={handleHoverOff}
                 style={cellStyle}
                 className={`cell `
                 + (props.cell.empty ? `empty ` : ` full `)
                 + (props.cell.affiliation !== null ? (props.cell.affiliation +' ') : 'none')
-                + ( (props.cell.hover && props.cell.affiliation === null) ? '.cell-hover ' : '') }
+                + ( (hover && props.cell.affiliation === null) ? '.cell-hover ' : '') }
          />
         )
 }

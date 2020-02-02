@@ -125,13 +125,6 @@ class MainBox extends Component {
 
     handleGameBoardSelection(choice){
         this.setState({selectedObject: choice});
-        if (choice.objectType === "Room") { }
-        this.setState({
-            mouseObject: {
-                type: 'Room',
-                objectData: choice.objectData
-            }
-        })
     }
 
     render() {
