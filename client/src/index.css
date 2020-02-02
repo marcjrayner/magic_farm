@@ -55,6 +55,11 @@ code {
   background-color: lightgoldenrodyellow;
 }
 
+.selected-card{
+  border: 3px solid black;
+  box-sizing: border-box;
+}
+
 #choice-card-container {
   display: flex;
   
