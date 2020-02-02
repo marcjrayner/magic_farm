@@ -64,4 +64,8 @@ public class Room {
     public void setAnimals(List<Animal> animals) {
         this.animals = animals;
     }
+
+    public void addAnimal(Animal animal){
+        this.animals.add(animal);
+    }
 }
