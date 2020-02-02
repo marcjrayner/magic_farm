@@ -56,10 +56,8 @@ code {
 }
 
 .selected-card{
-  border: 3px solid black;
-  box-sizing: border-box;
+  background-color: lightblue;
 }
-
 
 .unselected {
   opacity: 0.6;
@@ -72,8 +70,9 @@ code {
 
 #choice-card-container > * {
   width: 20%;
-  margin: 1rem;
-  padding-bottom: 2rem;
+    margin: 1rem;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
 }
 
 .room-card-grid {
