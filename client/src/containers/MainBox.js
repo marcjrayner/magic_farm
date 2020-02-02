@@ -11,7 +11,11 @@ class MainBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            
+            selectedChoice: null,
+            mouseObject: null,
+            selectedRoom: null,
+            hoverGameBoardLocation: null,
+            hoverChoiceCardLocation: null,
             gameBoardData: {
                 gridData: {
                     width: 20,
@@ -94,13 +98,58 @@ class MainBox extends Component {
 
             }
         };
+
+        this.handleChoiceCardSelection = this.handleChoiceCardSelection.bind(this);
+        this.handleHoverGameBoardLocation = this.handleHoverGameBoardLocation.bind(this);
+        this.handleGameBoardSelection = this.handleGameBoardSelection.bind(this);
+        this.handleMouseObject = this.handleMouseObject.bind(this);
+    }
+
+    // selectedOnChoiceCardContainer: null,
+    // mouseObject: null,
+    // selectedOnGameBoardContainer: null,
+    // hoverGameBoardLocation: null,
+
+    handleHoverGameBoardLocation(object) {
+        this.setState({ hoverPosition: object })
+    }
+
+    handleChoiceCardSelection(choice){
+        this.setState({ selectedOnChoiceCardContainer:choice.objectData});
+        if (choice.objectType === "Room"){}
+        this.setState({mouseObject:{
+            type: 'Room',
+            objectData: choice.objectData}
+        })
+    }
+
+    handleMouseObject(){
+        this.setState({mouseObject: null});
+        this.setState({selectedOnChoiceCardContainer:null});
+        this.setState({ selectedOnGameBoardContainer: null});
+    }
+
+    handleGameBoardSelection(choice){
+        this.setState({selectedObject: choice});
+        if (choice.objectType === "Room") { }
+        this.setState({
+            mouseObject: {
+                type: 'Room',
+                objectData: choice.objectData
+            }
+        })
     }
 
     render() {
         return(
             <>
-                <GameBoardContainer gameBoardData={this.state.gameBoardData} />
-                <ChoiceCardContainer choiceCardData={this.state.choiceContainerData}/>
+                <GameBoardContainer
+                    clickMethod={this.handleGameBoardSelection}
+                    hoverMethod={this.handleHoverGameBoardLocation}
+                    gameBoardData={this.state.gameBoardData} />
+                <ChoiceCardContainer
+                    clickMethod={this.handlehoiceCardSelection}
+                    choiceCardData={this.state.choiceContainerData}/>
         
             </>
 

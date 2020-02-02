@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import ChoiceCard from '../cards/ChoiceCard';
 
 const ChoiceCardContainer = (props) => {
@@ -28,6 +28,8 @@ const ChoiceCardContainer = (props) => {
                 value={index}
                 type={props.choiceType}
                 choiceData={card}
+                clickMethod={props.clickMethod}
+                hoverMethod={props.hoverMethod}
             ></ChoiceCard>
         )
 

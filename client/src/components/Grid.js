@@ -46,7 +46,8 @@ const Grid = (props) => {
             const cell = {
                 'empty': true,
                 'position': position,
-                'affiliation': null
+                'affiliation': null,
+                'hover': false
             };
             
             blankGrid.push(cell);

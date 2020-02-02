@@ -22,34 +22,34 @@ const Cell = (props) => {
     //         props.cell.empty != props.cell.empty
     //     }
     // };
-    function handleClick(e){
-        const cellRef=props.cell.position;
-        console.log(cellRef);
-        setHover(true);
-    }
+    // function handleClick(e){
+    //     const cellRef=props.cell.position;
+    //     console.log(cellRef);
+    //     // setHover(true);
+    // }
 
-    function handleHover(e){
-        // const cellRef = [x, y];
-        // console.log(props.cell.position)
-        setHover(true);
-    }
+    // function handleHover(){
+    //     // const cellRef = [x, y];
+    //     // console.log(props.cell.position)
+    //     setHover(true);
+    // }
 
-    function handleHoverOff(e){
-        setHover(false);
-    }
+    // function handleHoverOff(){
+    //     setHover(false);
+    // }
 
     // Returns a cell
         return (
        
             <article
-                onClick={handleClick}
-                onMouseOver={handleHover}
-                onMouseOut={handleHoverOff}
+                // onClick={handleClick}
+                // onMouseOver={handleHover}
+                // onMouseOut={handleHoverOff}
                 style={cellStyle}
                 className={`cell `
                 + (props.cell.empty ? `empty ` : ` full `)
-                + (props.cell.affiliation !== null ? (props.cell.affiliation +' ') : ' ')
-                + ( hover && props.cell.affiliation == null ? 'cell-hover ' : '') }
+                + (props.cell.affiliation !== null ? (props.cell.affiliation +' ') : 'none')
+                + ( (props.cell.hover && props.cell.affiliation === null) ? '.cell-hover ' : '') }
          />
         )
 }

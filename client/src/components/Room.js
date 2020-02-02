@@ -32,7 +32,8 @@ const Room = (props) => {
         const cell = {
             'empty': true,
             'position': position,
-            'affiliation': name
+            'affiliation': name,
+            'hover': false
         };
 
         return (

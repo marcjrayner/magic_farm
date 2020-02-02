@@ -14,8 +14,12 @@ const ChoiceCard = (props) => {
     // }
         
     console.log(props)
-    function selectCard(e) {
-        setSelectedCard(e.target.key)
+    // function selectCard(e) {
+    //     setSelectedCard(e.target.key)
+    // }
+
+    function selectCard(e){
+        props.clickMethod(e.target.key)
     }
 
     return (
@@ -35,17 +39,3 @@ const ChoiceCard = (props) => {
 };
 
 export default ChoiceCard;
-
-{/* <h2>{room.roomName}</h2>
-    <Grid
-
-        gridData={this.state.gridData}
-        objectsArray={this.state.objectsArray}
-        id="game-board-grid"
-        width={room.roomMaxWidth}
-        height={room.roomMaxHeight}
-        room={room}
-        gridName={"choice-" + props.choiceType + "-container"}
-    >
-        <Room room={room} />
-    </Grid>  */}

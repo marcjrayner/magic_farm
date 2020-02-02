@@ -10,6 +10,8 @@ const GameBoardContainer = (props) => {
             <Grid
                 gridData={props.gameBoardData.gridData}
                 objectsArray={props.gameBoardData.objectsArray}
+                clickMethod={props.clickMethod}
+                hoverMethod={props.hoverMethod}
                 id="game-board-grid"
                 />
         </>
