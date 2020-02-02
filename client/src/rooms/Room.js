@@ -73,8 +73,8 @@ class Room extends Component {
     const roomStyle = {
         display: 'grid',
         gridGap: '1px',
-        gridTemplateRows: 'repeat(' + room.roomMaxHeight + ', 20px)',
-        gridTemplateColumns: 'repeat(' + room.roomMaxWidth + ', 20px)',
+        gridTemplateRows: 'repeat(' + room.roomMaxHeight + ', '+this.props.cellSize+'px)',
+        gridTemplateColumns: 'repeat(' + room.roomMaxWidth + ',' + this.props.cellSize +'px)',
         gridRowStart: translateX,
         gridColumnStart: translateY,
         gridRowEnd: translateX + room.roomMaxWidth,

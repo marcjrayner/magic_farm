@@ -154,6 +154,7 @@ class MainBox extends Component {
                     hoverMethod={this.handleHoverGameBoardLocation}
                     gameBoardData={this.state.gameBoardData} />
                 <ChoiceCardContainer
+                    cellSize={this.state.gameBoardData.gridData.cellSize}
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}
                     globalCardSelected={this.state.selectedOnChoiceCardContainer}

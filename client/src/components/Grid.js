@@ -16,6 +16,7 @@ const Grid = (props) => {
         switch(object.objectType){
             case "Room": return(
                 <Room
+                cellSize={grid.cellSize}
                 key={index}
                 room={object.objectData}
                 position={object.objectPosition}
@@ -70,16 +71,16 @@ const Grid = (props) => {
 
     });
 
-    let mouse;
+    // let mouse;
 
-    if (props.mouseObject !== null) {
-       mouse = <MouseObject
-            placeStatus={mousePlaceStatus}
-            mouseObject={props.mouseObject}
-            mousePosition={mousePosition} />;
-    } else {
-       mouse = null;
-    }
+    // if (props.mouseObject !== null) {
+    //    mouse = <MouseObject
+    //         placeStatus={mousePlaceStatus}
+    //         mouseObject={props.mouseObject}
+    //         mousePosition={mousePosition} />;
+    // } else {
+    //    mouse = null;
+    // }
 
     const gridStyle = {
         display: 'grid',
@@ -92,7 +93,7 @@ const Grid = (props) => {
         <>
         {/* Create a Grid Container */}
         <main style={gridStyle} className={'grid ' + props.id}>
-            {mouse}
+            {/* {mouse} */}
             
         {/* Load in the Objects of the Grid    */}
             {objects}
