@@ -104,8 +104,6 @@ class MainBox extends Component {
         this.handleMouseObject = this.handleMouseObject.bind(this);
     }
 
-   
-
     handleHoverGameBoardLocation(object) {
         this.setState({ hoverPosition: object })
     }

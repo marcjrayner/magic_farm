@@ -14,7 +14,10 @@ const Grid = (props) => {
                 <Room
                 key={index}
                 room={object.objectData}
-                position={object.objectPosition}/>
+                position={object.objectPosition}
+                clickMethod={props.clickMethod}
+                hoverMethod={props.hoverMethod}
+                />
             ); 
             case "Animal": return(
                 <p key={index}>this will be an animal</p>
@@ -57,7 +60,8 @@ const Grid = (props) => {
     const blankCells = blankGrid.map((cell, index) => {
         
         return (
-            <Cell key={index} cell={cell} />
+            <Cell key={index} cell={cell} clickMethod={props.clickMethod}
+                hoverMethod={props.hoverMethod}/>
         )
 
     });

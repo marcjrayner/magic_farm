@@ -42,7 +42,7 @@ const Cell = (props) => {
         return (
        
             <article
-                // onClick={handleClick}
+                onClick={props.clickMethod}
                 // onMouseOver={handleHover}
                 // onMouseOut={handleHoverOff}
                 style={cellStyle}

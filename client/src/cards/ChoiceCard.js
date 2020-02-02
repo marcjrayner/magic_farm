@@ -34,6 +34,10 @@ const ChoiceCard = (props) => {
         }
     }
 
+    function doNothing(){
+        console.log("Selecting This Room Does Nothing Here")
+    }
+
     return (
         <article className={"card " + (selectedCard? 'selected-card ' : '')}
             onClick={selectCard}
@@ -43,6 +47,8 @@ const ChoiceCard = (props) => {
              >
                 <h2>{props.choiceData.objectType}</h2> 
                 <Room 
+                clickMethod={doNothing}
+                hoverMethod={doNothing}
                 className='card-content'
                 room={card}
                 position={props.choiceData.objectPosition}

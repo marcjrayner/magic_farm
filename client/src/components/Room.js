@@ -1,17 +1,45 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Cell from './Cell';
 
-const Room = (props) => {
+class Room extends Component {
 
     // So far there are two types of room creation; One on a grid, one on a card.
     // Rooms that are created on a card should appear as a default [1,1]
     // Rooms thare are created as objects on the gameBoard can be given a custom objectPosition e.g. [5, 8]
 
-    console.log(props);
+        constructor(props){
+            super(props);
+            this.state = {
+                selectedRoom: null
+            };
+            this.makeCellClickWholeRoom = this.makeCellClickWholeRoom.bind(this);
+        };
+
+    // console.log(props);
     
-    const room = props.room;    
+    makeCellClickWholeRoom = function (e) {
+
+        if (!this.state.selectedRoom) {
+            this.setState({selectedRoom: true});
+
+            this.props.clickMethod({
+                objectType: 'Room',
+                objectData: this.props
+            })
+        }
+
+        return null;
+    } 
+
+    // const[selectedRoom, setSelectedRoom] = useState(false);
+
+    render() {
+    
+    
+
+    const room = this.props.room;    
     let initialPosition = []
-        if (props.position !== null){ initialPosition = props.position;}
+        if (this.props.position !== null){ initialPosition = this.props.position;}
     else { initialPosition = [1,1]; }   
     const translateX = initialPosition[0];
     const translateY = initialPosition[1];
@@ -37,7 +65,8 @@ const Room = (props) => {
         };
 
         return (
-        <Cell key={index} cell={cell} />
+            <Cell key={index} cell={cell} clickMethod={this.makeCellClickWholeRoom}
+                hoverMethod={this.props.hoverMethod}/>
         )
     });
 
@@ -62,8 +91,7 @@ const Room = (props) => {
         </aside>
         </>
         
-    
-    );
+    )}
 }
 
 export default Room;
