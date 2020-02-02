@@ -147,7 +147,9 @@ class MainBox extends Component {
     render() {
         return(
             <>
+               
                 <GameBoardContainer
+                    mouseObject={this.state.mouseObject}
                     clickMethod={this.handleGameBoardSelection}
                     hoverMethod={this.handleHoverGameBoardLocation}
                     gameBoardData={this.state.gameBoardData} />
