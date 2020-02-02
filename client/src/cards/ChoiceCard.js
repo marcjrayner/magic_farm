@@ -18,13 +18,19 @@ const ChoiceCard = (props) => {
     //     setSelectedCard(e.target.key)
     // }
 
+    let cardStyle = {};
+
     function selectCard(e){
-        props.clickMethod(e.target.key)
+        console.log(e.target)
+
+        props.clickMethod({objectType: props.choiceData.objectType, 
+            objectData: props.choiceData.objectData})
     }
 
     return (
         <article className={"card " + (selectedCard? 'selected-card ' : '')}
             onClick={selectCard}
+            style={cardStyle}
             // onClick={handleChange}
             // onHover={handleHover}
              >

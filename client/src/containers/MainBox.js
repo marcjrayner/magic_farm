@@ -11,11 +11,10 @@ class MainBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedChoice: null,
+            selectedOnChoiceCardContainer: null,
             mouseObject: null,
-            selectedRoom: null,
+            selectedOnGameBoardContainer: null,
             hoverGameBoardLocation: null,
-            hoverChoiceCardLocation: null,
             gameBoardData: {
                 gridData: {
                     width: 20,
@@ -105,10 +104,7 @@ class MainBox extends Component {
         this.handleMouseObject = this.handleMouseObject.bind(this);
     }
 
-    // selectedOnChoiceCardContainer: null,
-    // mouseObject: null,
-    // selectedOnGameBoardContainer: null,
-    // hoverGameBoardLocation: null,
+   
 
     handleHoverGameBoardLocation(object) {
         this.setState({ hoverPosition: object })
@@ -148,7 +144,7 @@ class MainBox extends Component {
                     hoverMethod={this.handleHoverGameBoardLocation}
                     gameBoardData={this.state.gameBoardData} />
                 <ChoiceCardContainer
-                    clickMethod={this.handlehoiceCardSelection}
+                    clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}/>
         
             </>
