@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import GameBoardContainer from './GameBoardContainer';
-import ChoiceCardContainer from '../cards/ChoiceCardContainer';
+import GameBoardContainer from '../gameBoard/GameBoardContainer';
+import ChoiceCardContainer from '../choiceCards/ChoiceCardContainer';
 
 class MainBox extends Component {
 
@@ -103,6 +103,7 @@ class MainBox extends Component {
         this.handleHoverGameBoardLocation = this.handleHoverGameBoardLocation.bind(this);
         this.handleGameBoardSelection = this.handleGameBoardSelection.bind(this);
         this.handleMouseObject = this.handleMouseObject.bind(this);
+        this.clearCardChoice = this.clearCardChoice.bind(this);
     }
 
     handleHoverGameBoardLocation(object) {
@@ -138,6 +139,11 @@ class MainBox extends Component {
         this.setState({selectedObject: choice});
     }
 
+    clearCardChoice(){
+        this.setState({selectedOnChoiceCardContainer: null});
+        this.setState({mouseObject: null});
+    }
+
     render() {
         return(
             <>
@@ -148,7 +154,8 @@ class MainBox extends Component {
                 <ChoiceCardContainer
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}
-                    globalCardSelected={this.state.selectedOnChoiceCardContainer}/>
+                    globalCardSelected={this.state.selectedOnChoiceCardContainer}
+                    clearSelection={this.clearCardChoice}/>
         
             </>
 

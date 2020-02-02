@@ -1,6 +1,6 @@
 import React from 'react';
 import Cell from './Cell';
-import Room from './Room';
+import Room from '../rooms/Room';
 
 const Grid = (props) => {
 

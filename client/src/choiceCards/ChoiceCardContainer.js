@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import ChoiceCard from '../cards/ChoiceCard';
+import ChoiceCard from './ChoiceCard';
 
 class ChoiceCardContainer extends Component {
 
@@ -15,32 +15,15 @@ class ChoiceCardContainer extends Component {
        
         this.setState( {selectedCardID: id});
         const cardIndex = this.props.choiceCardData.cardArray.findIndex((card) => {
-            return card.id == id;
+            return card.id === id;
         });
         this.props.clickMethod({
             objectType: this.props.choiceCardData.cardArray[cardIndex].objectType,
             objectData: this.props.choiceCardData.cardArray[cardIndex].objectData
         });
-        // this.props.clickMethod(null)
     }
 
     render() {
-            // this.handleCardSelected = this.handleCardSelected.bind(this);
-
-        // handleCardSelected(cardID) {
-        //     this.setState({selectedCard: cardID});
-        // } 
-
-        // function handleCardSelection(e) {
-        //     setSelectedCard(e.target.value)
-        //     console.log(e.target.value);
-        // }
-
-        // function handleHover(e) {
-        //     // props.onCardHover()
-        //     return null;
-        // }
-
 
         const cards = this.props.choiceCardData.cardArray.map((card, index) => {
             return (
@@ -54,6 +37,7 @@ class ChoiceCardContainer extends Component {
                     hoverMethod={this.props.hoverMethod}
                     globalCardSelected={this.props.globalCardSelected}
                     selectedCardID={this.state.selectedCardID}
+                    clearSelection={this.props.clearSelection}
                 ></ChoiceCard>
             )
 

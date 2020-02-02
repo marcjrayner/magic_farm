@@ -1,5 +1,5 @@
 import React from 'react';
-import Room from '../components/Room';
+import Room from '../rooms/Room';
 
 const ChoiceCard = (props) => {
 
@@ -12,17 +12,16 @@ const ChoiceCard = (props) => {
     //     objectData: {}}
     // }
         
-    // console.log(props)
-    // function selectCard(e) {
-    //     setSelectedCard(e.target.key)
-    // }
-
     function selectCard(e){
-       
-            console.log(props.choiceData.id)
+            console.log(`choice selection made: `+ props.choiceData.id)
+
+            if (props.choiceData.id === props.selectedCardID) {
+                props.clearSelection();
+                console.log(`because already selected, unselected: ` + props.choiceData.id)
+            
+            } else {
         
-            props.clickMethod(props.choiceData.id);
-            // setSelectedCard(!selectedCard);
+            props.clickMethod(props.choiceData.id);}
 
     }
 
