@@ -106,8 +106,8 @@ class MainBox extends Component {
         this.clearCardChoice = this.clearCardChoice.bind(this);
     }
 
-    handleHoverGameBoardLocation(object) {
-        this.setState({ hoverPosition: object })
+    handleHoverGameBoardLocation(positionArray) {
+        this.setState({ hoverPosition: positionArray })
     }
 
     handleChoiceCardSelection(choice){

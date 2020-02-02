@@ -7,8 +7,8 @@ const Grid = (props) => {
 
     const grid = props.gridData;
 
-    const [mousePosition, setMousePosition] = useState([1,1]);
-    const [mousePlaceStatus, setMousePlaceStatus] = useState(true);
+    // const [mousePosition, setMousePosition] = useState([1,1]);
+    // const [mousePlaceStatus, setMousePlaceStatus] = useState(true);
 
     // console.log(grid);
     const objects = props.objectsArray.map((object, index) => {
@@ -54,7 +54,7 @@ const Grid = (props) => {
             const cell = {
                 'empty': true,
                 'position': position,
-                'affiliation': null,
+                'affiliation': 'game-board',
                 'hover': false
             };
             

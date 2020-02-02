@@ -31,11 +31,8 @@ class Room extends Component {
         return null;
     } 
 
-    // const[selectedRoom, setSelectedRoom] = useState(false);
 
     render() {
-    
-    
 
     const room = this.props.room;    
     let initialPosition = []
@@ -43,10 +40,6 @@ class Room extends Component {
     else { initialPosition = [1,1]; }   
     const translateX = initialPosition[0];
     const translateY = initialPosition[1];
-    // const x = room.roomMaxWidth;
-    // const y = room.roomMaxHeight;
-    // // const room = props.room;
-    // const position = props.position;
 
     const roomRender = room.cellArray.map( (roomCell, index) => {
         

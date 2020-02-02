@@ -17,21 +17,24 @@ const Cell = (props) => {
         // opacity: ( hover? '0.2' : '1')
     };
 
-    // const handleClick = function(){
-    //     if (!props.cell.empty){
-    //         props.cell.empty != props.cell.empty
-    //     }
-    // };
-    // function handleClick(e){
-    //     const cellRef=props.cell.position;
-    //     console.log(cellRef);
-    //     // setHover(true);
+    // function handleClick(){
+    //     console.log(`choice selection made: ` + props.choiceData.id)
+
+    // if (props.choiceData.id === props.selectedCardID) {
+    //     props.clearSelection();
+    //     props.clickMethod(null);
+    //     console.log(`because already selected, unselected: ` + props.choiceData.id)
+
+    // } else {
+
+    //     props.clickMethod(props.choiceData.id);
     // }
 
-    function handleHover(){
+    function handleHover(e){
         // const cellRef = [x, y];
-        // console.log(props.cell.position)
+        console.log(props.cell.position)
         setHover(true);
+        props.hoverMethod(props.cell.position);
     }
 
     function handleHoverOff(){
@@ -42,7 +45,7 @@ const Cell = (props) => {
         return (
        
             <article
-                onClick={props.clickMethod}
+                // onClick={handleClick}
                 onMouseOver={handleHover}
                 onMouseOut={handleHoverOff}
                 style={cellStyle}
