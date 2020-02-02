@@ -30,6 +30,7 @@ const ChoiceCardContainer = (props) => {
                 choiceData={card}
                 clickMethod={props.clickMethod}
                 hoverMethod={props.hoverMethod}
+                globalCardSelected={props.globalCardSelected}
             ></ChoiceCard>
         )
 

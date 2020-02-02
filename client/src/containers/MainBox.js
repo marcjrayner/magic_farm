@@ -109,12 +109,22 @@ class MainBox extends Component {
     }
 
     handleChoiceCardSelection(choice){
-        this.setState({ selectedOnChoiceCardContainer:choice.objectData});
-        if (choice.objectType === "Room"){}
-        this.setState({mouseObject:{
-            type: 'Room',
-            objectData: choice.objectData}
-        })
+        // if the object selected is the same as what you've clicked
+        if (choice === this.state.selectedOnChoiceCardContainer) {
+            this.setState({ selectedOnChoiceCardContainer: null });
+            this.setState({ mouseObject: null })
+        }
+        else {
+            this.setState({ selectedOnChoiceCardContainer:choice.objectData});
+            const type = choice.objectType;
+            this.setState(
+                {mouseObject:{
+                    type: type,
+                    objectData: choice.objectData
+                    }
+                }
+            )
+        }   
     }
 
     handleMouseObject(){
@@ -136,7 +146,8 @@ class MainBox extends Component {
                     gameBoardData={this.state.gameBoardData} />
                 <ChoiceCardContainer
                     clickMethod={this.handleChoiceCardSelection}
-                    choiceCardData={this.state.choiceContainerData}/>
+                    choiceCardData={this.state.choiceContainerData}
+                    globalCardSelected={this.state.selectedOnChoiceCardContainer}/>
         
             </>
 

@@ -19,17 +19,13 @@ const ChoiceCard = (props) => {
     // }
 
     function selectCard(e){
-        if (selectedCard === false){
+       
             console.log(e.target.id)
 
         props.clickMethod({objectType: props.choiceData.objectType, 
             objectData: props.choiceData.objectData});
-            setSelectedCard(true);
+            setSelectedCard(!selectedCard);
 
-        } else {
-            setSelectedCard(false);
-
-        }
     }
 
     function doNothing(){
@@ -47,7 +43,8 @@ const ChoiceCard = (props) => {
                 <Room 
                 clickMethod={doNothing}
                 hoverMethod={doNothing}
-                className='card-content'
+                className={'card-content '
+                    + ((!selectedCard && props.globalCardSelected !== null) ? 'unselected ' : '')}
                 room={card}
                 position={props.choiceData.objectPosition}
                 />
