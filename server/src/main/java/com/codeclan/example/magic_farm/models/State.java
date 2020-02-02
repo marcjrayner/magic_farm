@@ -1,16 +1,15 @@
 package com.codeclan.example.magic_farm.models;
 
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class States {
+public class State {
     private int wallet;
     private Farm farm;
     private Choice choice;
     private List<Room> rooms;
 
-    public States(int wallet, Farm farm) {
+    public State(int wallet, Farm farm) {
         this.wallet = wallet;
         this.farm = farm;
         this.choice = new Choice();
