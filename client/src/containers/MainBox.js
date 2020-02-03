@@ -166,6 +166,47 @@ class MainBox extends Component {
         this.setState({mouseObject: null});
         this.setState(this.state.choiceContainerData.selectedCard= null);
         this.setState({selectedOnChoiceCardContainer: null});
+        this.setState({choiceContainerData: {
+            choiceType: 'Room',
+            cardArray: [
+                {
+                    id: 'BB1',
+                    objectType: 'Room',
+                    objectPosition: null,
+                    objectData: {
+                        cellArray: [
+                            [2, 1], [1, 2],
+                            [2, 2], [2,3], [2, 3]
+                        ],
+                        roomMaxWidth: 3,
+                        roomMaxHeight: 3,
+                        roomStatus: 'room',
+                        roomType: 'red',
+                        roomContents: [],
+                        roomName: '3x3 Cross'
+                    }
+                },
+                {
+                    id: 'BB2',
+                    objectType: 'Room',
+                    objectPosition: null,
+                    objectData: {
+                        placedStatus: null,
+                        cellArray: [
+                            [1, 1], [2, 1],
+                            [3, 1], [4, 1]
+                        ],
+                        roomMaxWidth: 4,
+                        roomMaxHeight: 1,
+                        roomStatus: 'room',
+                        roomType: 'red',
+                        roomContents: [],
+                        roomName: '4x1 Rectangle'
+                    }
+                }
+            ]
+
+        }})
     }
 
     render() {
