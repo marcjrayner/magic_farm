@@ -5,20 +5,15 @@ import MouseObject from './MouseObject';
 
 const Grid = (props) => {
 
-    
     const grid = props.gridData;
-
+    
     const mouseObjects = [];
     
     if (props.mouseObject !== null) {
         mouseObjects.push(props.mouseObject)
     };
 
-    // console.log(mouseObjects);
-
-    function doNothing() {
-        return null;
-    }
+    function doNothing() { return null; }
 
     const renderMouse = mouseObjects.map((object, index) => {
 
@@ -37,10 +32,7 @@ const Grid = (props) => {
             case "Animal": return (
                 <p key={index}>this will be an animal</p>
             );
-            default: return null;
-        
-    };
-
+            default: return null; };
     })
     
 
@@ -67,25 +59,16 @@ const Grid = (props) => {
 
     });
 
-    // sets x and y
+    // BUILD AN EMPTY GRID
     const x = grid.width;
     const y = grid.height;
     const blankGrid = [];
 
-    // For every x row in the grid, loop through
     for (var j = 1; j <= x; j++) {
-
-        // For every y column in the grid, loop through
         for (var k = 1; k <= y; k++) {
-            
-            // For each cell, create a blank position array
-            const position = [];
+            const position = [j,k]
 
-            // Add co-ordinates to array
-            position.push(j);
-            position.push(k);
-
-            // Create an empty cell
+            // Create an empty cell with that position
             const cell = {
                 'empty': true,
                 'position': position,
@@ -106,17 +89,6 @@ const Grid = (props) => {
 
     });
 
-    // let mouse;
-
-    // if (props.mouseObject !== null) {
-    //    mouse = <MouseObject
-    //         placeStatus={mousePlaceStatus}
-    //         mouseObject={props.mouseObject}
-    //         mousePosition={mousePosition} />;
-    // } else {
-    //    mouse = null;
-    // }
-
     const gridStyle = {
         display: 'grid',
         gridGap: '1px',
@@ -126,13 +98,9 @@ const Grid = (props) => {
 
     return (
         <>
-        {/* Create a Grid Container */}
         <main style={gridStyle} className={'grid ' + props.id}>
-        {/* Load in any Objects in the mouse    */}
             {renderMouse}
-        {/* Load in the Objects of the Grid    */}
             {objects} 
-        {/* Load in the Blank Cells Of The Grid */}
             {blankCells}
         </main>
         </>
