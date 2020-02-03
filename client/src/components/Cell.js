@@ -50,7 +50,7 @@ const Cell = (props) => {
                 onMouseOut={handleHoverOff}
                 style={cellStyle}
                 className={`cell `
-                + (props.cell.empty ? `empty ` : ` full `)
+                + (props.cell.empty ? `empty ` : `full `)
                 + (props.cell.affiliation !== null ? (props.cell.affiliation +' ') : 'none')
                 + ( (hover && props.cell.affiliation === null) ? '.cell-hover ' : '') }
          />
