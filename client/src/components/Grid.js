@@ -5,6 +5,7 @@ import MouseObject from './MouseObject';
 
 const Grid = (props) => {
 
+    
     const grid = props.gridData;
     const [emptyRoom] = useState(
         {
@@ -36,6 +37,10 @@ const Grid = (props) => {
 
     // console.log(mouseObjects);
 
+    function doNothing() {
+        return null;
+    }
+
     const renderMouse = mouseObjects.map((object, index) => {
 
             switch (object.objectType) {
@@ -46,8 +51,8 @@ const Grid = (props) => {
                     key={index}
                     room={object.objectData}
                     position={props.hoverLocation}
-                    clickMethod={props.clickMethod}
-                    hoverMethod={props.hoverMethod}
+                    clickMethod={doNothing}
+                    hoverMethod={doNothing}
                 />
             );
             case "Animal": return (
