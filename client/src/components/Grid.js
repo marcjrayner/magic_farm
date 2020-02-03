@@ -33,6 +33,8 @@ const Grid = (props) => {
                 <p key={index}>this will be an animal</p>
             );
             default: return null; };
+
+
     })
     
 

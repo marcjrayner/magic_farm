@@ -17,18 +17,10 @@ const Cell = (props) => {
         // opacity: ( hover? '0.2' : '1')
     };
 
-    // function handleClick(){
-    //     console.log(`choice selection made: ` + props.choiceData.id)
-
-    // if (props.choiceData.id === props.selectedCardID) {
-    //     props.clearSelection();
-    //     props.clickMethod(null);
-    //     console.log(`because already selected, unselected: ` + props.choiceData.id)
-
-    // } else {
-
-    //     props.clickMethod(props.choiceData.id);
-    // }
+    function handleClick(){
+        console.log(`choice selection made: ` + props.cell.position)
+        props.clickMethod(props.cell.position);
+    }
 
     function handleHover(e){
         // const cellRef = [x, y];
@@ -45,7 +37,7 @@ const Cell = (props) => {
         return (
        
             <article
-                // onClick={handleClick}
+                onClick={handleClick}
                 onMouseOver={handleHover}
                 onMouseOut={handleHoverOff}
                 style={cellStyle}
