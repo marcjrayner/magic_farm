@@ -38,19 +38,6 @@ const Grid = (props) => {
 
     const renderMouse = mouseObjects.map((object, index) => {
 
-        if (mouseObjects.length === 0 ) {
-           return( <Room
-                placedStatus={'fixed'}
-                cellSize={grid.cellSize}
-                key={index}
-                room={emptyRoom.objectData}
-                position={props.hoverLocation}
-                clickMethod={props.clickMethod}
-                hoverMethod={props.hoverMethod}
-            />)
-        }
-
-        else {
             switch (object.objectType) {
             case "Room": return (
                 <Room
@@ -67,7 +54,7 @@ const Grid = (props) => {
                 <p key={index}>this will be an animal</p>
             );
             default: return null;
-        }
+        
     };
 
     })

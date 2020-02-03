@@ -38,8 +38,8 @@ class Room extends Component {
     let initialPosition = []
         if (this.props.position !== null){ initialPosition = this.props.position;}
     else { initialPosition = [1,1]; }   
-    const translateX = initialPosition[0];
-    const translateY = initialPosition[1];
+    const translateY = initialPosition[0];
+    const translateX = initialPosition[1];
 
     const roomRender = room.cellArray.map( (roomCell, index) => {
         
