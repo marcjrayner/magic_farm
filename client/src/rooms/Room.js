@@ -3,10 +3,6 @@ import Cell from '../components/Cell';
 
 class Room extends Component {
 
-    // So far there are two types of room creation; One on a grid, one on a card.
-    // Rooms that are created on a card should appear as a default [1,1]
-    // Rooms thare are created as objects on the gameBoard can be given a custom objectPosition e.g. [5, 8]
-
         constructor(props){
             super(props);
             this.state = {
@@ -19,7 +15,10 @@ class Room extends Component {
     makeCellClickWholeRoom = function (e) {
 
         if (!this.state.selectedRoom) {
-            this.setState({selectedRoom: true});
+            
+            this.setState(
+                {selectedRoom: true}
+         );
 
             this.props.clickMethod({
                 objectType: 'Room',
@@ -56,7 +55,7 @@ class Room extends Component {
     const roomRender = room.cellArray.map( (roomCell, index) => {
         
         const position = [roomCell[0], roomCell[1]];
-        const name = ('' + room.roomType + ' ' + room.roomStatus +'-'+position)
+        const name = ('' + room.roomType + ' ' + room.roomStatus + '-' + position)
 
         const cell = {
             'empty': true,

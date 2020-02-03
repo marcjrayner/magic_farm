@@ -1,8 +1,14 @@
-import React from 'react'; 
+import React, {useState} from 'react'; 
 import Grid from '../components/Grid';
 
 const GameBoardContainer = (props) => {
     
+    const [busyCells, setBusyCells] = useState([]);
+
+    function updateBusyCells(cellArray){
+        setBusyCells(cellArray)
+    }
+
     function cellClickLogic(cellObject) {
         // console.log('this is the position you have clicked ' + cellObject.position);
         // console.log('this cell is affiliated to ' + cellObject.affiliation);
@@ -18,9 +24,8 @@ const GameBoardContainer = (props) => {
                 case 'Room':
 
             // are all the spaces the room will occupy empty?
+
             // if placement is valid, place the room.
-            console.log(props.mouseObject);
-            console.log(cellObject);
             props.placeRoom(props.mouseObject, cellObject.objectData.position);
             break;
             // clear the mouseObject
@@ -32,7 +37,29 @@ const GameBoardContainer = (props) => {
             }
         } else if (props.mouseObject === null)
             {
-            console.log("you have nothing to place, click on a choice")
+                // check what you are clicking
+            const cellRef = props.hoverLocation;
+            
+            var clickedObject;
+
+            busyCells.forEach((cells) => {
+                if (cells.position === cellRef){
+                    clickedObject = cells.affiliation;
+                    return true;
+                } else {
+                return null;}
+            })
+
+            if (clickedObject !== null){
+                props.clickMethod(clickedObject)
+            }
+
+            else {
+                console.log("you have nothing to place, click on a choice" + (props.hoverLocation))
+            }
+            
+
+            
 
            
             } 
@@ -53,6 +80,7 @@ const GameBoardContainer = (props) => {
                 objectsArray={props.gameBoardData.objectsArray}
                 clickMethod={cellClickLogic}
                 hoverMethod={props.hoverMethod}
+                updateBusyCells={updateBusyCells}
                 id="game-board-grid"
                 />
         </>

@@ -5,7 +5,6 @@ class ChoiceCardContainer extends Component {
 
     constructor(props){
         super(props);
-        this.state = {};
         this.makeCardSelection = this.makeCardSelection.bind(this);
     }
 
@@ -17,8 +16,8 @@ class ChoiceCardContainer extends Component {
 
         const cards = this.props.choiceCardData.cardArray.map((card, index) => {
             return (
+
                 <ChoiceCard
-                    // onClick={handleCardSelection}
                     cellSize={this.props.cellSize}
                     key={card.id}
                     value={card.id}
@@ -34,8 +33,6 @@ class ChoiceCardContainer extends Component {
         });
 
             return (
-                // The parent element for the choice cards, and a map of the array 
-                // to populate it with cards
                 <div id="choice-card-container">
                     {cards} 
                 </div>

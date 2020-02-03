@@ -5,13 +5,7 @@ const ChoiceCard = (props) => {
 
 
     const card = props.choiceData.objectData;
-    //  This is what a room data looks like  
-    // {
-    //     objectType: 'Room',
-    //     objectPosition: null,
-    //     objectData: {}}
-    // }
-        
+
     function selectCard(e){
         
             if (props.choiceData.id === props.selectedCard) {
@@ -33,11 +27,8 @@ const ChoiceCard = (props) => {
     return (
         <article className={"card "
         + (props.selectedCard === props.choiceData.id ? 'selected-card ' : '')}
-            onClick={selectCard}
-            // style={cardStyle}
-            // onClick={handleChange}
-            // onHover={handleHover}
-             >
+            onClick={selectCard} >
+                
                 <h2>{props.choiceData.objectType}</h2> 
                 <Room 
                 placedStatus={props.choiceData.placedStatus}

@@ -22,41 +22,42 @@ class MainBox extends Component {
                     cellSize: 20
                 },
                 
-                objectsArray: [
-                    {   id: 'GBR1',
-                        objectType: 'Room',
-                        objectPosition: [1, 1],
-                        objectData: {
-                            cellArray: [
-                                [1, 1], [2, 1],
-                                [1, 2], [2, 2]
-                            ],
-                            roomMaxWidth: 2,
-                            roomMaxHeight: 2,
-                            roomStatus: 'room',
-                            roomType: 'red',
-                            roomContents: [],
-                            roomName: '2x2 Square'
-                        }
-                    },
+                objectsArray: 
+                [
+                //     {   id: 'GBR1',
+                //         objectType: 'Room',
+                //         objectPosition: [1, 1],
+                //         objectData: {
+                //             cellArray: [
+                //                 [1, 1], [2, 1],
+                //                 [1, 2], [2, 2]
+                //             ],
+                //             roomMaxWidth: 2,
+                //             roomMaxHeight: 2,
+                //             roomStatus: 'room',
+                //             roomType: 'red',
+                //             roomContents: [],
+                //             roomName: '2x2 Square'
+                //         }
+                //     },
 
-                    {
-                        id: 'GBR2',
-                        objectType: 'Room',
-                        objectPosition: [10, 5],
-                        objectData: {
-                            cellArray: [
-                                [1, 1], [2, 1],
-                                [3, 1], [4, 1]
-                            ],
-                            roomMaxWidth: 4,
-                            roomMaxHeight: 1,
-                            roomStatus: 'room',
-                            roomType: 'red',
-                            roomContents: [],
-                            roomName: '4x1 Rectangle'
-                        }
-                    }
+                //     {
+                //         id: 'GBR2',
+                //         objectType: 'Room',
+                //         objectPosition: [10, 5],
+                //         objectData: {
+                //             cellArray: [
+                //                 [1, 1], [2, 1],
+                //                 [3, 1], [4, 1]
+                //             ],
+                //             roomMaxWidth: 4,
+                //             roomMaxHeight: 1,
+                //             roomStatus: 'room',
+                //             roomType: 'red',
+                //             roomContents: [],
+                //             roomName: '4x1 Rectangle'
+                //         }
+                //     }
                 ]
             },
             choiceContainerData: {
@@ -105,6 +106,7 @@ class MainBox extends Component {
         this.handleMouseObject = this.handleMouseObject.bind(this);
         this.clearCardChoice = this.clearCardChoice.bind(this);
         this.handlePlaceRoom = this.handlePlaceRoom.bind(this);
+        this.handleClickBoardObject = this.handleClickBoardObject.bind(this);
     }
 
     handleHoverGameBoardLocation(positionArray) {
@@ -135,6 +137,10 @@ class MainBox extends Component {
         this.setState({mouseObject: null});
         this.setState({selectedCardID:null});
         this.setState({ selectedOnGameBoardContainer: null});
+    }
+
+    handleClickBoardObject(objectRef){
+        console.log(objectRef+ 'has been clicked');
     }
 
     handleGameBoardSelection(choice){
@@ -218,7 +224,7 @@ class MainBox extends Component {
                 <GameBoardContainer
                     hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
-                    clickMethod={this.handleGameBoardSelection}
+                    clickMethod={this.handleClickBoardObject}
                     hoverMethod={this.handleHoverGameBoardLocation}
                     gameBoardData={this.state.gameBoardData}
                     placeRoom={this.handlePlaceRoom} />

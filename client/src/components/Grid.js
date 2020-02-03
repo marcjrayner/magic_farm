@@ -38,23 +38,38 @@ const Grid = (props) => {
     })
 
     function cellClickLogic() {
-
-        
+        props.updateBusyCells(occupiedSpace);
     }
     
+    const occupiedSpace = [];
 
     const objects = props.objectsArray.map((object, index) => {
-        let objectPositionStatus = 'fixed'
+        let objectPositionStatus = 'fixed';
+
+        object.objectData.cellArray.map((cellPosition) => {
+            const position = [
+                (object.objectPosition[0] + cellPosition[0] - 1),
+                (object.objectPosition[1] + cellPosition[1] - 1)];
+
+            occupiedSpace.push({
+                'empty': false,
+                'position': position,
+                'affiliation': 'room'+object.id,
+            })
+
+        })
 
         switch(object.objectType){
-            case "Room": return(
+            case "Room":
+                
+            return(
                 <Room
                 placedStatus={objectPositionStatus}
                 cellSize={grid.cellSize}
                 key={index}
                 room={object.objectData}
                 position={object.objectPosition}
-                clickMethod={props.clickMethod}
+                clickMethod={cellClickLogic}
                 hoverMethod={props.hoverMethod}
                 />
             ); 
@@ -83,9 +98,12 @@ const Grid = (props) => {
                 'hover': false
             };
             
+            // if (occupiedSpace.contains())
             blankGrid.push(cell);
         }
     }
+
+
 
     const blankCells = blankGrid.map((cell, index) => {
         
