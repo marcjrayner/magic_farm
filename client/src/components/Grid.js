@@ -1,10 +1,14 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Cell from './Cell';
 import Room from '../rooms/Room';
+import MouseObject from './MouseObject';
 
 const Grid = (props) => {
 
     const grid = props.gridData;
+
+    // const [mousePosition, setMousePosition] = useState([1,1]);
+    // const [mousePlaceStatus, setMousePlaceStatus] = useState(true);
 
     // console.log(grid);
     const objects = props.objectsArray.map((object, index) => {
@@ -12,6 +16,7 @@ const Grid = (props) => {
         switch(object.objectType){
             case "Room": return(
                 <Room
+                cellSize={grid.cellSize}
                 key={index}
                 room={object.objectData}
                 position={object.objectPosition}
@@ -49,7 +54,7 @@ const Grid = (props) => {
             const cell = {
                 'empty': true,
                 'position': position,
-                'affiliation': null,
+                'affiliation': 'game-board',
                 'hover': false
             };
             
@@ -66,6 +71,17 @@ const Grid = (props) => {
 
     });
 
+    // let mouse;
+
+    // if (props.mouseObject !== null) {
+    //    mouse = <MouseObject
+    //         placeStatus={mousePlaceStatus}
+    //         mouseObject={props.mouseObject}
+    //         mousePosition={mousePosition} />;
+    // } else {
+    //    mouse = null;
+    // }
+
     const gridStyle = {
         display: 'grid',
         gridGap: '1px',
@@ -77,7 +93,8 @@ const Grid = (props) => {
         <>
         {/* Create a Grid Container */}
         <main style={gridStyle} className={'grid ' + props.id}>
-
+            {/* {mouse} */}
+            
         {/* Load in the Objects of the Grid    */}
             {objects}
             

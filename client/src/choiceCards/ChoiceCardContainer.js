@@ -33,6 +33,7 @@ class ChoiceCardContainer extends Component {
             return (
                 <ChoiceCard
                     // onClick={handleCardSelection}
+                    cellSize={this.props.cellSize}
                     key={card.id}
                     value={card.id}
                     type={this.props.choiceType}

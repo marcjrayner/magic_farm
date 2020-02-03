@@ -8,6 +8,7 @@ const GameBoardContainer = (props) => {
             <h2>Game Board Container</h2>
             
             <Grid
+                mouseObject={props.mouseObject}
                 gridData={props.gameBoardData.gridData}
                 objectsArray={props.gameBoardData.objectsArray}
                 clickMethod={props.clickMethod}

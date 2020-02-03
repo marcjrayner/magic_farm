@@ -106,8 +106,8 @@ class MainBox extends Component {
         this.clearCardChoice = this.clearCardChoice.bind(this);
     }
 
-    handleHoverGameBoardLocation(object) {
-        this.setState({ hoverPosition: object })
+    handleHoverGameBoardLocation(positionArray) {
+        this.setState({ hoverPosition: positionArray })
     }
 
     handleChoiceCardSelection(choice){
@@ -147,11 +147,14 @@ class MainBox extends Component {
     render() {
         return(
             <>
+               
                 <GameBoardContainer
+                    mouseObject={this.state.mouseObject}
                     clickMethod={this.handleGameBoardSelection}
                     hoverMethod={this.handleHoverGameBoardLocation}
                     gameBoardData={this.state.gameBoardData} />
                 <ChoiceCardContainer
+                    cellSize={this.state.gameBoardData.gridData.cellSize}
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}
                     globalCardSelected={this.state.selectedOnChoiceCardContainer}
