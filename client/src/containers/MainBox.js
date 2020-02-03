@@ -11,7 +11,7 @@ class MainBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedOnChoiceCardContainer: null,
+            selectedCardID: null,
             mouseObject: null,
             selectedOnGameBoardContainer: null,
             hoverGameBoardLocation: null,
@@ -60,7 +60,6 @@ class MainBox extends Component {
                 ]
             },
             choiceContainerData: {
-                selectedCard: null,
                 choiceType: 'Room',
                 cardArray: [
                     {   id: 'CC1',
@@ -115,11 +114,11 @@ class MainBox extends Component {
     handleChoiceCardSelection(choice){
         // if the object selected is the same as what you've clicked
         if (choice === this.state.selectedOnChoiceCardContainer) {
-            this.setState({ selectedOnChoiceCardContainer: null });
-            this.setState({ mouseObject: null })
+            this.setState({selectedCardID: null});
+            this.setState({ mouseObject: null });
         }
         else {
-            this.setState({ selectedOnChoiceCardContainer:choice.objectData});
+            this.setState({ selectedCardID:choice.objectData.id});
             const type = choice.objectType;
             this.setState(
                 {mouseObject:{
@@ -134,7 +133,7 @@ class MainBox extends Component {
 
     handleMouseObject(){
         this.setState({mouseObject: null});
-        this.setState({selectedOnChoiceCardContainer:null});
+        this.setState({selectedCardID:null});
         this.setState({ selectedOnGameBoardContainer: null});
     }
 
@@ -164,7 +163,9 @@ class MainBox extends Component {
         }
         newArray.push(newRoom);
         this.setState(this.state.gameBoardData.objectsArray = newArray);
-        this.setState({mouseObject: null})
+        this.setState({mouseObject: null});
+        this.setState(this.state.choiceContainerData.selectedCard= null);
+        this.setState({selectedOnChoiceCardContainer: null});
     }
 
     render() {
