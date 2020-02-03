@@ -1,7 +1,5 @@
 package com.codeclan.example.magic_farm.components;
 
-import com.codeclan.example.magic_farm.models.Animal;
-import com.codeclan.example.magic_farm.models.Room;
 import com.codeclan.example.magic_farm.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
