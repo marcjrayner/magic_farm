@@ -39,6 +39,7 @@ const Grid = (props) => {
 
     function cellClickLogic() {
         props.updateBusyCells(occupiedSpace);
+        props.clickMethod(props.hoverLocation);
     }
     
     const occupiedSpace = [];
