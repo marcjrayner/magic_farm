@@ -25,7 +25,7 @@ class MainBox extends Component {
                 objectsArray: 
                 [
                 //     {   id: 'GBR1',
-                //         objectType: 'Room',
+                //         objectType: 'room',
                 //         objectPosition: [1, 1],
                 //         objectData: {
                 //             cellArray: [
@@ -43,7 +43,7 @@ class MainBox extends Component {
 
                 //     {
                 //         id: 'GBR2',
-                //         objectType: 'Room',
+                //         objectType: 'room',
                 //         objectPosition: [10, 5],
                 //         objectData: {
                 //             cellArray: [
@@ -61,10 +61,10 @@ class MainBox extends Component {
                 ]
             },
             choiceContainerData: {
-                choiceType: 'Room',
+                choiceType: 'room',
                 cardArray: [
                     {   id: 'CC1',
-                        objectType: 'Room',
+                        objectType: 'room',
                         objectPosition: null,
                         objectData: {
                             cellArray: [
@@ -80,7 +80,7 @@ class MainBox extends Component {
                         }
                     },
                     {   id: 'CC2',
-                        objectType: 'Room',
+                        objectType: 'room',
                         objectPosition: null,
                         objectData: {
                         placedStatus: null,
@@ -159,7 +159,7 @@ class MainBox extends Component {
         let newArray = this.state.gameBoardData.objectsArray;
         let newRoom = {
             id: Date.now(),
-            objectType: 'Room',
+            objectType: 'room',
             objectPosition: newPosition,
             objectData: { cellArray: room.objectData.cellArray,
                 roomMaxWidth: room.objectData.roomMaxWidth,
@@ -176,11 +176,11 @@ class MainBox extends Component {
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
         this.setState({choiceContainerData: {
-            choiceType: 'Room',
+            choiceType: 'room',
             cardArray: [
                 {
                     id: 'BB1',
-                    objectType: 'Room',
+                    objectType: 'room',
                     objectPosition: null,
                     objectData: {
                         cellArray: [
@@ -197,7 +197,7 @@ class MainBox extends Component {
                 },
                 {
                     id: 'BB2',
-                    objectType: 'Room',
+                    objectType: 'room',
                     objectPosition: null,
                     objectData: {
                         placedStatus: null,

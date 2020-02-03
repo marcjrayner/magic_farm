@@ -18,7 +18,7 @@ const Grid = (props) => {
     const renderMouse = mouseObjects.map((object, index) => {
 
             switch (object.objectType) {
-            case "Room": return (
+            case 'room': return (
                 <Room
                     placedStatus={object.placedStatus}
                     cellSize={grid.cellSize}
@@ -37,9 +37,9 @@ const Grid = (props) => {
 
     })
 
-    function cellClickLogic() {
+    function cellClickLogic(cellAnimalorRoomDataObject) {
         props.updateBusyCells(occupiedSpace);
-        props.clickMethod(props.hoverLocation);
+        props.clickMethod(cellAnimalorRoomDataObject);
     }
     
     const occupiedSpace = [];
@@ -61,7 +61,7 @@ const Grid = (props) => {
         })
 
         switch(object.objectType){
-            case "Room":
+            case 'room':
                 
             return(
                 <Room

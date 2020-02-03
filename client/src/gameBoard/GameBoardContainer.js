@@ -9,7 +9,7 @@ const GameBoardContainer = (props) => {
         setBusyCells(cellArray)
     }
 
-    function cellClickLogic(cellObject) {
+    function cellClickLogic(cellAnimalOrRoomObject) {
         // console.log('this is the position you have clicked ' + cellObject.position);
         // console.log('this cell is affiliated to ' + cellObject.affiliation);
         // console.log('if I am empty I will say true: ' + cellObject.position);
@@ -21,12 +21,12 @@ const GameBoardContainer = (props) => {
             switch (props.mouseObject.objectType) {
 
             // if room, try to place room.
-                case 'Room':
+                case "room":
 
             // are all the spaces the room will occupy empty?
 
             // if placement is valid, place the room.
-            props.placeRoom(props.mouseObject, cellObject.objectData.position);
+                    props.placeRoom(props.mouseObject, props.hoverLocation);
             break;
             // clear the mouseObject
 
@@ -42,13 +42,18 @@ const GameBoardContainer = (props) => {
             
             var clickedObject;
 
-            busyCells.forEach((cells) => {
-                if (cells.position === cellRef){
-                    clickedObject = cells.affiliation;
-                    return true;
-                } else {
-                return null;}
-            })
+            // busyCells.forEach((cells) => {
+            //     if (cells.position === cellRef){
+            //         clickedObject = cells.affiliation;
+            //         return true;
+            //     } else {
+            //     return null;}
+            // })
+
+            // if it's an array with multiple positions, its a room
+            if (cellAnimalOrRoomObject.position.length > 1){
+                // its a room.
+            }
 
             if (clickedObject !== null){
                 props.clickMethod(clickedObject)
@@ -57,10 +62,7 @@ const GameBoardContainer = (props) => {
             else {
                 console.log("you have nothing to place, click on a choice" + (props.hoverLocation))
             }
-            
-
-            
-
+    
            
             } 
             // console.log('this is the position you have clicked ' + cellObject.position);
@@ -96,7 +98,7 @@ export default GameBoardContainer;
 // },
 // objectsArray: [
 //     {
-//         objectType: 'Room',
+//         objectType: 'room',
 //         objectPosition: [1, 1],
 //         objectData: {
 //             cellArray: [

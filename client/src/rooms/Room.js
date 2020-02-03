@@ -12,18 +12,21 @@ class Room extends Component {
             this.hoverRelativePosition = this.hoverRelativePosition.bind(this);
         };
 
-    makeCellClickWholeRoom = function (e) {
+    makeCellClickWholeRoom = function (cellObject) {
 
-        if (!this.state.selectedRoom) {
+        if (this.state.selectedRoom === null) {
             
             this.setState(
                 {selectedRoom: true}
          );
 
-            this.props.clickMethod({
-                objectType: 'Room',
-                objectData: this.props
-            })
+            this.props.clickMethod(
+                {'position': [this.props.room.cellArray],
+                'type': 'room',
+                'hover-position': this.props.hoverPosition,
+                'ref': this.props.key}
+                
+                )
         }
 
         return null;
