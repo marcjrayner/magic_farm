@@ -3,6 +3,42 @@ import Grid from '../components/Grid';
 
 const GameBoardContainer = (props) => {
     
+    function cellClickLogic(cellObject) {
+        // console.log('this is the position you have clicked ' + cellObject.position);
+        // console.log('this cell is affiliated to ' + cellObject.affiliation);
+        // console.log('if I am empty I will say true: ' + cellObject.position);
+
+        // Are we placing something from the mouseObject?
+        if (props.mouseObject !== null) {
+            
+            // What is the object held by the mouse?
+            switch (props.mouseObject.objectType) {
+
+            // if room, try to place room.
+                case 'Room':
+
+            // are all the spaces the room will occupy empty?
+            // if placement is valid, place the room.
+            props.placeRoom(props.mouseObject, cellObject.position);
+            // clear the mouseObject
+
+            // props.clearMouseObject()
+            // force user information to update.
+                default:
+                    return null;
+            }
+        } else if (props.mouseObject !== null)
+            {
+            console.log("you have nothing to place, click on a choice")
+
+           
+            } 
+            // console.log('this is the position you have clicked ' + cellObject.position);
+            // console.log('this cell is affiliated to ' + cellObject.affiliation);
+            // console.log('if I am empty I will say true: ' + cellObject.position);
+
+        }
+
     return (
         <>
             <h2>Game Board Container</h2>
@@ -12,7 +48,7 @@ const GameBoardContainer = (props) => {
                 mouseObject={props.mouseObject}
                 gridData={props.gameBoardData.gridData}
                 objectsArray={props.gameBoardData.objectsArray}
-                clickMethod={props.clickMethod}
+                clickMethod={cellClickLogic}
                 hoverMethod={props.hoverMethod}
                 id="game-board-grid"
                 />

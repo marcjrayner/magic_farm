@@ -25,7 +25,7 @@ const Grid = (props) => {
                     key={index}
                     room={object.objectData}
                     position={props.hoverLocation}
-                    clickMethod={doNothing}
+                    clickMethod={props.clickMethod}
                     hoverMethod={doNothing}
                 />
             );
@@ -36,6 +36,11 @@ const Grid = (props) => {
 
 
     })
+
+    function cellClickLogic() {
+
+        
+    }
     
 
     const objects = props.objectsArray.map((object, index) => {

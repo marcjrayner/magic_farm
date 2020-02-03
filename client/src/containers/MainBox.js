@@ -105,6 +105,7 @@ class MainBox extends Component {
         this.handleGameBoardSelection = this.handleGameBoardSelection.bind(this);
         this.handleMouseObject = this.handleMouseObject.bind(this);
         this.clearCardChoice = this.clearCardChoice.bind(this);
+        this.handlePlaceRoom = this.handlePlaceRoom.bind(this);
     }
 
     handleHoverGameBoardLocation(positionArray) {
@@ -146,22 +147,41 @@ class MainBox extends Component {
         this.setState({mouseObject: null});
     }
 
+    handlePlaceRoom(room, newPosition){
+        let newArray = this.state.gameBoardData.objectsArray;
+        let newRoom = {
+            id: Date.now(),
+            objectType: 'Room',
+            objectPosition: newPosition,
+            objectData: { cellArray: room.objectData.cellArray,
+                roomMaxWidth: room.objectData.roomMaxWidth,
+                roomMaxHeight: room.objectData.roomMaxHeight,
+                roomStatus: room.objectData.roomStatus,
+                roomType: room.objectData.roomType,
+                roomContents: [],
+                roomName: room.objectData.roomName
+            }
+        }
+        newArray.push(newRoom);
+        this.setState({gameBoardData: newArray})
+    }
+
     render() {
         return(
-            <>
-               
+            <>               
                 <GameBoardContainer
                     hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
                     clickMethod={this.handleGameBoardSelection}
                     hoverMethod={this.handleHoverGameBoardLocation}
-                    gameBoardData={this.state.gameBoardData} />
+                    gameBoardData={this.state.gameBoardData}
+                    placeRoom={this.handlePlaceRoom} />
                 <ChoiceCardContainer
                     cellSize={this.state.gameBoardData.gridData.cellSize}
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}
                     globalCardSelected={this.state.selectedOnChoiceCardContainer}
-                    clearSelection={this.clearCardChoice}/>
+                    clearSelection={this.clearCardChoice} />
         
             </>
 

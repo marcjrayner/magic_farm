@@ -17,9 +17,9 @@ const Cell = (props) => {
         // opacity: ( hover? '0.2' : '1')
     };
 
-    function handleClick(){
-        console.log(`choice selection made: ` + props.cell.position)
-        props.clickMethod(props.cell.position);
+    function handleClick(e){
+        // console.log(`choice selection made: ` + props.cell.position)
+        props.clickMethod(props.cell);
     }
 
     function handleHover(e){
