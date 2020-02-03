@@ -7,27 +7,6 @@ const Grid = (props) => {
 
     
     const grid = props.gridData;
-    const [emptyRoom] = useState(
-        {
-            id: 'ER1',
-            objectType: 'Room',
-            objectPosition: [1, 1],
-            objectData: {
-                cellArray: [],
-                roomMaxWidth: 0,
-                roomMaxHeight: 0,
-                roomStatus: 'room',
-                roomType: 'black',
-                roomContents: [],
-                roomName: 'emptyRoom'
-            }
-        }
-    )
-
-    // const [mousePosition, setMousePosition] = useState([1,1]);
-    // const [mousePlaceStatus, setMousePlaceStatus] = useState(true);
-
-    // console.log(grid);
 
     const mouseObjects = [];
     

@@ -13,6 +13,7 @@ class Room extends Component {
                 selectedRoom: null
             };
             this.makeCellClickWholeRoom = this.makeCellClickWholeRoom.bind(this);
+            this.hoverRelativePosition = this.hoverRelativePosition.bind(this);
         };
 
     // console.log(props);
@@ -29,8 +30,20 @@ class Room extends Component {
         }
 
         return null;
-    } 
+    };
 
+    hoverRelativePosition = function (cellPosition){
+
+        //need to add relative co-ordinates
+        let newPosition = [
+            (this.props.position[0]),
+            (this.props.position[1])]
+        this.props.hoverMethod(newPosition);
+    }
+
+    // doNothing = function (x){
+    //     return null;
+    // }
 
     render() {
 
@@ -59,7 +72,8 @@ class Room extends Component {
 
         return (
             <Cell key={index} cell={cell} clickMethod={this.makeCellClickWholeRoom}
-                hoverMethod={this.props.hoverMethod}/>
+                hoverMethod={this.hoverRelativePosition}
+                />
         )
     });
 
