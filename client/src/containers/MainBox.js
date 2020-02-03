@@ -163,7 +163,7 @@ class MainBox extends Component {
             }
         }
         newArray.push(newRoom);
-        this.setState({gameBoardData: newArray})
+        this.setState(this.state.gameBoardData.objectsArray = newArray)
     }
 
     render() {

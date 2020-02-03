@@ -19,7 +19,9 @@ const GameBoardContainer = (props) => {
 
             // are all the spaces the room will occupy empty?
             // if placement is valid, place the room.
-            props.placeRoom(props.mouseObject, cellObject.position);
+            console.log(props.mouseObject);
+            console.log(cellObject);
+            props.placeRoom(props.mouseObject, cellObject.objectData.position);
             // clear the mouseObject
 
             // props.clearMouseObject()
@@ -27,7 +29,7 @@ const GameBoardContainer = (props) => {
                 default:
                     return null;
             }
-        } else if (props.mouseObject !== null)
+        } else if (props.mouseObject === null)
             {
             console.log("you have nothing to place, click on a choice")
 
