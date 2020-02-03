@@ -31,12 +31,18 @@ class Room extends Component {
     };
 
     hoverRelativePosition = function (cellPosition){
-
-        //need to add relative co-ordinates
-        let newPosition = [
-            (this.props.position[0]),
-            (this.props.position[1])]
-        this.props.hoverMethod(newPosition);
+        // let currentPosition = [];
+        // if (cellPosition)
+        // if (this.props.position = null){
+        //     currentPosition = [1,1]
+        // } else {
+        //     currentPosition = this.props.position;
+        // }
+        // //need to add relative co-ordinates
+        // let newPosition = [
+        //     (currentPsition[0]),
+        //     (this.props.position[1])]
+        // this.props.hoverMethod(newPosition);
     }
 
     render() {
