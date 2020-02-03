@@ -6,6 +6,22 @@ import MouseObject from './MouseObject';
 const Grid = (props) => {
 
     const grid = props.gridData;
+    const [emptyRoom] = useState(
+        {
+            id: 'ER1',
+            objectType: 'Room',
+            objectPosition: [1, 1],
+            objectData: {
+                cellArray: [],
+                roomMaxWidth: 0,
+                roomMaxHeight: 0,
+                roomStatus: 'room',
+                roomType: 'black',
+                roomContents: [],
+                roomName: 'emptyRoom'
+            }
+        }
+    )
 
     // const [mousePosition, setMousePosition] = useState([1,1]);
     // const [mousePlaceStatus, setMousePlaceStatus] = useState(true);
@@ -18,10 +34,20 @@ const Grid = (props) => {
         mouseObjects.push(props.mouseObject)
     };
 
+    // console.log(mouseObjects);
+
     const renderMouse = mouseObjects.map((object, index) => {
 
         if (mouseObjects.length === 0 ) {
-            return null;
+           return( <Room
+                placedStatus={'fixed'}
+                cellSize={grid.cellSize}
+                key={index}
+                room={emptyRoom.objectData}
+                position={props.hoverLocation}
+                clickMethod={props.clickMethod}
+                hoverMethod={props.hoverMethod}
+            />)
         }
 
         else {
@@ -32,7 +58,7 @@ const Grid = (props) => {
                     cellSize={grid.cellSize}
                     key={index}
                     room={object.objectData}
-                    position={object.objectPosition}
+                    position={props.hoverLocation}
                     clickMethod={props.clickMethod}
                     hoverMethod={props.hoverMethod}
                 />

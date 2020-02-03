@@ -32,7 +32,7 @@ const Cell = (props) => {
 
     function handleHover(e){
         // const cellRef = [x, y];
-        console.log(props.cell.position)
+        // console.log(props.cell.position)
         setHover(true);
         props.hoverMethod(props.cell.position);
     }

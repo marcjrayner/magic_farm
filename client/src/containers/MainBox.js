@@ -122,7 +122,7 @@ class MainBox extends Component {
             const type = choice.objectType;
             this.setState(
                 {mouseObject:{
-                    type: type,
+                    objectType: type,
                     placedStatus: 'possible',
                     objectData: choice.objectData
                     }
