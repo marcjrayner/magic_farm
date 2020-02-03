@@ -10,9 +10,6 @@ const GameBoardContainer = (props) => {
     }
 
     function cellClickLogic(cellAnimalOrRoomObject) {
-        // console.log('this is the position you have clicked ' + cellObject.position);
-        // console.log('this cell is affiliated to ' + cellObject.affiliation);
-        // console.log('if I am empty I will say true: ' + cellObject.position);
 
         // Are we placing something from the mouseObject?
         if (props.mouseObject !== null) {
@@ -38,7 +35,7 @@ const GameBoardContainer = (props) => {
         } else if (props.mouseObject === null)
             {
                 // check what you are clicking
-            const cellRef = props.hoverLocation;
+            // const cellRef = props.hoverLocation;
             
             var clickedObject;
 
@@ -56,14 +53,13 @@ const GameBoardContainer = (props) => {
             }
 
             if (clickedObject !== null){
-                props.clickMethod(clickedObject)
+                props.clickMethod(cellAnimalOrRoomObject)
             }
 
             else {
                 console.log("you have nothing to place, click on a choice" + (props.hoverLocation))
             }
     
-           
             } 
             // console.log('this is the position you have clicked ' + cellObject.position);
             // console.log('this cell is affiliated to ' + cellObject.affiliation);
@@ -90,26 +86,3 @@ const GameBoardContainer = (props) => {
 };
 
 export default GameBoardContainer;
-
-// gridData: {
-//     width: 20,
-//         height: 10,
-//             cellsize: 20
-// },
-// objectsArray: [
-//     {
-//         objectType: 'room',
-//         objectPosition: [1, 1],
-//         objectData: {
-//             cellArray: [
-//                 [1, 1], [2, 1],
-//                 [1, 2], [2, 2]
-//             ],
-//             roomMaxWidth: 2,
-//             roomMaxHeight: 2,
-//             roomStatus: 'room',
-//             roomType: 'red',
-//             roomContents: [],
-//             roomName: '2x2 Square'
-//         }
-//     }]

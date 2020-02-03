@@ -139,8 +139,8 @@ class MainBox extends Component {
         this.setState({ selectedOnGameBoardContainer: null});
     }
 
-    handleClickBoardObject(objectRef){
-        console.log(objectRef+ 'has been clicked');
+    handleClickBoardObject(cellAnimalOrRoomDataObject){
+        console.log(cellAnimalOrRoomDataObject.type + ' has been clicked at ' + cellAnimalOrRoomDataObject.position[0]);
     }
 
     handleGameBoardSelection(choice){
