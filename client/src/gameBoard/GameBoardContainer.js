@@ -22,6 +22,7 @@ const GameBoardContainer = (props) => {
             console.log(props.mouseObject);
             console.log(cellObject);
             props.placeRoom(props.mouseObject, cellObject.objectData.position);
+            break;
             // clear the mouseObject
 
             // props.clearMouseObject()

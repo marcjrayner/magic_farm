@@ -111,20 +111,20 @@ class MainBox extends Component {
         this.setState({ hoverGameBoardLocation: positionArray })
     }
 
-    handleChoiceCardSelection(choice){
+    handleChoiceCardSelection(cardID, cardType, cardObject){
         // if the object selected is the same as what you've clicked
-        if (choice === this.state.selectedOnChoiceCardContainer) {
+        if (cardID === this.state.selectedCardID) {
             this.setState({selectedCardID: null});
             this.setState({ mouseObject: null });
         }
+
         else {
-            this.setState({ selectedCardID:choice.objectData.id});
-            const type = choice.objectType;
+            this.setState({ selectedCardID: cardID});
             this.setState(
                 {mouseObject:{
-                    objectType: type,
+                    objectType: cardType,
                     placedStatus: 'possible',
-                    objectData: choice.objectData
+                    objectData: cardObject
                     }
                 }
             )
@@ -147,6 +147,9 @@ class MainBox extends Component {
     }
 
     handlePlaceRoom(room, newPosition){
+        let gridData = { width: this.state.gameBoardData.gridData.width,
+            height: this.state.gameBoardData.gridData.height,
+            cellSize: this.state.gameBoardData.gridData.cellSize}
         let newArray = this.state.gameBoardData.objectsArray;
         let newRoom = {
             id: Date.now(),
@@ -162,9 +165,9 @@ class MainBox extends Component {
             }
         }
         newArray.push(newRoom);
-        this.setState(this.state.gameBoardData.objectsArray = newArray);
+        this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
         this.setState({mouseObject: null});
-        this.setState(this.state.choiceContainerData.selectedCard= null);
+        this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
         this.setState({choiceContainerData: {
             choiceType: 'Room',
@@ -176,7 +179,7 @@ class MainBox extends Component {
                     objectData: {
                         cellArray: [
                             [2, 1], [1, 2],
-                            [2, 2], [2,3], [2, 3]
+                            [2, 2], [3,2], [2, 3]
                         ],
                         roomMaxWidth: 3,
                         roomMaxHeight: 3,
@@ -223,7 +226,7 @@ class MainBox extends Component {
                     cellSize={this.state.gameBoardData.gridData.cellSize}
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}
-                    globalCardSelected={this.state.selectedOnChoiceCardContainer}
+                    selectedCard={this.state.selectedCardID}
                     clearSelection={this.clearCardChoice} />
         
             </>

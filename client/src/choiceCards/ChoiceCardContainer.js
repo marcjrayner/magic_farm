@@ -5,26 +5,12 @@ class ChoiceCardContainer extends Component {
 
     constructor(props){
         super(props);
-        this.state = {
-            selectedCardID: null
-        };
+        this.state = {};
         this.makeCardSelection = this.makeCardSelection.bind(this);
     }
 
-    makeCardSelection(id){
-       
-        if (id === null ){
-            this.setState({selectedCardID: null});
-            return null;
-        }
-        this.setState( {selectedCardID: id});
-        const cardIndex = this.props.choiceCardData.cardArray.findIndex((card) => {
-            return card.id === id;
-        });
-        this.props.clickMethod({
-            objectType: this.props.choiceCardData.cardArray[cardIndex].objectType,
-            objectData: this.props.choiceCardData.cardArray[cardIndex].objectData
-        });
+    makeCardSelection(card){
+        this.props.clickMethod(card.id, this.props.choiceCardData.choiceType, card.objectData);
     }
 
     render() {
@@ -40,8 +26,7 @@ class ChoiceCardContainer extends Component {
                     choiceData={card}
                     clickMethod={this.makeCardSelection}
                     hoverMethod={this.props.hoverMethod}
-                    globalCardSelected={this.props.globalCardSelected}
-                    selectedCardID={this.state.selectedCardID}
+                    selectedCard={this.props.selectedCard}
                     clearSelection={this.props.clearSelection}
                 ></ChoiceCard>
             )
