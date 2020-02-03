@@ -73,8 +73,8 @@ class Room extends Component {
         gridTemplateColumns: 'repeat(' + room.roomMaxWidth + ',' + this.props.cellSize +'px)',
         gridRowStart: translateX,
         gridColumnStart: translateY,
-        gridRowEnd: translateX + room.roomMaxWidth,
-        gridColumnEnd: translateY + room.roomMaxHeight
+        gridRowEnd: translateX + room.roomMaxHeight,
+        gridColumnEnd: translateY + room.roomMaxWidth
     };
 
     return(
