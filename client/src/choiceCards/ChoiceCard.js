@@ -41,6 +41,7 @@ const ChoiceCard = (props) => {
              >
                 <h2>{props.choiceData.objectType}</h2> 
                 <Room 
+                placedStatus={props.choiceData.placedStatus}
                 cellSize={props.cellSize}
                 clickMethod={doNothing}
                 hoverMethod={doNothing}

@@ -11,11 +11,49 @@ const Grid = (props) => {
     // const [mousePlaceStatus, setMousePlaceStatus] = useState(true);
 
     // console.log(grid);
+
+    const mouseObjects = [];
+    
+    if (props.mouseObject !== null) {
+        mouseObjects.push(props.mouseObject)
+    };
+
+    const renderMouse = mouseObjects.map((object, index) => {
+
+        if (mouseObjects.length === 0 ) {
+            return null;
+        }
+
+        else {
+            switch (object.objectType) {
+            case "Room": return (
+                <Room
+                    placedStatus={object.positionStatus}
+                    cellSize={grid.cellSize}
+                    key={index}
+                    room={object.objectData}
+                    position={object.objectPosition}
+                    clickMethod={props.clickMethod}
+                    hoverMethod={props.hoverMethod}
+                />
+            );
+            case "Animal": return (
+                <p key={index}>this will be an animal</p>
+            );
+            default: return null;
+        }
+    };
+
+    })
+    
+
     const objects = props.objectsArray.map((object, index) => {
+        let objectPositionStatus = 'fixed'
 
         switch(object.objectType){
             case "Room": return(
                 <Room
+                placedStatus={objectPositionStatus}
                 cellSize={grid.cellSize}
                 key={index}
                 room={object.objectData}
@@ -93,14 +131,12 @@ const Grid = (props) => {
         <>
         {/* Create a Grid Container */}
         <main style={gridStyle} className={'grid ' + props.id}>
-            {/* {mouse} */}
-            
+        {/* Load in any Objects in the mouse    */}
+            {renderMouse}
         {/* Load in the Objects of the Grid    */}
-            {objects}
-            
+            {objects} 
         {/* Load in the Blank Cells Of The Grid */}
             {blankCells}
-
         </main>
         </>
     )

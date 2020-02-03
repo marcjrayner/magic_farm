@@ -83,6 +83,7 @@ class MainBox extends Component {
                         objectType: 'Room',
                         objectPosition: null,
                         objectData: {
+                        placedStatus: null,
                         cellArray: [
                             [1, 1], [2, 1],
                             [3, 1], [4, 1]
@@ -122,6 +123,7 @@ class MainBox extends Component {
             this.setState(
                 {mouseObject:{
                     type: type,
+                    placedStatus: 'possible',
                     objectData: choice.objectData
                     }
                 }
@@ -149,6 +151,7 @@ class MainBox extends Component {
             <>
                
                 <GameBoardContainer
+                    hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
                     clickMethod={this.handleGameBoardSelection}
                     hoverMethod={this.handleHoverGameBoardLocation}
