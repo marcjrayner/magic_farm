@@ -28,7 +28,7 @@ const Grid = (props) => {
             switch (object.objectType) {
             case "Room": return (
                 <Room
-                    placedStatus={object.positionStatus}
+                    placedStatus={object.placedStatus}
                     cellSize={grid.cellSize}
                     key={index}
                     room={object.objectData}

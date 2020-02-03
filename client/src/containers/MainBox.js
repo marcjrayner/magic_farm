@@ -108,7 +108,7 @@ class MainBox extends Component {
     }
 
     handleHoverGameBoardLocation(positionArray) {
-        this.setState({ hoverPosition: positionArray })
+        this.setState({ hoverGameBoardLocation: positionArray })
     }
 
     handleChoiceCardSelection(choice){
