@@ -88,9 +88,7 @@ REQUEST BODY
 *** where animalType looks like *** 
 
     {
-        imgsrc: 'chicken.png',
-        animalMaxWidth: 1,
-        animalMaxHeight: 1,
+        price: 1,
         animalName: 'chicken'
     }
 
