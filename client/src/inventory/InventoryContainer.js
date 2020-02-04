@@ -39,15 +39,16 @@ const InventoryContainer = (props) => {
                         Animals: {inventory.animals}
                     </p>
 
+                    <p class="user-data ui-score">
+                        Score: {inventory.score}
+                    </p>
                 </aside>
 
                 <aside id="level-display">
-                Level {this.props.userInventoryData.level}
+                Level {inventory.level}
                 </aside>
             </section>
         )
     }
-
-}
 
 export default InventoryContainer;

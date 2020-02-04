@@ -232,7 +232,7 @@ class MainBox extends Component {
             <>  
                 <InventoryContainer
                     userInventoryData={this.state.userInventoryData}
-                    gameBoardConstants={this.state.gameBoardData.gridData}
+                    gameBoard={this.state.gameBoardData.gridData}
                 />
                 <GameBoardContainer
                     hoverLocation={this.state.hoverGameBoardLocation}
