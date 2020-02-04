@@ -28,7 +28,7 @@ public class Animal implements IChoose {
 
     @JsonIgnoreProperties("animals")
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "choice_sets_id")
+    @JoinColumn(name = "choice_set_id")
     private ChoiceSet choiceSet;
 
 

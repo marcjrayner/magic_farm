@@ -17,14 +17,12 @@ public class ChoiceSet {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "choice_set")
+    @OneToMany(mappedBy = "choiceSet")
     private List<Animal> animals;
 
-    @JsonIgnoreProperties
-    @OneToMany(mappedBy = "choice_set")
+    @JsonIgnore
+    @OneToMany(mappedBy = "choiceSet")
     private List<Room> rooms;
-
-
 
 
     public ChoiceSet() {
@@ -32,14 +30,7 @@ public class ChoiceSet {
         this.rooms = new ArrayList<>();
     }
 
-
-
-
-
-
-
-
-    // GETTERS AND SETTERS
+// GETTERS AND SETTERS
 
 
     public Long getId() {
