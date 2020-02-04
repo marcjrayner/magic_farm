@@ -18,7 +18,7 @@
     {   cellArray: [],
         roomMaxWidth: int,
         roomMaxHeight: int,
-        area: int,
+        roomArea: int,
         roomStatus: 'room',
         roomType: 'red',
         roomContents: [],
