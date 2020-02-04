@@ -11,7 +11,7 @@ class MainBox extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            selectedOnChoiceCardContainer: null,
+            selectedCardID: null,
             mouseObject: null,
             selectedOnGameBoardContainer: null,
             hoverGameBoardLocation: null,
@@ -22,49 +22,49 @@ class MainBox extends Component {
                     cellSize: 20
                 },
                 
-                objectsArray: [
-                    {   id: 'GBR1',
-                        objectType: 'Room',
-                        objectPosition: [1, 1],
-                        objectData: {
-                            cellArray: [
-                                [1, 1], [2, 1],
-                                [1, 2], [2, 2]
-                            ],
-                            roomMaxWidth: 2,
-                            roomMaxHeight: 2,
-                            roomStatus: 'room',
-                            roomType: 'red',
-                            roomContents: [],
-                            roomName: '2x2 Square'
-                        }
-                    },
+                objectsArray: 
+                [
+                //     {   id: 'GBR1',
+                //         objectType: 'room',
+                //         objectPosition: [1, 1],
+                //         objectData: {
+                //             cellArray: [
+                //                 [1, 1], [2, 1],
+                //                 [1, 2], [2, 2]
+                //             ],
+                //             roomMaxWidth: 2,
+                //             roomMaxHeight: 2,
+                //             roomStatus: 'room',
+                //             roomType: 'red',
+                //             roomContents: [],
+                //             roomName: '2x2 Square'
+                //         }
+                //     },
 
-                    {
-                        id: 'GBR2',
-                        objectType: 'Room',
-                        objectPosition: [10, 5],
-                        objectData: {
-                            cellArray: [
-                                [1, 1], [2, 1],
-                                [3, 1], [4, 1]
-                            ],
-                            roomMaxWidth: 4,
-                            roomMaxHeight: 1,
-                            roomStatus: 'room',
-                            roomType: 'red',
-                            roomContents: [],
-                            roomName: '4x1 Rectangle'
-                        }
-                    }
+                //     {
+                //         id: 'GBR2',
+                //         objectType: 'room',
+                //         objectPosition: [10, 5],
+                //         objectData: {
+                //             cellArray: [
+                //                 [1, 1], [2, 1],
+                //                 [3, 1], [4, 1]
+                //             ],
+                //             roomMaxWidth: 4,
+                //             roomMaxHeight: 1,
+                //             roomStatus: 'room',
+                //             roomType: 'red',
+                //             roomContents: [],
+                //             roomName: '4x1 Rectangle'
+                //         }
+                //     }
                 ]
             },
             choiceContainerData: {
-                selectedCard: null,
-                choiceType: 'Room',
+                choiceType: 'room',
                 cardArray: [
                     {   id: 'CC1',
-                        objectType: 'Room',
+                        objectType: 'room',
                         objectPosition: null,
                         objectData: {
                             cellArray: [
@@ -80,9 +80,10 @@ class MainBox extends Component {
                         }
                     },
                     {   id: 'CC2',
-                        objectType: 'Room',
+                        objectType: 'room',
                         objectPosition: null,
                         objectData: {
+                        placedStatus: null,
                         cellArray: [
                             [1, 1], [2, 1],
                             [3, 1], [4, 1]
@@ -104,25 +105,28 @@ class MainBox extends Component {
         this.handleGameBoardSelection = this.handleGameBoardSelection.bind(this);
         this.handleMouseObject = this.handleMouseObject.bind(this);
         this.clearCardChoice = this.clearCardChoice.bind(this);
+        this.handlePlaceRoom = this.handlePlaceRoom.bind(this);
+        this.handleClickBoardObject = this.handleClickBoardObject.bind(this);
     }
 
     handleHoverGameBoardLocation(positionArray) {
-        this.setState({ hoverPosition: positionArray })
+        this.setState({ hoverGameBoardLocation: positionArray })
     }
 
-    handleChoiceCardSelection(choice){
+    handleChoiceCardSelection(cardID, cardType, cardObject){
         // if the object selected is the same as what you've clicked
-        if (choice === this.state.selectedOnChoiceCardContainer) {
-            this.setState({ selectedOnChoiceCardContainer: null });
-            this.setState({ mouseObject: null })
+        if (cardID === this.state.selectedCardID) {
+            this.setState({selectedCardID: null});
+            this.setState({ mouseObject: null });
         }
+
         else {
-            this.setState({ selectedOnChoiceCardContainer:choice.objectData});
-            const type = choice.objectType;
+            this.setState({ selectedCardID: cardID});
             this.setState(
                 {mouseObject:{
-                    type: type,
-                    objectData: choice.objectData
+                    objectType: cardType,
+                    placedStatus: 'possible',
+                    objectData: cardObject
                     }
                 }
             )
@@ -131,8 +135,12 @@ class MainBox extends Component {
 
     handleMouseObject(){
         this.setState({mouseObject: null});
-        this.setState({selectedOnChoiceCardContainer:null});
+        this.setState({selectedCardID:null});
         this.setState({ selectedOnGameBoardContainer: null});
+    }
+
+    handleClickBoardObject(cellAnimalOrRoomDataObject){
+        console.log(cellAnimalOrRoomDataObject.type + ' has been clicked at ' + cellAnimalOrRoomDataObject.position[0]);
     }
 
     handleGameBoardSelection(choice){
@@ -144,21 +152,88 @@ class MainBox extends Component {
         this.setState({mouseObject: null});
     }
 
+    handlePlaceRoom(room, newPosition){
+        let gridData = { width: this.state.gameBoardData.gridData.width,
+            height: this.state.gameBoardData.gridData.height,
+            cellSize: this.state.gameBoardData.gridData.cellSize}
+        let newArray = this.state.gameBoardData.objectsArray;
+        let newRoom = {
+            id: Date.now(),
+            objectType: 'room',
+            objectPosition: newPosition,
+            objectData: { cellArray: room.objectData.cellArray,
+                roomMaxWidth: room.objectData.roomMaxWidth,
+                roomMaxHeight: room.objectData.roomMaxHeight,
+                roomStatus: room.objectData.roomStatus,
+                roomType: room.objectData.roomType,
+                roomContents: [],
+                roomName: room.objectData.roomName
+            }
+        }
+        newArray.push(newRoom);
+        this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
+        this.setState({mouseObject: null});
+        this.setState({selectedCardID: null});
+        this.setState({selectedOnChoiceCardContainer: null});
+        this.setState({choiceContainerData: {
+            choiceType: 'room',
+            cardArray: [
+                {
+                    id: 'BB1',
+                    objectType: 'room',
+                    objectPosition: null,
+                    objectData: {
+                        cellArray: [
+                            [2, 1], [1, 2],
+                            [2, 2], [3,2], [2, 3]
+                        ],
+                        roomMaxWidth: 3,
+                        roomMaxHeight: 3,
+                        roomStatus: 'room',
+                        roomType: 'red',
+                        roomContents: [],
+                        roomName: '3x3 Cross'
+                    }
+                },
+                {
+                    id: 'BB2',
+                    objectType: 'room',
+                    objectPosition: null,
+                    objectData: {
+                        placedStatus: null,
+                        cellArray: [
+                            [1, 1], [2, 1],
+                            [3, 1], [4, 1]
+                        ],
+                        roomMaxWidth: 4,
+                        roomMaxHeight: 1,
+                        roomStatus: 'room',
+                        roomType: 'red',
+                        roomContents: [],
+                        roomName: '4x1 Rectangle'
+                    }
+                }
+            ]
+
+        }})
+    }
+
     render() {
         return(
-            <>
-               
+            <>               
                 <GameBoardContainer
+                    hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
-                    clickMethod={this.handleGameBoardSelection}
+                    clickMethod={this.handleClickBoardObject}
                     hoverMethod={this.handleHoverGameBoardLocation}
-                    gameBoardData={this.state.gameBoardData} />
+                    gameBoardData={this.state.gameBoardData}
+                    placeRoom={this.handlePlaceRoom} />
                 <ChoiceCardContainer
                     cellSize={this.state.gameBoardData.gridData.cellSize}
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}
-                    globalCardSelected={this.state.selectedOnChoiceCardContainer}
-                    clearSelection={this.clearCardChoice}/>
+                    selectedCard={this.state.selectedCardID}
+                    clearSelection={this.clearCardChoice} />
         
             </>
 

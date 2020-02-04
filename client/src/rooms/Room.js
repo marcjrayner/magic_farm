@@ -3,52 +3,62 @@ import Cell from '../components/Cell';
 
 class Room extends Component {
 
-    // So far there are two types of room creation; One on a grid, one on a card.
-    // Rooms that are created on a card should appear as a default [1,1]
-    // Rooms thare are created as objects on the gameBoard can be given a custom objectPosition e.g. [5, 8]
-
         constructor(props){
             super(props);
             this.state = {
                 selectedRoom: null
             };
             this.makeCellClickWholeRoom = this.makeCellClickWholeRoom.bind(this);
+            this.hoverRelativePosition = this.hoverRelativePosition.bind(this);
         };
 
-    // console.log(props);
-    
-    makeCellClickWholeRoom = function (e) {
+    makeCellClickWholeRoom = function (cellObject) {
 
-        if (!this.state.selectedRoom) {
-            this.setState({selectedRoom: true});
+        if (this.state.selectedRoom === null) {
+            
+            this.setState(
+                {selectedRoom: true}
+         );
 
-            this.props.clickMethod({
-                objectType: 'Room',
-                objectData: this.props
-            })
+            this.props.clickMethod(
+                {'position': [this.props.room.cellArray],
+                'type': 'room',
+                'hover-position': this.props.hoverPosition,
+                'ref': this.props.key}
+                
+                )
         }
 
         return null;
-    } 
+    };
 
+    hoverRelativePosition = function (cellPosition){
+        // let currentPosition = [];
+        // if (cellPosition)
+        // if (this.props.position = null){
+        //     currentPosition = [1,1]
+        // } else {
+        //     currentPosition = this.props.position;
+        // }
+        // //need to add relative co-ordinates
+        // let newPosition = [
+        //     (currentPsition[0]),
+        //     (this.props.position[1])]
+        // this.props.hoverMethod(newPosition);
+    }
 
     render() {
 
     const room = this.props.room;    
-    let initialPosition = []
-        if (this.props.position !== null){ initialPosition = this.props.position;}
-    else { initialPosition = [1,1]; }   
-    const translateX = initialPosition[0];
-    const translateY = initialPosition[1];
+    let initialPosition = [1,1]
+        if (this.props.position !== null){ initialPosition = this.props.position;} 
+    const translateY = initialPosition[0];
+    const translateX = initialPosition[1];
 
     const roomRender = room.cellArray.map( (roomCell, index) => {
         
-        const position = [];
-        const x = roomCell[0];
-        const y = roomCell[1];
-        position.push(x);
-        position.push(y);
-        const name = ('' + room.roomType + ' ' + room.roomStatus +'-'+position)
+        const position = [roomCell[0], roomCell[1]];
+        const name = ('' + room.roomType + ' ' + room.roomStatus + '-' + position)
 
         const cell = {
             'empty': true,
@@ -59,7 +69,8 @@ class Room extends Component {
 
         return (
             <Cell key={index} cell={cell} clickMethod={this.makeCellClickWholeRoom}
-                hoverMethod={this.props.hoverMethod}/>
+                hoverMethod={this.hoverRelativePosition}
+                />
         )
     });
 
@@ -70,14 +81,15 @@ class Room extends Component {
         gridTemplateColumns: 'repeat(' + room.roomMaxWidth + ',' + this.props.cellSize +'px)',
         gridRowStart: translateX,
         gridColumnStart: translateY,
-        gridRowEnd: translateX + room.roomMaxWidth,
-        gridColumnEnd: translateY + room.roomMaxHeight
+        gridRowEnd: translateX + room.roomMaxHeight,
+        gridColumnEnd: translateY + room.roomMaxWidth
     };
 
     return(
 
         <>
-        <aside className="room"
+        <aside className={"room "
+        + this.props.placedStatus}
         style={roomStyle}
         id={"["+translateX+","+translateY+"]"} >
             {roomRender}
