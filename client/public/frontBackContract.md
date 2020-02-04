@@ -83,13 +83,18 @@
         animalName: 'chicken'
     }
 
-Animal
+
+++++++++++++++++++++++++++++
+
+# DATA TYPES
+
+## Animal
     id =>
     objectType => String 'animal
     position []
     objectData => AnimalType
 
-AnimalType
+## AnimalType
     imgsrc => String 'chicken.png',
     animalMaxWidth => int,
     animalMaxHeight => int
@@ -98,13 +103,13 @@ AnimalType
 
 
 
-Room
+## Room
  id => 
  objectType => String e.g. 'room'
  position => []
  objectData => RoomType
  
-RoomType 
+## RoomType 
  cellArray => []
  roomMaxWidth => int
  roomMaxHeight => int
@@ -115,12 +120,11 @@ RoomType
  roomName => String, 'room'
  
  
-ChoiceSet
+## ChoiceSet
     choiceType => String 'room'
     cardArray => RoomType or AnimalType
 
-GameState
-    
+## GameState   
     gridData: {
         width: 20,
         height: 10,
