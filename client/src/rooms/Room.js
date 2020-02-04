@@ -24,7 +24,7 @@ class Room extends Component {
                 {'position': [this.props.room.cellArray],
                 'type': 'room',
                 'hover-position': this.props.hoverPosition,
-                'ref': this.props.key}
+                'ref': this.props.id}
                 
                 )
         }

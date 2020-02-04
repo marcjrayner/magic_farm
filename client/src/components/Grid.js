@@ -33,8 +33,6 @@ const Grid = (props) => {
                 <p key={index}>this will be an animal</p>
             );
             default: return null; };
-
-
     })
 
     function cellClickLogic(cellAnimalorRoomDataObject) {
@@ -68,6 +66,7 @@ const Grid = (props) => {
                 placedStatus={objectPositionStatus}
                 cellSize={grid.cellSize}
                 key={index}
+                id={index}
                 room={object.objectData}
                 position={object.objectPosition}
                 clickMethod={cellClickLogic}
