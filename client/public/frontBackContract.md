@@ -1,7 +1,7 @@
 # Game Loads
 
 1 Api Fetch -> 
-  endpoint /choiceSets/getRandomRooms
+  endpoint GET /choiceSets/getRandomRooms
    JSON Body 
    
    {    choiceType: 'room',
@@ -18,13 +18,14 @@
     {   cellArray: [],
         roomMaxWidth: int,
         roomMaxHeight: int,
+        area: int,
         roomStatus: 'room',
         roomType: 'red',
         roomContents: [],
         roomName: 'name'
     }
 
-2 endpoint /GameState/newGame
+2 endpoint GET /GameState/newGame
 
     JSON Body 
     {
@@ -39,9 +40,9 @@
 # Card is Clicked.
 # Something is Placed
 
-1 endpoint /GameState/saveGame
+1 endpoint PUT /GameState/saveGame
 
-2 endpoint /choiceSets/getRandomAnimals
+2 endpoint GET /choiceSets/getRandomAnimals
     JSON Body
 
     {   choiceType: 'animal',
@@ -74,6 +75,8 @@ AnimalType
     <!-- animalTypes => string 'red', -->
     animalName => 'chicken'
 
+
+
 Room
  id => 
  objectType => String e.g. 'room'
@@ -84,10 +87,12 @@ RoomType
  cellArray => []
  roomMaxWidth => int
  roomMaxHeight => int
+ roomArea => int,
  roomStatus => String, 'room'
  roomType => String, 'red'
  roomContents => []
  roomName => String, 'room'
+ 
  
 ChoiceSet
     choiceType => String 'room'
