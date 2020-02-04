@@ -2,7 +2,7 @@
 
 1 Api Fetch -> 
   endpoint GET /choiceSets/getRandomRooms
-   JSON Body 
+   response JSON Body 
    
    {    choiceType: 'room',
         cardArray: [
@@ -27,24 +27,35 @@
         roomName: 'name'
     }
 
-2 endpoint GET /GameState/newGame
+2 endpoint CREATE /GameState/newGame
 
-    JSON Body 
+    request JSON Body
+
+    { width: 20,
+      height: 10,
+      cellSize: 20
+      }
+
+    response JSON Body 
     {
+        id: ID,
         gridData: {
             width: 20,
             height: 10,
             cellSize: 20
             },    
-    objectsArray => []
+        objectsArray: []
     }
- 
+*** objects Array should be blank, but will contain Rooms *** 
+
 # Card is Clicked.
 # Something is Placed
 
 1 endpoint PUT /GameState/saveGame
 
-{
+REQUEST BODY
+{  
+    id: ID,
    gridData: {
         width: 20,
         height: 10,
@@ -83,6 +94,8 @@
         animalName: 'chicken'
     }
 
+
+# Load Game
 
 ++++++++++++++++++++++++++++
 
