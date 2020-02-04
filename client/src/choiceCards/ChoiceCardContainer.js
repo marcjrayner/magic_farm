@@ -33,9 +33,9 @@ class ChoiceCardContainer extends Component {
         });
 
             return (
-                <div id="choice-card-container">
+                <section id="choice-card-container">
                     {cards} 
-                </div>
+                </section>
             )
         }
     }
