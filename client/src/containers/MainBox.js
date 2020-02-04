@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import GameBoardContainer from '../gameBoard/GameBoardContainer';
 import ChoiceCardContainer from '../choiceCards/ChoiceCardContainer';
 import InventoryContainer from '../inventory/InventoryContainer';
+import update from 'immutability-helper';
 
 class MainBox extends Component {
 
@@ -187,11 +188,13 @@ class MainBox extends Component {
                 roomName: room.objectData.roomName
             }
         }
+
         newArray.push(newRoom);
         this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
         this.setState({mouseObject: null});
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
+
         this.setState({choiceContainerData: {
             choiceType: 'room',
             cardArray: [
@@ -231,8 +234,13 @@ class MainBox extends Component {
                     }
                 }
             ]
-
         }})
+
+        // update gameData
+        const rooms = this.state.gameBoardData.objectsArray.length;
+        const newData = update(this.state.userInventoryData, {
+            numberOfRooms: { $set: rooms } });      
+        this.setState(prevState => ({ userInventoryData: newData }));
     }
 
     render() {
