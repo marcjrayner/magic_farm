@@ -37,7 +37,7 @@ public class Animal implements IChoose {
         this.name = name;
         this.room = null;
         this.price = price;
-        this.choiceSet = new ChoiceSet();
+        this.choiceSet = null;
     }
 
     public Animal(){

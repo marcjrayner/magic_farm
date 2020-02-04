@@ -21,9 +21,13 @@ public class Farm {
     @OneToMany(mappedBy = "farm")
     private List<Room> rooms;
 
+    @OneToOne(mappedBy = "farm")
+    private State state;
+
     public Farm(ArrayList<Integer> farmSize) {
         this.farmSize = farmSize;
         this.rooms = new ArrayList<>();
+        this.state = new State();
     }
 
     public Farm () {
@@ -55,5 +59,13 @@ public class Farm {
 
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }

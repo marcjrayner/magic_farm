@@ -24,10 +24,14 @@ public class ChoiceSet {
     @OneToMany(mappedBy = "choiceSet")
     private List<Room> rooms;
 
+    @OneToOne(mappedBy = "currentChoiceSet")
+    private State state;
+
 
     public ChoiceSet() {
         this.animals = new ArrayList<>();
         this.rooms = new ArrayList<>();
+        this.state = new State();
     }
 
 // GETTERS AND SETTERS
@@ -55,5 +59,13 @@ public class ChoiceSet {
 
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }
