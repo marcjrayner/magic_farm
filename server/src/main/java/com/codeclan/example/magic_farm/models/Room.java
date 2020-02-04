@@ -44,8 +44,8 @@ public class Room implements IChoose {
         this.cellsSize = cellsSize;
         this.farmLocation = new ArrayList<>();
         this.animals = new ArrayList<>();
-        this.choiceSet = new ChoiceSet();
-        this.farm = new Farm();
+        this.choiceSet = null;
+        this.farm = null;
     }
     public Room(){
 

@@ -42,8 +42,8 @@ public class DataLoader implements ApplicationRunner {
         coordinate.add(1);
         coordinate.add(1);
         coordinates.add(coordinate);
-//        room1 = new Room("room1",coordinates);
-//        roomRepository.save(room1);
+        room1 = new Room("room1",coordinates);
+        roomRepository.save(room1);
         Animal animal1 = new Animal("cow",4);
         animalRepository.save(animal1);
         Animal animal2 = new Animal("cat",5);
