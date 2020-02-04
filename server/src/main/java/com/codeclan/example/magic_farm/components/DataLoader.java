@@ -1,6 +1,7 @@
 package com.codeclan.example.magic_farm.components;
 
 import com.codeclan.example.magic_farm.models.Animal;
+import com.codeclan.example.magic_farm.models.Farm;
 import com.codeclan.example.magic_farm.models.Room;
 import com.codeclan.example.magic_farm.repositories.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class DataLoader implements ApplicationRunner {
 
     public void run(ApplicationArguments args) {
 
+//      ROOMS
         Room room1;
         ArrayList<Integer> coordinate = new ArrayList<>();
         ArrayList<ArrayList<Integer>> coordinates = new ArrayList<>();
@@ -44,12 +46,15 @@ public class DataLoader implements ApplicationRunner {
         coordinates.add(coordinate);
         room1 = new Room("room1",coordinates);
         roomRepository.save(room1);
+
+//      ANIMALS
         Animal animal1 = new Animal("cow",4);
         animalRepository.save(animal1);
         Animal animal2 = new Animal("cat",5);
         animalRepository.save(animal2);
 
-
+//        FARMS
+        Farm farm1 = new Farm();
 
 
 
