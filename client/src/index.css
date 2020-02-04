@@ -89,3 +89,11 @@ code {
   grid-template-columns: repeat(5, 20px);
   grid-template-rows: repeat(5, 20px);
 }
+
+
+.room-selected > * {
+  box-sizing: border-box;
+  border: 2px solid black;
+  border-collapse: collapse;
+  overflow: hidden;
+}
