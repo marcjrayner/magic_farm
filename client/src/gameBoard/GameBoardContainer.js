@@ -68,7 +68,7 @@ const GameBoardContainer = (props) => {
         }
 
     return (
-        <>
+        <section id="game-board-container">
             <h2>Game Board Container</h2>
             
             <Grid
@@ -81,7 +81,7 @@ const GameBoardContainer = (props) => {
                 updateBusyCells={updateBusyCells}
                 id="game-board-grid"
                 />
-        </>
+        </section>
     )
 };
 
