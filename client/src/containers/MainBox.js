@@ -150,6 +150,14 @@ class MainBox extends Component {
 
     handleClickBoardObject(cellAnimalOrRoomDataObject){
         console.log(cellAnimalOrRoomDataObject.type + ' has been clicked at ' + cellAnimalOrRoomDataObject.position[0]);
+        switch(cellAnimalOrRoomDataObject.type){
+            case 'room': 
+                this.setState({selectedOnGameBoardContainer: cellAnimalOrRoomDataObject })
+                break;
+            ;
+            default: 
+            return null;
+        }
     }
 
     handleGameBoardSelection(choice){
@@ -229,7 +237,7 @@ class MainBox extends Component {
 
     render() {
         return(
-            <>  
+            <section id="app-container">  
                 <InventoryContainer
                     userInventoryData={this.state.userInventoryData}
                     gameBoard={this.state.gameBoardData.gridData}
@@ -237,6 +245,7 @@ class MainBox extends Component {
                 <GameBoardContainer
                     hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
+                    selectedOnBoard={this.state.selectedOnGameBoardContainer}
                     clickMethod={this.handleClickBoardObject}
                     hoverMethod={this.handleHoverGameBoardLocation}
                     gameBoardData={this.state.gameBoardData}
@@ -247,9 +256,11 @@ class MainBox extends Component {
                     choiceCardData={this.state.choiceContainerData}
                     selectedCard={this.state.selectedCardID}
                     clearSelection={this.clearCardChoice} />
-        
-            </>
+                <footer id="footer"> Magic Farm built by T'MASH</footer>  
+            </section>
+            
 
+            
         )
     }
 }
