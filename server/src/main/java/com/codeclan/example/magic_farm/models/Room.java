@@ -33,13 +33,19 @@ public class Room implements IChoose {
     @JoinColumn(name = "choice_sets_id")
     private ChoiceSet choiceSet;
 
+    @JsonIgnoreProperties("rooms")
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "farm_id")
+    private Farm farm;
+
+
     public Room(String name, ArrayList<ArrayList<Integer>> cellsSize) {
         this.name = name;
         this.cellsSize = cellsSize;
         this.farmLocation = new ArrayList<>();
         this.animals = new ArrayList<>();
         this.choiceSet = new ChoiceSet();
-
+        this.farm = new Farm();
     }
     public Room(){
 
@@ -98,6 +104,13 @@ public class Room implements IChoose {
         this.animals = animals;
     }
 
+    public Farm getFarm() {
+        return farm;
+    }
 
-//    ***************
+    public void setFarm(Farm farm) {
+        this.farm = farm;
+    }
+
+    //    ***************
 }
