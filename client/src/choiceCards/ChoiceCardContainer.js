@@ -5,6 +5,21 @@ class ChoiceCardContainer extends Component {
 
     constructor(props){
         super(props);
+        this.state ={
+            roomTypes: [{
+                cellArray: [[1,1]],
+                roomMaxWidth: 1,
+                roomMaxHeight: 1,
+                roomArea: 1,
+                roomName: 'ONExONE'},
+
+                { cellArray: [[1,1],[2,1]],
+                    roomMaxWidth: 2,
+                    roomMaxHeight: 1,
+                    roomArea: 2,
+                    roomName: 'ONExTWO'
+                }]    
+        }
         this.makeCardSelection = this.makeCardSelection.bind(this);
     }
 
