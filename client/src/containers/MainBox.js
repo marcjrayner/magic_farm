@@ -234,7 +234,6 @@ class MainBox extends Component {
                     }
                 }
             ]
-
         }})
 
         // update gameData
