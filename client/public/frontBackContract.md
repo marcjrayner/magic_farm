@@ -15,7 +15,9 @@
 
 *** where each RoomType looks like: ***  
 
-    {   cellArray: [],
+    {   cellArray: [ 
+            [int,int], [int,int], [int, int], [int,int]
+            ],
         roomMaxWidth: int,
         roomMaxHeight: int,
         roomArea: int,
@@ -41,6 +43,25 @@
 # Something is Placed
 
 1 endpoint PUT /GameState/saveGame
+
+{
+   gridData: {
+        width: 20,
+        height: 10,
+        cellSize: 20},    
+    objectsArray => [
+        { room }
+    ]
+}
+
+*** where room looks like ***
+
+    {
+        id: ID,
+        objectType: 'room',
+        position: [int,int],
+        objectData: {RoomType}
+    }
 
 2 endpoint GET /choiceSets/getRandomAnimals
     JSON Body
