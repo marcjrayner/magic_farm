@@ -89,7 +89,9 @@ class Room extends Component {
 
         <>
         <aside className={"room "
-        + this.props.placedStatus}
+        + (this.props.amISelected ? 'room-selected ' : '')
+        + this.props.placedStatus
+         }
         style={roomStyle}
         id={"["+translateX+","+translateY+"]"} >
             {roomRender}

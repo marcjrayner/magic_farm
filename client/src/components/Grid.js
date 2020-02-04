@@ -14,11 +14,18 @@ const Grid = (props) => {
 
     function doNothing() { return null; }
 
+    let testRef = -1;
+    let testType = ''
+    if (props.selectedOnBoard !== null) { testRef = props.selectedOnBoard.ref; testType = props.selectedOnBoard.type}
+
     const renderMouse = mouseObjects.map((object, index) => {
 
             switch (object.objectType) {
-            case 'room': return (
+            case 'room':
+                
+            return (
                 <Room
+            
                     placedStatus={object.placedStatus}
                     cellSize={grid.cellSize}
                     key={index}
@@ -64,6 +71,7 @@ const Grid = (props) => {
             return(
                 <Room
                 placedStatus={objectPositionStatus}
+                amISelected={props.selectedOnBoard.type === 'room' && testRef === index ? true : false}
                 cellSize={grid.cellSize}
                 key={index}
                 id={index}

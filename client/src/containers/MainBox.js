@@ -14,7 +14,7 @@ class MainBox extends Component {
         this.state = {
             selectedCardID: null,
             mouseObject: null,
-            selectedOnGameBoardContainer: null,
+            selectedOnGameBoardContainer: {type:'', ref:''},
             hoverGameBoardLocation: null,
             gameBoardData: {
                 gridData: {
