@@ -1,7 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Cell from './Cell';
 import Room from '../rooms/Room';
-import MouseObject from './MouseObject';
 
 const Grid = (props) => {
 
@@ -42,7 +41,8 @@ const Grid = (props) => {
     
     const occupiedSpace = [];
 
-    const objects = props.objectsArray.map((object, index) => {
+    var objects = [];
+    if (props.objectsArray.length !== 0) { objects = props.objectsArray.map((object, index) => {
         let objectPositionStatus = 'fixed';
 
         object.objectData.cellArray.map((cellPosition) => {
@@ -79,7 +79,8 @@ const Grid = (props) => {
             default: return null;
         }
 
-    });
+    })
+    }
 
     // BUILD AN EMPTY GRID
     const x = grid.width;
