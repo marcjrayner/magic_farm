@@ -40,6 +40,11 @@ code {
   z-index: 1;
 }
 
+.possible{
+  background-color: brown;
+  opacity: 0.5;
+}
+
 .red {
   background-color: red;
   z-index: 0;
