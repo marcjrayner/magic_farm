@@ -194,6 +194,7 @@ class MainBox extends Component {
         this.setState({mouseObject: null});
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
+
         this.setState({choiceContainerData: {
             choiceType: 'room',
             cardArray: [
@@ -237,7 +238,6 @@ class MainBox extends Component {
         }})
 
         // update gameData
-        // const data = 
         const rooms = this.state.gameBoardData.objectsArray.length;
         const newData = update(this.state.userInventoryData, {
             numberOfRooms: { $set: rooms } });      
