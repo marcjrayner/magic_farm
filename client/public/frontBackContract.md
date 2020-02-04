@@ -54,7 +54,12 @@
 
 *** where animalType looks like *** 
 
-    {}
+    {
+        imgsrc: 'chicken.png',
+        animalMaxWidth: 1,
+        animalMaxHeight: 1,
+        animalName: 'chicken'
+    }
 
 Animal
     id =>
@@ -68,8 +73,6 @@ AnimalType
     animalMaxHeight => int
     <!-- animalTypes => string 'red', -->
     animalName => 'chicken'
-
-
 
 Room
  id => 
