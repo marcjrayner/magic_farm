@@ -1,3 +1,14 @@
+Game Loads.
+Api Fetch -> 
+    GameState;
+    ChoiceSet;
+
+Card is clicked.
+Something is placed.
+    -> Update GameState;
+    Get ChoiceSet.
+
+
 Room
  id => 
  objectType => String e.g. 'room
@@ -17,7 +28,7 @@ ChoiceSet
     choiceType => String 'room'
     cardArray => RoomType or AnimalType
 
-SaveState
+GameState
     
     gridData: {
         width: 20,
