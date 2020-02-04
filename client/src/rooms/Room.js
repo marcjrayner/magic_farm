@@ -14,11 +14,10 @@ class Room extends Component {
 
     makeCellClickWholeRoom = function (cellObject) {
 
-        if (this.state.selectedRoom === null) {
-            
-            this.setState(
-                {selectedRoom: true}
-         );
+        // if (this.state.selectedRoom === null) {
+        //     this.setState(
+        //         {selectedRoom: true}
+        //  );
 
             this.props.clickMethod(
                 {'position': [this.props.room.cellArray],
@@ -27,7 +26,7 @@ class Room extends Component {
                 'ref': this.props.id}
                 
                 )
-        }
+        // }
 
         return null;
     };
