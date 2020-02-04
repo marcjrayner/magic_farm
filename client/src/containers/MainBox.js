@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import GameBoardContainer from '../gameBoard/GameBoardContainer';
 import ChoiceCardContainer from '../choiceCards/ChoiceCardContainer';
+import InventoryContainer from '../inventory/InventoryContainer';
 
 class MainBox extends Component {
 
@@ -97,6 +98,14 @@ class MainBox extends Component {
                     }}
                 ]
 
+            },
+            userInventoryData: {
+                coins: 100,
+                numberOfRooms: 0,
+                areaCovered: 0,
+                animals: 0,
+                level: 1,
+                score: 0,
             }
         };
 
@@ -220,7 +229,11 @@ class MainBox extends Component {
 
     render() {
         return(
-            <>               
+            <>  
+                <InventoryContainer
+                    userInventoryData={this.state.userInventoryData}
+                    gameBoard={this.state.gameBoardData.gridData}
+                />
                 <GameBoardContainer
                     hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
