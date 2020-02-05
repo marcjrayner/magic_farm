@@ -20,13 +20,18 @@ class Room extends Component {
                 {selectedRoom: true}
          );
 
-            this.props.clickMethod(
-                {'position': [this.props.room.cellArray],
+         
+
+            var roomClickedObject = {
+                'position': [this.props.room.cellArray],
                 'type': 'room',
                 'hover-position': this.props.hoverPosition,
-                'ref': this.props.key}
-                
-                )
+                'ref': this.props.key
+            };
+
+            console.log(roomClickedObject);
+
+            this.props.clickMethod( roomClickedObject)
         }
 
         return null;
@@ -51,14 +56,16 @@ class Room extends Component {
 
     const room = this.props.room;    
     let initialPosition = [1,1]
-        if (this.props.position){ initialPosition = this.props.position;} 
+        // if (this.props.position !== null){ initialPosition = this.props.position;} 
     const translateY = initialPosition[0];
     const translateX = initialPosition[1];
 
-    const roomRender = room.cellArray.map( (roomCell, index) => {
+    // console.log(this.props.room.roomName + props:' + this.props.room.cellArray);
+    // console.log(this.props.room.cellArray)
+    const roomRender = this.props.room.cellArray.map( (roomCell, index) => {
         
         const position = [roomCell[0], roomCell[1]];
-        const name = ('' + room.roomType + ' ' + room.roomStatus + '-' + position)
+        const name = ('' + this.props.room.roomType + ' ' + this.props.room.roomStatus + '-' + position)
 
         const cell = {
             'empty': true,

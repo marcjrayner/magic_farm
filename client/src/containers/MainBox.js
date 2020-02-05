@@ -133,9 +133,9 @@ class MainBox extends Component {
             this.setState({ selectedCardID: cardID});
             this.setState(
                 {mouseObject:{
+                    objectData: cardObject,
                     objectType: cardType,
-                    placedStatus: 'possible',
-                    objectData: cardObject
+                    placedStatus: 'possible'                   
                     }
                 }
             )

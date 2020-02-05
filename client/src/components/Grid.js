@@ -6,7 +6,6 @@ import MouseObject from './MouseObject';
 const Grid = (props) => {
 
     const grid = props.gridData;
-    
     const mouseObjects = [];
     
     if (props.mouseObject !== null) {

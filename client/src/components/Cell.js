@@ -19,12 +19,16 @@ const Cell = (props) => {
 
     function handleClick(e){
         // console.log(`choice selection made: ` + props.cell.position)
-        props.clickMethod({
+        var clickObject = {
             'position': [props.cell.position],
             'type': 'cell',
             'hover-position': props.hoverPosition,
             'ref': props.affiliation
-        });
+        }
+
+        console.log(clickObject);
+
+        props.clickMethod( clickObject );
     }
 
     function handleHover(e){

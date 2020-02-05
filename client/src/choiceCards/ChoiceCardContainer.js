@@ -56,6 +56,7 @@ class ChoiceCardContainer extends Component {
 
                 <ChoiceCard
                     cellSize={this.props.cellSize}
+                    id={index}
                     key={index}
                     value={index}
                     type={this.props.choiceType}
