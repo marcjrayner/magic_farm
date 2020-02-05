@@ -67,6 +67,7 @@ class ChoiceCardContainer extends Component {
         this.generateRoomChoices = this.generateRoomChoices.bind(this);
     }
 
+    /// This is the new develop branch 
     generateRoomChoices(x){
         const roomTypes = this.state.roomTypes;
         var length = roomTypes.length;
