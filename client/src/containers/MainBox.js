@@ -118,8 +118,6 @@ class MainBox extends Component {
         this.setState({choiceObjects: choices})
     }
 
-
-
     handleHoverGameBoardLocation(positionArray) {
         this.setState({ hoverGameBoardLocation: positionArray })
     }
@@ -181,6 +179,7 @@ class MainBox extends Component {
                 roomMaxHeight: room.objectData.roomMaxHeight,
                 roomStatus: room.objectData.roomStatus,
                 roomType: room.objectData.roomType,
+                area: room.objectData.area,
                 roomContents: [],
                 roomName: room.objectData.roomName
             }           
@@ -203,8 +202,11 @@ class MainBox extends Component {
         // request.post('http://localhost:8080/rooms', postRoom);
         newArray.push(newRoom);
         this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
+        
+        // updateRoomTotal & Area
         const roomTotal = this.state.userInventoryData
         roomTotal.numberOfRooms += 1;
+        roomTotal.areaCovered += room.objectData.area;
         this.setState({userInventoryData: roomTotal})
 
         // const newData = update(myData, {
