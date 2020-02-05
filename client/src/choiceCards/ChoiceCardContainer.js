@@ -109,7 +109,7 @@ class ChoiceCardContainer extends Component {
                 <section id="choice-card-container">
                     <button id="generate-room-choice" className={this.state.buttonVisible ? '' : 'hidden '} onClick={this.generateRoomChoices}>Get Room Choices</button>
                     <section id="current-cards">
-                    {cards} 
+                        {cards} 
                     </section>
                 </section>
                 </>
