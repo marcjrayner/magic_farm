@@ -229,7 +229,8 @@ class MainBox extends Component {
 
     render() {
         return(
-            <>  
+            <section id="grid-layout" >
+
                 <InventoryContainer
                     userInventoryData={this.state.userInventoryData}
                     gameBoard={this.state.gameBoardData.gridData}
@@ -248,8 +249,7 @@ class MainBox extends Component {
                     selectedCard={this.state.selectedCardID}
                     clearSelection={this.clearCardChoice} />
         
-            </>
-
+            </section>
         )
     }
 }

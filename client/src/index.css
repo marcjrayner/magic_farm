@@ -116,22 +116,21 @@ code {
   display: grid;
   grid-template-columns: repeat(5, 20px);
   grid-template-rows: repeat(5, 20px);
-<<<<<<< HEAD
-}
-=======
 }
 
 
-.body{
-  grid-template-areas:game-board;
+#grid-layout{
+  display: grid;
+  grid-template-columns: 6fr 1.5fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: "game-board inventory" "choice-card inventory";
 } 
 
 #game-board-container { 
   grid-area: game-board; 
-  padding: 25px;
-  align-self: center;
-  position: relative;
-  width: 70%;
+  padding-left: 25px; 
+  padding-right: 25px;
+  margin: 5px;
 
 }
 
@@ -139,9 +138,8 @@ code {
   grid-area: choice-card;
   padding-left: 25px; 
   padding-right: 25px;
-  position: relative;
-  width: 70%;
-  height: 20%;
+  margin: 5px;
+
 }
 
 #inventory-container h3{
@@ -149,9 +147,12 @@ code {
 }
 
 #inventory-container { 
+  margin: 5px;
+  grid-area: inventory; 
   padding-left: 20px;
   padding-right: 20px;
   padding-bottom: 20px;
+<<<<<<< HEAD
   grid-area: inventory; 
   float: right;
   align-self: center;
@@ -159,4 +160,3 @@ code {
 }
 
 #level-container {grid-area: level; }
->>>>>>> 45aec3e81bbc6599adf1d253d01c951526a14089
