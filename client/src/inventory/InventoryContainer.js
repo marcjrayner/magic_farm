@@ -9,6 +9,7 @@ class InventoryContainer extends Component {
         super(props);
         this.state = {};
         this.handlePost = this.handlePost.bind(this);
+        this.handleAnimalPost = this.handleAnimalPost.bind(this);
         this.loadData = this.loadData.bind(this);
     }
 
@@ -31,6 +32,11 @@ class InventoryContainer extends Component {
     handlePost(roomType){
         const request = new Request();
         request.post('http://localhost:8080/roomTypes', roomType);
+    }
+
+    handleAnimalPost(animalType){
+        const request = new Request();
+        request.post('http://localhost:8080/animalTypes', animalType)
     }
 
     loadData() {
@@ -64,6 +70,16 @@ class InventoryContainer extends Component {
                 roomStatus: 'room',
                 area: 9,
                 roomName: 'THREExTHREE'
+            }, {
+                cellArray: [[1, 1], [1, 2], [1, 3],[1,4]
+                [2, 1], [2, 2], [2, 3],[2,4],
+                 [3, 1], [3, 2], [3, 3], [3,4],
+                [4,1],[4,2],[4,3],[4,4]],
+                roomMaxWidth: 4,
+                roomMaxHeight: 4, roomType: 'red',
+                roomStatus: 'room',
+                area: 16,
+                roomName: 'FOURxFOUR'
             },
             {
                 cellArray: [[1, 1], [2, 1]],
@@ -95,6 +111,30 @@ class InventoryContainer extends Component {
 
         for(let data of dataArray){
             this.handlePost(data);
+        }
+
+        const animalArray = [
+         {  cellArray: [[1, 1]],
+            animalMaxWidth: 1,
+            animalMaxHeight: 2,
+            animalType: 'red',
+            animalStatus: 'animal',
+            area: 2,
+            animalName: 'chicken'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 3,
+                animalMaxHeight: 3,
+                animalType: 'red',
+                animalStatus: 'animal',
+                area: 2,
+                animalName: 'dragon'
+            }
+        ];
+        
+        for(let animal of animalArray){
+            this.handleAnimalPost(animal)
         }
 
        
