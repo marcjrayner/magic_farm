@@ -17,29 +17,24 @@ public class ChoiceSet {
 
 
     @JsonIgnore
-    @OneToMany(mappedBy = "choice_set")
+    @OneToMany(mappedBy = "choiceSet")
     private List<Animal> animals;
 
-    @JsonIgnoreProperties
-    @OneToMany(mappedBy = "choice_set")
+    @JsonIgnore
+    @OneToMany(mappedBy = "choiceSet")
     private List<Room> rooms;
 
-
+    @OneToOne(mappedBy = "currentChoiceSet")
+    private State state;
 
 
     public ChoiceSet() {
         this.animals = new ArrayList<>();
         this.rooms = new ArrayList<>();
+        this.state = new State();
     }
 
-
-
-
-
-
-
-
-    // GETTERS AND SETTERS
+// GETTERS AND SETTERS
 
 
     public Long getId() {
@@ -64,5 +59,13 @@ public class ChoiceSet {
 
     public void setRooms(List<Room> rooms) {
         this.rooms = rooms;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public void setState(State state) {
+        this.state = state;
     }
 }
