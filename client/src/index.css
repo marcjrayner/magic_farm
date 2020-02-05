@@ -45,8 +45,6 @@ code {
     "game-board game-board inventory"
     "choice-card choice-card inventory"
     "footer footer footer";
-
-
 } 
 
 .hidden{
@@ -66,25 +64,6 @@ code {
   padding-left: 25px; 
   padding-right: 25px;
   margin: 5px;
-}
-
-#inventory-container h3{
-  text-align: center;
-}
-
-
-#game-board-container { 
-  grid-area: game-board; 
-  padding-left: 25px; 
-  padding-right: 25px;
-  margin: 5px;
-}
-
-#choice-card-container { 
-  grid-area: choice-card;
-  padding-left: 25px; 
-  padding-right: 25px;
-  margin: 5px;
   display: flex;
   background-color:#F2DF8F;
   flex-direction: column;
@@ -94,10 +73,6 @@ code {
   display: flex;
   flex-direction: row;
 }
-
-
-#choice-card{}
-
 
 #inventory-container h3{
   text-align: center;
@@ -109,7 +84,6 @@ code {
     padding-right: 20px;
     padding-bottom: 20px;
     grid-area: inventory;
-
 }
 
 #level-container {grid-area: level; }
@@ -126,19 +100,14 @@ code {
 .cell {
   width: 100%;
   height: 100%;
-  /* background: rgb(150, 131, 131); */
   background:rgba(28, 107, 40, 0.09);
-
 }
-
 
 .cell-hover {
   opacity: 0.2; 
 }
 
 .empty {
-  /* background-color: lightgrey; */
-  /* border: 1px solid grey; */
   z-index: 0;
 }
 
@@ -161,10 +130,8 @@ code {
 }
 
 #inventory-container {
-  /* background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%); */
   background-color: #F2DF8F;  
 }
-
 
 .room-selected > * {
     box-sizing: border-box;
@@ -198,12 +165,6 @@ code {
     padding-bottom: 2rem;
     box-sizing: border-box;
     background-color:#F2DF8F;
-}
-
-.room-card-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 20px);
-  grid-template-rows: repeat(5, 20px);
 }
 
 
