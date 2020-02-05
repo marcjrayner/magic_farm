@@ -10,14 +10,14 @@ class ChoiceCardContainer extends Component {
             objects: [],
             choices: [],
             level: 1,
-            buttonVisible: false
+            buttonVisible: true
         }
         this.makeCardSelection = this.makeCardSelection.bind(this);
         this.generateRoomChoices = this.generateRoomChoices.bind(this);
     }
 
     componentDidMount() {
-        const url = 'http://localhost:8080/roomTypes';
+        const url = 'http://localhost:8080/roomTypes/';
 
         fetch(url)
             .then(res => res.json())
