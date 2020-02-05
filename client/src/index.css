@@ -5,7 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #CFB35F;
+  background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%);
+
 
 }
 
@@ -58,6 +59,11 @@ code {
 #game-board-container {
 
   background: linear-gradient(90deg, rgba(57,181,74,1) 0%, rgba(126,197,97,1) 35%);
+}
+
+#inventory-container {
+  /* background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%); */
+  background-color: #F2DF8F;  
 }
 
 
