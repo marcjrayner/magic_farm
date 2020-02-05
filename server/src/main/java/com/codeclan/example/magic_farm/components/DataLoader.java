@@ -1,6 +1,8 @@
 package com.codeclan.example.magic_farm.components;
 
+import com.codeclan.example.magic_farm.models.Room;
 import com.codeclan.example.magic_farm.models.RoomType;
+import com.codeclan.example.magic_farm.repositories.RoomRepository;
 import com.codeclan.example.magic_farm.repositories.RoomTypeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -14,6 +16,9 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     RoomTypeRepository roomTypeRepository;
+
+    @Autowired
+    RoomRepository roomRepository;
 
 
 
@@ -116,6 +121,8 @@ public class DataLoader implements ApplicationRunner {
 
 
 
+
+
 //      adding data
         RoomType roomType1  = new RoomType(oneByOneCoordinates,1,1,1,"red","roomOneOne");
         roomTypeRepository.save(roomType1);
@@ -125,6 +132,10 @@ public class DataLoader implements ApplicationRunner {
 
         RoomType crossThree  = new RoomType(cross,3,3,5,"red","roomCross");
         roomTypeRepository.save(crossThree);
+
+        Room room = new Room(oneXFour);
+        room.setRoomType(crossThree);
+        roomRepository.save(room);
 
 
     }
