@@ -6,12 +6,16 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%);
-  grid-template-areas:
-  'game-board-container game-board-container game-board-container game-board-container'
-  'choice-card-container right right'
-  'menu footer footer footer footer footer';
+  /* grid-template-areas:
+  'main main main main'
+  'footer footer footer sign'; */
 }
 
+#root{
+  grid-template-areas:
+  'main main main main'
+  'footer footer footer'
+}
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
 }
@@ -24,26 +28,47 @@ code {
     "footer footer footer";
 } 
 
+#footer {
+grid-area: footer;
+    margin: 0;
+    padding: 0;
+    position: sticky;
+    bottom: 0;
+    overflow: hidden;
+}
+
+#footer img {
+  margin: 0;
+    padding: 0;
+    width: 110%;
+    position: relative;
+}
+
 .hidden{
   visibility: hidden
 }
 
 #game-board-container { 
-  grid-area: game-board; 
-  padding-left: 25px; 
-  padding-right: 25px;
-  margin: 5px;
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30rem;
+    grid-area: game-board;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 5px;
 
 }
 
 #choice-card-container { 
   grid-area: choice-card;
-  padding-left: 25px; 
-  padding-right: 25px;
-  margin: 5px;
-  display: flex;
-  background-color:#F2DF8F;
-  flex-direction: column;
+    min-height: 20rem;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin: 5px;
+    display: flex;
+    background-color: #F2DF8F;
+    flex-direction: column;
 }
 
 #current-cards{
@@ -56,7 +81,11 @@ code {
 }
 
 #inventory-container { 
-      margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    margin: 5px;
     padding-left: 20px;
     padding-right: 20px;
     padding-bottom: 20px;
@@ -64,6 +93,14 @@ code {
 }
 
 #level-container {grid-area: level; }
+#level-sign {}
+#level-display{
+ z-index: 100;
+}
+
+#level-board {
+  width: 11rem;
+}
 
 #game-board {
   padding: 10px;

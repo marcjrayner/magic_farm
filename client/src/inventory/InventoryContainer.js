@@ -248,10 +248,9 @@ class InventoryContainer extends Component {
                 <button onClick={this.loadData}>Load Data</button>
                 <button onClick={this.props.loadChoices}>Load Choices</button>
 
-
                 <aside id="level-display">
-                Level {inventory.level}
-                </aside>
+                    Level {this.props.level}
+                    <img id="level-board" src="woodBoard.png" /></aside>
             </section>
         )
     };

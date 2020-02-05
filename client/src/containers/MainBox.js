@@ -3,6 +3,7 @@ import GameBoardContainer from '../gameBoard/GameBoardContainer';
 import ChoiceCardContainer from '../choiceCards/ChoiceCardContainer';
 import InventoryContainer from '../inventory/InventoryContainer';
 import Request from '../helpers/request';
+import update from 'immutability-helper';
 
 class MainBox extends Component {
 
@@ -184,15 +185,32 @@ class MainBox extends Component {
                 roomName: room.objectData.roomName
             }           
         }
-        let postRoom = {
-            objecType: 'room',
-            position: newPosition[0]
-        }
-        const request = new Request();
-        request.post('http://localhost:8080/rooms', postRoom);
+        // let postRoom = {
+        //     "cellArray": [
+        //         [
+        //             1,
+        //             1
+        //         ]
+        //     ],
+        //     "roomMaxWidth": 1,
+        //     "roomMaxHeight": 1,
+        //     "area": 1,
+        //     "roomStatus": "room",
+        //     "roomType": "red",
+        //     "roomName": "roomOneOne"
+        // }
+        // const request = new Request();
+        // request.post('http://localhost:8080/rooms', postRoom);
         newArray.push(newRoom);
         this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
+        const roomTotal = this.state.userInventoryData
+        roomTotal.numberOfRooms += 1;
+        this.setState({userInventoryData: roomTotal})
 
+        // const newData = update(myData, {
+        //     x: { y: { z: { $set: 7 } } },
+        //     a: { b: { $push: [9] } }
+        // });
         
         this.setState({mouseObject: null});
         this.setState({selectedCardID: null});
@@ -201,6 +219,7 @@ class MainBox extends Component {
         this.handleLoadSomeChoices();
         // this.setState({ choiceContainerData: { choiceType: 'animal' } })
         // this.handleLoadSomeAnimalChoices();
+        
         }
 
     render() {
@@ -226,6 +245,11 @@ class MainBox extends Component {
                     selectedCard={this.state.selectedCardID}
                     clearSelection={this.clearCardChoice}
                     objects={this.state.choiceObjects}/>
+
+                    
+                  
+
+                <footer id="footer"></footer> 
         
             </main>
 
