@@ -50,7 +50,6 @@ const GameBoardContainer = (props) => {
             // if it's an array with multiple positions, its a room
             if (cellAnimalOrRoomObject.position.length > 1){
                 // its a room.
-            
             }
 
             if (clickedObject !== null){
@@ -73,7 +72,6 @@ const GameBoardContainer = (props) => {
             <h2>Game Board Container</h2>
             
             <Grid
-                selectedOnBoard={props.selectedOnBoard}
                 hoverLocation={props.hoverLocation}
                 mouseObject={props.mouseObject}
                 gridData={props.gameBoardData.gridData}

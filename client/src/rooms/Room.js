@@ -14,19 +14,20 @@ class Room extends Component {
 
     makeCellClickWholeRoom = function (cellObject) {
 
-        // if (this.state.selectedRoom === null) {
-        //     this.setState(
-        //         {selectedRoom: true}
-        //  );
+        if (this.state.selectedRoom === null) {
+            
+            this.setState(
+                {selectedRoom: true}
+         );
 
             this.props.clickMethod(
                 {'position': [this.props.room.cellArray],
                 'type': 'room',
                 'hover-position': this.props.hoverPosition,
-                'ref': this.props.id}
+                'ref': this.props.key}
                 
                 )
-        // }
+        }
 
         return null;
     };
@@ -88,9 +89,7 @@ class Room extends Component {
 
         <>
         <aside className={"room "
-        + (this.props.amISelected ? 'room-selected ' : '')
-        + this.props.placedStatus
-         }
+        + this.props.placedStatus}
         style={roomStyle}
         id={"["+translateX+","+translateY+"]"} >
             {roomRender}

@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Cell from './Cell';
 import Room from '../rooms/Room';
+import MouseObject from './MouseObject';
 
 const Grid = (props) => {
 
@@ -14,18 +15,11 @@ const Grid = (props) => {
 
     function doNothing() { return null; }
 
-    let testRef = -1;
-    let testType = ''
-    if (props.selectedOnBoard !== null) { testRef = props.selectedOnBoard.ref; testType = props.selectedOnBoard.type}
-
     const renderMouse = mouseObjects.map((object, index) => {
 
             switch (object.objectType) {
-            case 'room':
-                
-            return (
+            case 'room': return (
                 <Room
-            
                     placedStatus={object.placedStatus}
                     cellSize={grid.cellSize}
                     key={index}
@@ -39,6 +33,8 @@ const Grid = (props) => {
                 <p key={index}>this will be an animal</p>
             );
             default: return null; };
+
+
     })
 
     function cellClickLogic(cellAnimalorRoomDataObject) {
@@ -48,8 +44,7 @@ const Grid = (props) => {
     
     const occupiedSpace = [];
 
-    var objects = [];
-    if (props.objectsArray.length !== 0) { objects = props.objectsArray.map((object, index) => {
+    const objects = props.objectsArray.map((object, index) => {
         let objectPositionStatus = 'fixed';
 
         object.objectData.cellArray.map((cellPosition) => {
@@ -71,10 +66,8 @@ const Grid = (props) => {
             return(
                 <Room
                 placedStatus={objectPositionStatus}
-                amISelected={props.selectedOnBoard.type === 'room' && testRef === index ? true : false}
                 cellSize={grid.cellSize}
                 key={index}
-                id={index}
                 room={object.objectData}
                 position={object.objectPosition}
                 clickMethod={cellClickLogic}
@@ -87,8 +80,7 @@ const Grid = (props) => {
             default: return null;
         }
 
-    })
-    }
+    });
 
     // BUILD AN EMPTY GRID
     const x = grid.width;

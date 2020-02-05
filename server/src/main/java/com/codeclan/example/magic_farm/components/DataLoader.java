@@ -15,19 +15,19 @@ public class DataLoader implements ApplicationRunner {
 
     @Autowired
     AnimalRepository animalRepository;
-
+//
 //    @Autowired
-//    ChoiceSetRepository choiceRepository;
+//    ChoiceRepository choiceRepository;
 //
 //    @Autowired
 //    FarmRepository farmRepository;
-
+//
     @Autowired
     RoomRepository roomRepository;
-
+//
 //    @Autowired
 //    StateRepository stateRepository;
-
+//
 
 
     public DataLoader() {

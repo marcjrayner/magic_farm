@@ -27,19 +27,19 @@ const InventoryContainer = (props) => {
             <section id="inventory-container" >
                 
                 <aside id="coins-display">
-                    <p className="ui-coins" >{inventory.coins}</p>
+                    <p class="ui-coins" >{inventory.coins}</p>
                 </aside>
 
                 <aside id="playing-data" >
-                    <p className="user-data ui-rooms">
+                    <p class="user-data ui-rooms">
                         Rooms: {inventory.numberOfRooms} | {area}%
                     </p>
                 
-                    <p className="user-data ui-animals">
+                    <p class="user-data ui-animals">
                         Animals: {inventory.animals}
                     </p>
 
-                    <p className="user-data ui-score">
+                    <p class="user-data ui-score">
                         Score: {inventory.score}
                     </p>
                 </aside>
