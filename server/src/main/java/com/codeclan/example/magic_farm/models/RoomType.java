@@ -1,7 +1,10 @@
 package com.codeclan.example.magic_farm.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "room_types")
@@ -25,9 +28,17 @@ public class RoomType {
     @Column(name = "roomName")
     String roomName;
 
+
+
+
+    @JsonIgnoreProperties("rooms")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "roomType")
+    private List<Room> rooms;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
+
 
     public RoomType(ArrayList<ArrayList<Integer>> cellArray, int roomMaxWidth, int roomMaxHeight, int area, String roomType, String roomName) {
         this.cellArray = cellArray;
@@ -37,11 +48,14 @@ public class RoomType {
         this.roomStatus = "room";
         this.roomType = roomType;
         this.roomName = roomName;
+        this.rooms = new ArrayList<>();
     }
 
     public RoomType(){
 
     }
+
+
 
     public ArrayList<ArrayList<Integer>> getCellArray() {
         return cellArray;
