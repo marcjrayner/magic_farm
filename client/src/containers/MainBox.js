@@ -121,6 +121,21 @@ class MainBox extends Component {
         this.handleLoadSomeChoices = this.handleLoadSomeChoices.bind(this);
     }
 
+    handleLoadSomeAnimalChoices(){
+        const request = new Request();
+        const choices = []
+
+        for (var i = 0; i < 3; i++) {
+            let index = (Math.floor(Math.random() * 10) + 1);
+            request.get('http://localhost:8080/animalTypes/' + index)
+                .then((data) => {
+                    choices.push(data);
+                })
+        }
+
+        this.setState({ choiceObjects: choices })
+    }
+
     handleLoadSomeChoices(){
         const request = new Request();
         const choices = []
@@ -208,6 +223,8 @@ class MainBox extends Component {
         this.setState({mouseObject: null});
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
+        this.setState({choiceObjects: []});
+        this.handleLoadSomeChoices();
         this.setState({choiceContainerData: {
             choiceType: 'room',
             cardArray: [
