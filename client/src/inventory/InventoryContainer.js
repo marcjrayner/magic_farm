@@ -222,7 +222,7 @@ class InventoryContainer extends Component {
     render(){
     const gameBoard = this.props.gameBoard;
     const inventory = this.props.userInventoryData;
-    const area = ( inventory.areaCovered ) / ( gameBoard.width * gameBoard.height) * 100;
+    const area = Math.round(( inventory.areaCovered ) / ( gameBoard.width * gameBoard.height) * 100);
    
         return (
             <section id="inventory-container" >
