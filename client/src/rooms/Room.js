@@ -83,9 +83,7 @@ class Room extends Component {
     return(
 
         <>
-        <aside className={"room "
-        + (this.state.selectedRoom ? 'room-selected ' : '') 
-        + this.props.placedStatus}
+        <aside className={"room " + (this.state.selectedRoom ? 'room-selected ' : '') + this.props.placedStatus}
         style={roomStyle}
         id={"["+translateX+","+translateY+"]"} >
             {roomRender}

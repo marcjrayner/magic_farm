@@ -186,56 +186,16 @@ class MainBox extends Component {
         }
         newArray.push(newRoom);
         this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
+
+        
         this.setState({mouseObject: null});
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
         this.setState({choiceObjects: []});
-        this.setState({choiceContainerData: {
-            choiceType: 'animal'
-        }})
-        this.handleLoadSomeAnimalChoices();
-        this.setState({choiceContainerData: {
-            choiceType: 'room',
-            cardArray: [
-                {
-                    id: 'BB1',
-                    objectType: 'room',
-                    objectPosition: null,
-                    objectData: {
-                        cellArray: [
-                            [2, 1], [1, 2],
-                            [2, 2], [3,2], [2, 3]
-                        ],
-                        roomMaxWidth: 3,
-                        roomMaxHeight: 3,
-                        roomStatus: 'room',
-                        roomType: 'red',
-                        roomContents: [],
-                        roomName: '3x3 Cross'
-                    }
-                },
-                {
-                    id: 'BB2',
-                    objectType: 'room',
-                    objectPosition: null,
-                    objectData: {
-                        placedStatus: null,
-                        cellArray: [
-                            [1, 1], [2, 1],
-                            [3, 1], [4, 1]
-                        ],
-                        roomMaxWidth: 4,
-                        roomMaxHeight: 1,
-                        roomStatus: 'room',
-                        roomType: 'red',
-                        roomContents: [],
-                        roomName: '4x1 Rectangle'
-                    }
-                }
-            ]
-
-        }})
-    }
+        this.handleLoadSomeChoices();
+        // this.setState({ choiceContainerData: { choiceType: 'animal' } })
+        // this.handleLoadSomeAnimalChoices();
+        }
 
     render() {
         return(

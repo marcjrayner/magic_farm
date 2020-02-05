@@ -68,7 +68,8 @@ const ChoiceCard = (props) => {
                 hoverMethod={doNothing}
                 className={'card-content '}
                 animal={card}
-                position={{ objectPosition: [1, 1] }} />)
+                position={{ objectPosition: [1, 1] }} />
+                )
         }
     }
 

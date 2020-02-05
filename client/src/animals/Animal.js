@@ -6,8 +6,9 @@ class Animal extends Component {
         constructor(props) {
             super(props);
             this.state = {
+                selectedRoom: null
             };
-            this.hoverRelativePosition = this.hoverRelativePosition.bind(this);
+            // this.hoverRelativePosition = this.hoverRelativePosition.bind(this);
         };
 
     
@@ -33,17 +34,14 @@ class Animal extends Component {
 
                 return (
                     <Cell key={index} cell={cell}
-                    // clickMethod={this.makeCellClickWholeRoom}
-                        // hoverMethod={this.hoverRelativePosition}
+                    clickMethod={this.props.doNothing}
+                        hoverMethod={this.props.doNothing}
                     />
                 )
             });
 
             const animalStyle = {
-                display: 'grid',
                 gridGap: '1px',
-                gridTemplateRows: 'repeat(' + animal.animalMaxHeight + ', ' + this.props.cellSize + 'px)',
-                gridTemplateColumns: 'repeat(' + animal.animalMaxWidth + ',' + this.props.cellSize + 'px)',
                 gridRowStart: translateX,
                 gridColumnStart: translateY,
                 gridRowEnd: translateX + animal.animalMaxHeight,
