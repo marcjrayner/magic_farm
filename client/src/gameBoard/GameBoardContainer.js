@@ -69,7 +69,7 @@ const GameBoardContainer = (props) => {
 
     return (
         <section id="game-board-container">
-            <h2>Game Board Container</h2>
+            {/* <h2>Game Board Container</h2> */}
             
             <Grid
                 hoverLocation={props.hoverLocation}

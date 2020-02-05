@@ -18,6 +18,7 @@ code {
 }
 
 #game-board {
+  padding: 10px;
   border: 1px solid black; 
   margin: 0 15%;
   /* display: grid; */
@@ -113,21 +114,39 @@ code {
 
 
 .body{
-  grid-template-areas:
-  'game-board-container game-board-container game-board-container game-board-container'
-  'choice-card-container inventory-container'
-  'level-container inventory-container';
+  grid-template-areas:game-board;
 } 
 
 #game-board-container { 
-  grid-area: game-board-container; }
+  grid-area: game-board; 
+  padding: 25px;
+  align-self: center;
+  position: relative;
+  width: 70%;
+
+}
 
 #choice-card-container { 
-  grid-area: choice-card-container;}
+  grid-area: choice-card;
+  padding-left: 25px; 
+  padding-right: 25px;
+  position: relative;
+  width: 70%;
+  height: 20%;
+}
+
+#inventory-container h3{
+  text-align: center;
+}
 
 #inventory-container { 
-  
-  grid-area: inventory-container; 
-  float: right;}
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  grid-area: inventory; 
+  float: right;
+  align-self: center;
 
-#level-container {grid-area: level-container; }
+}
+
+#level-container {grid-area: level; }

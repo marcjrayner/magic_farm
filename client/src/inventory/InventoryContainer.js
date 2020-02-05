@@ -25,7 +25,7 @@ const InventoryContainer = (props) => {
    
         return (
             <section id="inventory-container" >
-                
+                <h3>Inventory</h3>
                 <aside id="coins-display">
                     <p class="ui-coins" >{inventory.coins}</p>
                 </aside>
