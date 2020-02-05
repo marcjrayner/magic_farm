@@ -28,7 +28,7 @@ public class Animal implements IChoose {
 
     @JsonIgnoreProperties("animals")
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "choice_set_id")
+    @JoinColumn(name = "choice_sets_id")
     private ChoiceSet choiceSet;
 
 
@@ -37,7 +37,7 @@ public class Animal implements IChoose {
         this.name = name;
         this.room = null;
         this.price = price;
-        this.choiceSet = null;
+        this.choiceSet = new ChoiceSet();
     }
 
     public Animal(){
