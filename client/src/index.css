@@ -1,13 +1,36 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@DCHitch092 
+marcjrayner
+/
+magic_farm
+3
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
+magic_farm/client/src/index.css
+@weinbecher weinbecher Merge branch 'development' into feature/css
+550fb34 6 minutes ago
+@DCHitch092@weinbecher@marcjrayner
+199 lines (153 sloc)  3.34 KB
+  
 body {
   padding: 10px;
   margin: 0;
-font-family: 'Quicksand', sans-serif;  -webkit-font-smoothing: antialiased;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%);
   grid-template-areas:
   'game-board-container game-board-container game-board-container game-board-container'
   'choice-card-container right right'
   'menu footer footer footer footer footer';
+
 }
 
 code {
@@ -61,6 +84,8 @@ code {
   padding: 10px;
   border: 1px solid black; 
   margin: 0 15%;
+  /* display: grid; */
+  /* grid-gap: 1px; */
 }
 
 
@@ -78,6 +103,8 @@ code {
 }
 
 .empty {
+  /* background-color: lightgrey; */
+  /* border: 1px solid grey; */
   z-index: 0;
 }
 
@@ -96,7 +123,6 @@ code {
 }
 
 #game-board-container {
-
   background: linear-gradient(90deg, rgba(57,181,74,1) 0%, rgba(126,197,97,1) 35%);
 }
 
@@ -104,6 +130,7 @@ code {
   /* background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%); */
   background-color: #F2DF8F;  
 }
+
 
 .room-selected > * {
     box-sizing: border-box;
@@ -117,9 +144,10 @@ code {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color:#F2DF8F;
+  /* background-color:#F2DF8F; */
   
 }
+
 .selected-card{
   background-color: lightblue;
 }
@@ -139,11 +167,52 @@ code {
     padding-bottom: 2rem;
     box-sizing: border-box;
     background-color:#F2DF8F;
-
 }
 
 .room-card-grid {
   display: grid;
   grid-template-columns: repeat(5, 20px);
   grid-template-rows: repeat(5, 20px);
+}
+
+
+#app-container{
+  display: grid;
+  grid-template-columns: 6fr 1.5fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: "game-board inventory" "choice-card inventory";
+  align-items: start;
+
+} 
+
+#game-board-container { 
+  grid-area: game-board; 
+  padding-left: 25px; 
+  padding-right: 25px;
+  margin: 5px;
+
+}
+
+#choice-card-container { 
+  grid-area: choice-card;
+  padding-left: 25px; 
+  padding-right: 25px;
+  margin: 5px;
+
+}
+
+#inventory-container h3{
+  text-align: center;
+}
+
+#inventory-container { 
+  margin: 5px;
+  grid-area: inventory; 
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 20px;
+  height: 62%;
+  grid-area: inventory; 
+
+
 }

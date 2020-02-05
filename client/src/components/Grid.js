@@ -7,6 +7,8 @@ const Grid = (props) => {
 
     const grid = props.gridData;
     const mouseObjects = [];
+
+    // const [roomSelected, setRoomSelected] = 
     
     if (props.mouseObject !== null) {
         mouseObjects.push(props.mouseObject)
@@ -37,6 +39,7 @@ const Grid = (props) => {
     })
 
     function cellClickLogic(cellAnimalorRoomDataObject) {
+
         props.updateBusyCells(occupiedSpace);
         props.clickMethod(cellAnimalorRoomDataObject);
     }
