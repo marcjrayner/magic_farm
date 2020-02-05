@@ -64,42 +64,8 @@ class MainBox extends Component {
             },
             choiceObjects: [],
             choiceContainerData: {
-                choiceType: 'room',
-                cardArray: [
-                    {   id: 'CC1',
-                        objectType: 'room',
-                        objectPosition: null,
-                        objectData: {
-                            cellArray: [
-                                [1, 1], [2, 1],
-                                [1, 2], [2, 2]
-                            ],
-                            roomMaxWidth: 2,
-                            roomMaxHeight: 2,
-                            roomStatus: 'room',
-                            roomType: 'red',
-                            roomContents: [],
-                            roomName: '2x2 Square'
-                        }
-                    },
-                    {   id: 'CC2',
-                        objectType: 'room',
-                        objectPosition: null,
-                        objectData: {
-                        placedStatus: null,
-                        cellArray: [
-                            [1, 1], [2, 1],
-                            [3, 1], [4, 1]
-                        ],
-                        roomMaxWidth: 4,
-                        roomMaxHeight: 1,
-                        roomStatus: 'room',
-                        roomType: 'red',
-                        roomContents: [],
-                        roomName: '4x1 Rectangle'
-                    }}
-                ]
-
+                choiceType: 'room'
+                // cardArray: []
             },
             userInventoryData: {
                 coins: 100,
@@ -224,7 +190,10 @@ class MainBox extends Component {
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
         this.setState({choiceObjects: []});
-        this.handleLoadSomeChoices();
+        this.setState({choiceContainerData: {
+            choiceType: 'animal'
+        }})
+        this.handleLoadSomeAnimalChoices();
         this.setState({choiceContainerData: {
             choiceType: 'room',
             cardArray: [

@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Cell from './Cell';
 import Room from '../rooms/Room';
-import MouseObject from './MouseObject';
+// import MouseObject from './MouseObject';
 
 const Grid = (props) => {
 

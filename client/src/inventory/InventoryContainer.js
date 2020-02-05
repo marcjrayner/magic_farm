@@ -71,12 +71,14 @@ class InventoryContainer extends Component {
                 area: 9,
                 roomName: 'THREExTHREE'
             }, {
-                cellArray: [[1, 1], [1, 2], [1, 3],[1,4]
+                cellArray: [
+                    [1, 1], [1, 2], [1, 3], [1,4], 
                 [2, 1], [2, 2], [2, 3],[2,4],
                  [3, 1], [3, 2], [3, 3], [3,4],
                 [4,1],[4,2],[4,3],[4,4]],
                 roomMaxWidth: 4,
-                roomMaxHeight: 4, roomType: 'red',
+                roomMaxHeight: 4,
+                roomType: 'red',
                 roomStatus: 'room',
                 area: 16,
                 roomName: 'FOURxFOUR'
@@ -119,8 +121,9 @@ class InventoryContainer extends Component {
             animalMaxHeight: 2,
             animalType: 'red',
             animalStatus: 'animal',
-            area: 2,
-            animalName: 'chicken'
+        
+            animalName: 'chicken',
+            imgsrc: 'chicken.png'
             },
             {
                 cellArray: [[1, 1]],
@@ -128,7 +131,83 @@ class InventoryContainer extends Component {
                 animalMaxHeight: 3,
                 animalType: 'red',
                 animalStatus: 'animal',
-                area: 2,
+                imgsrc: 'dragon.png',
+                animalName: 'dragon'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 1,
+                animalMaxHeight: 2,
+                animalType: 'red',
+                animalStatus: 'animal',
+
+                animalName: 'chicken',
+                imgsrc: 'chicken.png'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 3,
+                animalMaxHeight: 3,
+                animalType: 'red',
+                animalStatus: 'animal',
+                imgsrc: 'dragon.png',
+                animalName: 'dragon'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 1,
+                animalMaxHeight: 2,
+                animalType: 'red',
+                animalStatus: 'animal',
+
+                animalName: 'chicken',
+                imgsrc: 'chicken.png'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 3,
+                animalMaxHeight: 3,
+                animalType: 'red',
+                animalStatus: 'animal',
+                imgsrc: 'dragon.png',
+                animalName: 'dragon'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 1,
+                animalMaxHeight: 2,
+                animalType: 'red',
+                animalStatus: 'animal',
+
+                animalName: 'chicken',
+                imgsrc: 'chicken.png'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 3,
+                animalMaxHeight: 3,
+                animalType: 'red',
+                animalStatus: 'animal',
+                imgsrc: 'dragon.png',
+                animalName: 'dragon'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 1,
+                animalMaxHeight: 2,
+                animalType: 'red',
+                animalStatus: 'animal',
+
+                animalName: 'chicken',
+                imgsrc: 'chicken.png'
+            },
+            {
+                cellArray: [[1, 1]],
+                animalMaxWidth: 3,
+                animalMaxHeight: 3,
+                animalType: 'red',
+                animalStatus: 'animal',
+                imgsrc: 'dragon.png',
                 animalName: 'dragon'
             }
         ];

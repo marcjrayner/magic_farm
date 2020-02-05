@@ -1,5 +1,6 @@
 import React from 'react';
 import Room from '../rooms/Room';
+import Animal from '../animals/Animal';
 
 const ChoiceCard = (props) => {
 
@@ -42,22 +43,44 @@ const ChoiceCard = (props) => {
         console.log("Selecting This Room Does Nothing Here")
     }
 
-    return (
-        <article className={"card "
-        + (props.selectedCard === props.id ? 'selected-card ' : '')}
-            onClick={selectCard} >
-                
-            <h2>{props.choiceData.objectType}</h2> 
-            
-            <Room 
+    const cardData = () => {
+        if (props.type == "room") {
+
+            return(
+            <Room
                 placedStatus={props.choiceData.placedStatus}
                 cellSize={props.cellSize}
                 clickMethod={doNothing}
                 hoverMethod={doNothing}
                 className={'card-content '}
                 room={card}
-                position={{objectPosition: [1,1]}}
-            />
+                position={{ objectPosition: [1, 1] }}
+            />)
+
+        }
+
+        if (props.type === 'animal') {
+
+            return( <Animal
+                placedStatus={props.choiceData.placedStatus}
+                cellSize={props.cellSize}
+                clickMethod={doNothing}
+                hoverMethod={doNothing}
+                className={'card-content '}
+                animal={card}
+                position={{ objectPosition: [1, 1] }} />)
+        }
+    }
+
+    return (
+
+        <article className={"card "
+        + (props.selectedCard === props.id ? 'selected-card ' : '')}
+            onClick={selectCard} >
+                
+            <h2>{props.choiceData.objectType}</h2> 
+            
+            {cardData()}
 
             </article>
         )

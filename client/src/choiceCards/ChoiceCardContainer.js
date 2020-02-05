@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import ChoiceCard from './ChoiceCard';
-import GenerateChoicesButton from './GenerateChoicesButton';
 
 class ChoiceCardContainer extends Component {
 
@@ -13,7 +12,7 @@ class ChoiceCardContainer extends Component {
             // buttonVisible: true
         }
         this.makeCardSelection = this.makeCardSelection.bind(this);
-        this.generateRoomChoices = this.generateRoomChoices.bind(this);
+        // this.generateRoomChoices = this.generateRoomChoices.bind(this);
     }
 
     // componentDidMount() {
@@ -26,16 +25,16 @@ class ChoiceCardContainer extends Component {
     // }
     
     /// This is the new develop branch 
-    generateRoomChoices(x){
-        const roomTypes = this.props.objects;
-        var length = roomTypes.length;
-        const choices = []
-        for (var i = 0; i < x; i++){
-            var index = (Math.random() * length + 1);
-            choices.push(roomTypes[index]);
-        }
-        this.state.choices = choices;
-    }
+    // generateRoomChoices(x){
+    //     const roomTypes = this.props.objects;
+    //     var length = roomTypes.length;
+    //     const choices = []
+    //     for (var i = 0; i < x; i++){
+    //         var index = (Math.random() * length + 1);
+    //         choices.push(roomTypes[index]);
+    //     }
+    //     this.state.choices = choices;
+    // }
 
     makeCardSelection(card){
         this.props.clickMethod(card.id, this.props.choiceCardData.choiceType, card.objectData);
@@ -53,7 +52,7 @@ class ChoiceCardContainer extends Component {
                     id={index}
                     key={index}
                     value={index}
-                    type={this.props.choiceType}
+                    type={this.props.choiceCardData.choiceType}
                     choiceData={card}
                     clickMethod={this.makeCardSelection}
                     hoverMethod={this.props.hoverMethod}

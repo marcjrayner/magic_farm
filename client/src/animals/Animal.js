@@ -19,7 +19,7 @@ class Animal extends Component {
             const translateY = initialPosition[0];
             const translateX = initialPosition[1];
 
-            const roomRender = this.props.animal.cellArray.map((roomCell, index) => {
+            const animalRender = this.props.animal.cellArray.map((roomCell, index) => {
 
                 const position = [roomCell[0], roomCell[1]];
                 const name = ('' + this.props.animal.animalType + ' ' + this.props.animal.animalStatus + '-' + position)
@@ -42,12 +42,12 @@ class Animal extends Component {
             const animalStyle = {
                 display: 'grid',
                 gridGap: '1px',
-                gridTemplateRows: 'repeat(' + room.animalMaxHeight + ', ' + this.props.cellSize + 'px)',
-                gridTemplateColumns: 'repeat(' + room.animalMaxWidth + ',' + this.props.cellSize + 'px)',
+                gridTemplateRows: 'repeat(' + animal.animalMaxHeight + ', ' + this.props.cellSize + 'px)',
+                gridTemplateColumns: 'repeat(' + animal.animalMaxWidth + ',' + this.props.cellSize + 'px)',
                 gridRowStart: translateX,
                 gridColumnStart: translateY,
-                gridRowEnd: translateX + room.animalMaxHeight,
-                gridColumnEnd: translateY + room.animalMaxWidth
+                gridRowEnd: translateX + animal.animalMaxHeight,
+                gridColumnEnd: translateY + animal.animalMaxWidth
             };
 
             return (
