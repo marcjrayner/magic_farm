@@ -4,7 +4,18 @@ import Room from '../rooms/Room';
 const ChoiceCard = (props) => {
 
 
-    const card = props.choiceData.objectData;
+    // {
+    //     "cellArray": [],
+    //         "roomMaxHeight": 1,
+    //             "area": 1,
+    //                 "roomStatus": "room",
+    //                     "roomType": "red",
+    //                         "roomName": "roomOneOne",
+    //                             "roomMaxWith": 1,
+    //                                 "_links": { }
+    // },
+
+    const card = props.choiceData;
 
     function selectCard(e){
         

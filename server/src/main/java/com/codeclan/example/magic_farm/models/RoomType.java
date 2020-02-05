@@ -7,7 +7,7 @@ import java.util.ArrayList;
 @Table(name = "room_types")
 public class RoomType {
     ArrayList<ArrayList<Integer>> cellArray;
-    @Column(name = "roomMaxWith")
+    @Column(name = "roomMaxWidth")
     int roomMaxWidth;
 
     @Column(name = "roomMaxHeight")
@@ -47,7 +47,7 @@ public class RoomType {
         return cellArray;
     }
 
-    public int getRoomMaxWith() {
+    public int getRoomMaxWidth() {
         return roomMaxWidth;
     }
 

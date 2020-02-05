@@ -51,7 +51,7 @@ class Room extends Component {
 
     const room = this.props.room;    
     let initialPosition = [1,1]
-        if (this.props.position !== null){ initialPosition = this.props.position;} 
+        if (this.props.position){ initialPosition = this.props.position;} 
     const translateY = initialPosition[0];
     const translateX = initialPosition[1];
 

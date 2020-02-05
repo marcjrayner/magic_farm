@@ -6,7 +6,20 @@ class ChoiceCardContainer extends Component {
     constructor(props){
         super(props);
         this.state ={
-            objects: []
+            objects: [
+
+                // {
+                //     "cellArray": [],
+                //     "roomMaxHeight": 1,
+                //     "area": 1,
+                //     "roomStatus": "room",
+                //     "roomType": "red",
+                //     "roomName": "roomOneOne",
+                //     "roomMaxWith": 1,
+                //     "_links": {}
+                // },
+
+            ]
         }
         this.makeCardSelection = this.makeCardSelection.bind(this);
         this.generateRoomChoices = this.generateRoomChoices.bind(this);
@@ -44,7 +57,7 @@ class ChoiceCardContainer extends Component {
                 <ChoiceCard
                     cellSize={this.props.cellSize}
                     key={index}
-                    value={card.id}
+                    value={index}
                     type={this.props.choiceType}
                     choiceData={card}
                     clickMethod={this.makeCardSelection}
