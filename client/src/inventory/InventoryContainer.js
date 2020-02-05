@@ -226,9 +226,11 @@ class InventoryContainer extends Component {
    
         return (
             <section id="inventory-container" >
-                <h3>Inventory</h3>
+                <img id="house" src="house.png" />
+                {/* <h3>Inventory</h3> */}
                 <aside id="coins-display">
-                    <p className="ui-coins" >{inventory.coins}</p>
+                    <h3 className="ui-coins" >{inventory.coins}</h3>
+                    <img id="ui-coin-image" src="coin.svg" />
                 </aside>
 
                 <aside id="playing-data" >

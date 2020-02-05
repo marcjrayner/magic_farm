@@ -81,6 +81,7 @@ grid-area: footer;
 }
 
 #inventory-container { 
+  background-color: #F2DF8F; 
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -90,6 +91,24 @@ grid-area: footer;
     padding-right: 20px;
     padding-bottom: 20px;
     grid-area: inventory;
+}
+
+#house{
+  width: 130px;
+}
+
+.ui-coins{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-height: 1em;
+}
+
+h3.ui-coins{
+font-size: 4rem;
+}
+#ui-coin-image {
+    width: 30px;
 }
 
 #level-container {grid-area: level; }
@@ -141,10 +160,6 @@ grid-area: footer;
 
 #game-board-container {
   background: linear-gradient(90deg, rgba(57,181,74,1) 0%, rgba(126,197,97,1) 35%);
-}
-
-#inventory-container {
-  background-color: #F2DF8F;  
 }
 
 .room-selected > * {
