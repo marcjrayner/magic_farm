@@ -37,7 +37,7 @@ class ChoiceCardContainer extends Component {
     // }
 
     makeCardSelection(card){
-        this.props.clickMethod(card.id, this.props.choiceCardData.choiceType, card.objectData);
+        this.props.clickMethod(card.id, this.props.choiceCardData.choiceType, card.objectData, card.cost);
     }
 
     render() {
@@ -48,6 +48,7 @@ class ChoiceCardContainer extends Component {
             return (
 
                 <ChoiceCard
+                    cost={Math.floor((card.area*this.props.coinVariable/100)+this.props.coinVariable/10)}
                     cellSize={this.props.cellSize}
                     id={index}
                     key={index}

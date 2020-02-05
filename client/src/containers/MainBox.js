@@ -82,14 +82,16 @@ class MainBox extends Component {
             })
         }
 
-        this.setState({choiceObjects: choices})
+        
+        const sortedChoices = choices.sort((a, b) => parseFloat(b.area) - parseFloat(a.area));
+        this.setState({choiceObjects: sortedChoices})
     }
 
     handleHoverGameBoardLocation(positionArray) {
         this.setState({ hoverGameBoardLocation: positionArray })
     }
 
-    handleChoiceCardSelection(cardID, cardType, cardObject){
+    handleChoiceCardSelection(cardID, cardType, cardObject, cardCost){
         // if the object selected is the same as what you've clicked
         if (cardID === this.state.selectedCardID) {
             this.setState({selectedCardID: null});
@@ -102,7 +104,8 @@ class MainBox extends Component {
                 {mouseObject:{
                     objectData: cardObject,
                     objectType: cardType,
-                    placedStatus: 'possible'                   
+                    placedStatus: 'possible',
+                    cardCost: cardCost            
                     }
                 }
             )
@@ -217,6 +220,7 @@ class MainBox extends Component {
                     gameBoardData={this.state.gameBoardData}
                     placeRoom={this.handlePlaceRoom} />
                 <ChoiceCardContainer
+                    coinVariable={this.state.userInventoryData.coins}
                     cellSize={this.state.gameBoardData.gridData.cellSize}
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}

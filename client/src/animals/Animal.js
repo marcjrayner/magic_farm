@@ -6,7 +6,7 @@ class Animal extends Component {
         constructor(props) {
             super(props);
             this.state = {
-                selectedRoom: null
+                // selectedAnimal: null
             };
             // this.hoverRelativePosition = this.hoverRelativePosition.bind(this);
         };
@@ -16,7 +16,7 @@ class Animal extends Component {
 
             const animal = this.props.animal;
             let initialPosition = [1, 1];
-            if (this.props.position !== null) { initialPosition = this.props.position; }
+            // if (this.props.position !== null) { initialPosition = this.props.position; }
             const translateY = initialPosition[0];
             const translateX = initialPosition[1];
 
@@ -61,8 +61,8 @@ class Animal extends Component {
             return (
 
                 <>
-                    <aside className={"room "
-                        + (this.state.selectedRoom ? 'room-selected ' : '')
+                    <aside className={"animal "
+                        // + (this.state.selectedRoom ? 'room-selected ' : '')
                         + this.props.placedStatus}
                         style={animalStyle}
                         id={"[" + translateX + "," + translateY + "]"} >

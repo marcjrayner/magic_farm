@@ -31,6 +31,7 @@ const ChoiceCard = (props) => {
                 console.log(props)
                 var cardObject = {
                     id: props.id,
+                    cost: props.cost,
                     choiceType:'room',
                     objectData: props.choiceData
                 }
@@ -43,6 +44,7 @@ const ChoiceCard = (props) => {
         console.log("Selecting This Room Does Nothing Here")
     }
 
+    var imgSrc = () => {return null};
     const cardData = () => {
         if (props.dataType == "room") {
 
@@ -60,6 +62,8 @@ const ChoiceCard = (props) => {
         }
 
         if (props.dataType === "animal") {
+            
+            imgSrc = () => {return (<img src={""+props.choiceData.imgSrc+""}/>)};
 
             return( <Animal
                 placedStatus={props.choiceData.placedStatus}
@@ -79,10 +83,10 @@ const ChoiceCard = (props) => {
         + (props.selectedCard === props.id ? 'selected-card ' : '')}
             onClick={selectCard} >
                 
-            <h2>{props.choiceData.objectType}</h2> 
-            
+            <h2>{props.choiceData.animalName || props.choiceData.roomName}({props.cost})</h2>
+            {/* {props.choiceData.animalName === 'dragon' ? {<img src=props.choiceData.imgSrc>}}  */}
+            {imgSrc() ? imgSrc() : ''}
             {cardData()}
-
             </article>
         )
 

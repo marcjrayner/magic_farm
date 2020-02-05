@@ -47,13 +47,13 @@ class InventoryContainer extends Component {
             roomType: 'red',
             roomStatus: 'room',
             area: 3,
-            roomName: 'THREExONE'
+            roomName: 'goose coop'
         }, {
                 cellArray: [[1, 1]],
                 roomMaxWidth: 1,
-                roomMaxHeight: 1, roomType: 'red',
+                roomMaxHeight: 1, roomType: 'yellow',
                 roomStatus: 'room',
-                area: 1,                roomName: 'ONExONE'
+                area: 1,                roomName: 'hole'
             },
             {
                 cellArray: [[1, 1], [1, 2], [2, 1], [2, 2]],
@@ -61,15 +61,15 @@ class InventoryContainer extends Component {
                 roomMaxHeight: 2, roomType: 'red',
                 roomStatus: 'room',
                 area: 4,
-                roomName: 'TWOxTWO'
+                roomName: 'poop space'
             },
             {
                 cellArray: [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
                 roomMaxWidth: 3,
-                roomMaxHeight: 3, roomType: 'red',
+                roomMaxHeight: 3, roomType: 'blue',
                 roomStatus: 'room',
                 area: 9,
-                roomName: 'THREExTHREE'
+                roomName: 'Watering Space'
             }, {
                 cellArray: [
                     [1, 1], [1, 2], [1, 3], [1,4], 
@@ -81,7 +81,7 @@ class InventoryContainer extends Component {
                 roomType: 'red',
                 roomStatus: 'room',
                 area: 16,
-                roomName: 'FOURxFOUR'
+                roomName: 'Centaurs Boudoir'
             },
             {
                 cellArray: [[1, 1], [2, 1]],
@@ -90,7 +90,7 @@ class InventoryContainer extends Component {
                 roomType: 'red',
                 roomStatus: 'room',
                 area: 2,
-                roomName: 'ONExTWO'
+                roomName: 'Dungeon'
             },
             {
                 cellArray: [[1, 1], [2, 1], [3, 1]],
@@ -99,7 +99,7 @@ class InventoryContainer extends Component {
                 roomType: 'red',
                 roomStatus: 'room',
                 area: 3,
-                roomName: 'ONExTHREE'
+                roomName: 'Dragon Lair'
             },
             {
                 cellArray: [[1, 1], [1, 2]],
@@ -108,7 +108,7 @@ class InventoryContainer extends Component {
                 roomType: 'red',
                 roomStatus: 'room',
                 area: 2,
-                roomName: 'TWOxONE'
+                roomName: 'Goose Throne'
             }]
 
         for(let data of dataArray){

@@ -80,6 +80,7 @@ grid-area: footer;
   text-align: center;
 }
 
+
 #inventory-container > * {
     margin-bottom: 4em;
 }
@@ -164,6 +165,16 @@ font-size: 4rem;
 .red {
   background-color:#E9645D;
   z-index: 0;
+}
+
+.yellow{
+  background: yellow;
+  z-index: 1;
+}
+
+.blue{
+  background:dodgerblue;
+  z-index: 1;
 }
 
 #game-board-container {
