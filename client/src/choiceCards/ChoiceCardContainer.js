@@ -105,8 +105,9 @@ class ChoiceCardContainer extends Component {
 
             return (
                 <>
-                    <button id="generate-room-choice" className={this.state.buttonVisible ? '' : 'hidden '} onClick={this.generateRoomChoices}>Get Room Choices</button>
+
                 <section id="choice-card-container">
+                        <button id="generate-room-choice" className={this.state.buttonVisible ? '' : 'hidden '} onClick={this.generateRoomChoices}>Get Room Choices</button>
                     {cards} 
                 </section>
                 </>

@@ -21,7 +21,7 @@ class MainBox extends Component {
                 gridData: {
                     width: 20,
                     height: 10,
-                    cellSize: 20
+                    cellSize: 35
                 },
                 
                 objectsArray: 

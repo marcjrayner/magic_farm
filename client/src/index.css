@@ -18,11 +18,11 @@ code {
     monospace;
 }
 
-#grid-layout{
+#app-container{
   display: grid;
-  grid-template-columns: 6fr 1.5fr;
+  grid-template-columns: 12fr 3fr;
   grid-template-rows: 2fr 1fr;
-  grid-template-areas: "game-board inventory" "choice-card inventory";
+  grid-template-areas: "game-board game-board inventory" "choice-card choice-card inventory" "footer footer footer";
 } 
 
 #game-board-container { 
@@ -30,7 +30,6 @@ code {
   padding-left: 25px; 
   padding-right: 25px;
   margin: 5px;
-
 }
 
 #choice-card-container { 
@@ -46,14 +45,11 @@ code {
 }
 
 #inventory-container { 
-  margin: 5px;
-  grid-area: inventory; 
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-bottom: 20px;
-  grid-area: inventory; 
-  float: right;
-  align-self: center;
+      margin: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    grid-area: inventory;
 
 }
 
