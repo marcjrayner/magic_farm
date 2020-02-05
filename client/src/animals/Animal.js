@@ -20,25 +20,35 @@ class Animal extends Component {
             const translateY = initialPosition[0];
             const translateX = initialPosition[1];
 
-            const animalRender = this.props.animal.cellArray.map((roomCell, index) => {
+            var cellArray = [];
+            if(animal.name === 'dragon') {
+                cellArray = [[1,1], [1,2], [1,3], [2,2], [2,3], [3,3]];
+            } else if (animal.name === 'chicken') {
+                cellArray = [[1,1]];
+                }
 
+            const animalRender = cellArray.map((roomCell, index) => {
+            
                 const position = [roomCell[0], roomCell[1]];
-                const name = ('' + this.props.animal.animalType + ' ' + this.props.animal.animalStatus + '-' + position)
+                    const name = ('' + animal.animalType + ' ' + animal.animalName + '-' + position)
 
-                const cell = {
-                    'empty': false,
-                    'position': position,
-                    'affiliation': name,
-                    'hover': false
-                };
+                    const cell = {
+                        'empty': false,
+                        'position': position,
+                        'affiliation': name,
+                        'hover': false
+                    };
 
-                return (
-                    <Cell key={index} cell={cell}
-                    clickMethod={this.props.doNothing}
-                        hoverMethod={this.props.doNothing}
-                    />
-                )
-            });
+                    return (
+
+                        <Cell key={index} cell={cell}
+                            clickMethod={this.props.doNothing}
+                            hoverMethod={this.props.doNothing}
+                        />
+                    )
+                });
+            
+
 
             const animalStyle = {
                 gridGap: '1px',

@@ -121,9 +121,8 @@ class InventoryContainer extends Component {
             animalMaxHeight: 2,
             animalType: 'red',
             animalStatus: 'animal',
-        
             animalName: 'chicken',
-            imgsrc: 'chicken.png'
+            imgSrc: 'chicken.png'
             },
             {
                 cellArray: [[1, 1]],
@@ -131,7 +130,7 @@ class InventoryContainer extends Component {
                 animalMaxHeight: 3,
                 animalType: 'red',
                 animalStatus: 'animal',
-                imgsrc: 'dragon.png',
+                imgSrc: 'dragon.png',
                 animalName: 'dragon'
             },
             {
@@ -142,7 +141,7 @@ class InventoryContainer extends Component {
                 animalStatus: 'animal',
 
                 animalName: 'chicken',
-                imgsrc: 'chicken.png'
+                imgSrc: 'chicken.png'
             },
             {
                 cellArray: [[1, 1]],
@@ -150,7 +149,7 @@ class InventoryContainer extends Component {
                 animalMaxHeight: 3,
                 animalType: 'red',
                 animalStatus: 'animal',
-                imgsrc: 'dragon.png',
+                imgSrc: 'dragon.png',
                 animalName: 'dragon'
             },
             {
@@ -161,7 +160,7 @@ class InventoryContainer extends Component {
                 animalStatus: 'animal',
 
                 animalName: 'chicken',
-                imgsrc: 'chicken.png'
+                imgSrc: 'chicken.png'
             },
             {
                 cellArray: [[1, 1]],
@@ -169,7 +168,7 @@ class InventoryContainer extends Component {
                 animalMaxHeight: 3,
                 animalType: 'red',
                 animalStatus: 'animal',
-                imgsrc: 'dragon.png',
+                imgSrc: 'dragon.png',
                 animalName: 'dragon'
             },
             {
@@ -180,7 +179,7 @@ class InventoryContainer extends Component {
                 animalStatus: 'animal',
 
                 animalName: 'chicken',
-                imgsrc: 'chicken.png'
+                imgSrc: 'chicken.png'
             },
             {
                 cellArray: [[1, 1]],
@@ -188,7 +187,7 @@ class InventoryContainer extends Component {
                 animalMaxHeight: 3,
                 animalType: 'red',
                 animalStatus: 'animal',
-                imgsrc: 'dragon.png',
+                imgSrc: 'dragon.png',
                 animalName: 'dragon'
             },
             {
@@ -199,7 +198,7 @@ class InventoryContainer extends Component {
                 animalStatus: 'animal',
 
                 animalName: 'chicken',
-                imgsrc: 'chicken.png'
+                imgSrc: 'chicken.png'
             },
             {
                 cellArray: [[1, 1]],
@@ -207,7 +206,7 @@ class InventoryContainer extends Component {
                 animalMaxHeight: 3,
                 animalType: 'red',
                 animalStatus: 'animal',
-                imgsrc: 'dragon.png',
+                imgSrc: 'dragon.png',
                 animalName: 'dragon'
             }
         ];
@@ -247,8 +246,11 @@ class InventoryContainer extends Component {
                     </p>
                 </aside>
 
-                <button onClick={this.loadData}>Load Data</button>
-                <button onClick={this.props.loadChoices}>Load Choices</button>
+                <aside id="buttons">
+                    <button onClick={this.loadData}>Load Data</button>
+                    <button onClick={this.props.loadChoices}>Load Choices</button>
+                    <button onClick={this.props.tryAnimals}>Try Animals</button>
+                </aside>
 
                 <aside id="level-display">
                     Level {this.props.level}

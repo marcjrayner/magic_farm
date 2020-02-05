@@ -52,7 +52,7 @@ class ChoiceCardContainer extends Component {
                     id={index}
                     key={index}
                     value={index}
-                    type={this.props.choiceCardData.choiceType}
+                    dataType={this.props.choiceCardData.choiceType}
                     choiceData={card}
                     clickMethod={this.makeCardSelection}
                     hoverMethod={this.props.hoverMethod}

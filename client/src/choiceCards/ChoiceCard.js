@@ -44,7 +44,7 @@ const ChoiceCard = (props) => {
     }
 
     const cardData = () => {
-        if (props.type == "room") {
+        if (props.dataType == "room") {
 
             return(
             <Room
@@ -59,7 +59,7 @@ const ChoiceCard = (props) => {
 
         }
 
-        if (props.type === 'animal') {
+        if (props.dataType === "animal") {
 
             return( <Animal
                 placedStatus={props.choiceData.placedStatus}

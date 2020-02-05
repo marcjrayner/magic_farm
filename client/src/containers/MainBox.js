@@ -19,56 +19,15 @@ class MainBox extends Component {
             selectedOnGameBoardContainer: null,
             hoverGameBoardLocation: null,
             gameBoardData: {
-                gridData: {
-                    width: 20,
-                    height: 10,
-                    cellSize: 35
-                },
-                
-                objectsArray: 
-                [
-                //     {   id: 'GBR1',
-                //         objectType: 'room',
-                //         objectPosition: [1, 1],
-                //         objectData: {
-                //             cellArray: [
-                //                 [1, 1], [2, 1],
-                //                 [1, 2], [2, 2]
-                //             ],
-                //             roomMaxWidth: 2,
-                //             roomMaxHeight: 2,
-                //             roomStatus: 'room',
-                //             roomType: 'red',
-                //             roomContents: [],
-                //             roomName: '2x2 Square'
-                //         }
-                //     },
-
-                //     {
-                //         id: 'GBR2',
-                //         objectType: 'room',
-                //         objectPosition: [10, 5],
-                //         objectData: {
-                //             cellArray: [
-                //                 [1, 1], [2, 1],
-                //                 [3, 1], [4, 1]
-                //             ],
-                //             roomMaxWidth: 4,
-                //             roomMaxHeight: 1,
-                //             roomStatus: 'room',
-                //             roomType: 'red',
-                //             roomContents: [],
-                //             roomName: '4x1 Rectangle'
-                //         }
-                //     }
-                ]
+                gridData: { width: 20, height: 10, cellSize: 35},
+                objectsArray: []
             },
             choiceObjects: [],
             choiceContainerData: {
                 choiceType: 'room'
-                // cardArray: []
             },
             userInventoryData: {
+                tryAnimals: false,
                 coins: 100,
                 numberOfRooms: 0,
                 areaCovered: 0,
@@ -86,9 +45,17 @@ class MainBox extends Component {
         this.handlePlaceRoom = this.handlePlaceRoom.bind(this);
         this.handleClickBoardObject = this.handleClickBoardObject.bind(this);
         this.handleLoadSomeChoices = this.handleLoadSomeChoices.bind(this);
+        this.tryAnimals = this.tryAnimals.bind(this);
+    }
+
+    tryAnimals() {
+        const tryAnimalsState = this.state.userInventoryData
+        tryAnimalsState.tryAnimals = true;
+        this.setState({ userInventoryData: tryAnimalsState });
     }
 
     handleLoadSomeAnimalChoices(){
+         this.setState({ choiceContainerData: { choiceType: 'animal' } })
         const request = new Request();
         const choices = []
 
@@ -220,9 +187,15 @@ class MainBox extends Component {
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
         this.setState({choiceObjects: []});
+        if(this.state.userInventoryData.tryAnimals === false){
         this.handleLoadSomeChoices();
-        // this.setState({ choiceContainerData: { choiceType: 'animal' } })
-        // this.handleLoadSomeAnimalChoices();
+        }
+        else {
+            this.handleLoadSomeAnimalChoices();
+            const tryAnimalsState = this.state.userInventoryData
+            tryAnimalsState.tryAnimals = false;
+            this.setState({ userInventoryData: tryAnimalsState })
+        };
         
         }
 
@@ -233,6 +206,7 @@ class MainBox extends Component {
                     userInventoryData={this.state.userInventoryData}
                     gameBoard={this.state.gameBoardData.gridData}
                     loadChoices={this.handleLoadSomeChoices}
+                    tryAnimals={this.tryAnimals}
                 />
                 <GameBoardContainer
 
@@ -249,9 +223,6 @@ class MainBox extends Component {
                     selectedCard={this.state.selectedCardID}
                     clearSelection={this.clearCardChoice}
                     objects={this.state.choiceObjects}/>
-
-                    
-                  
 
                 <footer id="footer"></footer> 
         

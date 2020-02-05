@@ -80,12 +80,16 @@ grid-area: footer;
   text-align: center;
 }
 
+#inventory-container > * {
+    margin-bottom: 4em;
+}
+    
 #inventory-container { 
   background-color: #F2DF8F; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-start;
     margin: 5px;
     padding-left: 20px;
     padding-right: 20px;
@@ -97,7 +101,11 @@ grid-area: footer;
   width: 130px;
 }
 
-.ui-coins{
+#buttons{
+  display: flex;
+    flex-direction: column;
+}
+#coins-display{
     display: flex;
     justify-content: space-between;
     align-items: center;
