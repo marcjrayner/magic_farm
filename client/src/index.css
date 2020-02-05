@@ -37,8 +37,11 @@ code {
   padding-left: 25px; 
   padding-right: 25px;
   margin: 5px;
-
+  display: flex;
+  background-color:#F2DF8F;
+  flex-direction: column;
 }
+
 
 #inventory-container h3{
   text-align: center;
@@ -139,11 +142,6 @@ code {
     background-color:#F2DF8F;
 
 }
-
-#choice-card-container {
-  display: flex;
-  background-color:#F2DF8F;
-}  
 
 .room-card-grid {
   display: grid;
