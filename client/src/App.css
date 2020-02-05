@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+    /* background-color: #CFB35F; */
+}
+
+.main-box {
+    background-color: #CFB35F;
 }
 
 .App-logo {
