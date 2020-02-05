@@ -182,8 +182,14 @@ class MainBox extends Component {
                 roomType: room.objectData.roomType,
                 roomContents: [],
                 roomName: room.objectData.roomName
-            }
+            }           
         }
+        let postRoom = {
+            objecType: 'room',
+            position: newPosition[0]
+        }
+        const request = new Request();
+        request.post('http://localhost:8080/rooms', postRoom);
         newArray.push(newRoom);
         this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
 
