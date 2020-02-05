@@ -44,6 +44,8 @@ const InventoryContainer = (props) => {
                     </p>
                 </aside>
 
+                <button onClick={props.handleLoadData}></button>
+
                 <aside id="level-display">
                 Level {inventory.level}
                 </aside>
