@@ -14,42 +14,32 @@ class Room extends Component {
 
     makeCellClickWholeRoom = function (cellObject) {
 
-        if (this.state.selectedRoom === null) {
-            
-            this.setState(
-                {selectedRoom: true}
-         );
+        var roomClickedObject = {
+            'position': [this.props.room.cellArray],
+            'type': 'room',
+            'hover-position': this.props.hoverPosition,
+            'ref': this.props.id
+        };
 
-         
-
-            var roomClickedObject = {
-                'position': [this.props.room.cellArray],
-                'type': 'room',
-                'hover-position': this.props.hoverPosition,
-                'ref': this.props.key
-            };
-
-            console.log(roomClickedObject);
-
-            this.props.clickMethod( roomClickedObject)
+        if (this.state.selectedRoom !== true) {
+            this.setState({selectedRoom: true});
+        
+        console.log('room clicked, passing up: '+ roomClickedObject);
+        
+        this.props.clickMethod(roomClickedObject)
         }
 
+        else { this.setState({selectedRoom: false})
+
+            console.log('room unclicked, passing up: ' + roomClickedObject);
+            this.props.clickMethod(roomClickedObject);
+    
+        }
         return null;
     };
 
     hoverRelativePosition = function (cellPosition){
-        // let currentPosition = [];
-        // if (cellPosition)
-        // if (this.props.position = null){
-        //     currentPosition = [1,1]
-        // } else {
-        //     currentPosition = this.props.position;
-        // }
-        // //need to add relative co-ordinates
-        // let newPosition = [
-        //     (currentPsition[0]),
-        //     (this.props.position[1])]
-        // this.props.hoverMethod(newPosition);
+       
     }
 
     render() {
@@ -59,9 +49,7 @@ class Room extends Component {
         if (this.props.position !== null){ initialPosition = this.props.position;} 
     const translateY = initialPosition[0];
     const translateX = initialPosition[1];
-
-    // console.log(this.props.room.roomName + props:' + this.props.room.cellArray);
-    // console.log(this.props.room.cellArray)
+    
     const roomRender = this.props.room.cellArray.map( (roomCell, index) => {
         
         const position = [roomCell[0], roomCell[1]];
@@ -96,6 +84,7 @@ class Room extends Component {
 
         <>
         <aside className={"room "
+        + (this.state.selectedRoom ? 'room-selected ' : '') 
         + this.props.placedStatus}
         style={roomStyle}
         id={"["+translateX+","+translateY+"]"} >

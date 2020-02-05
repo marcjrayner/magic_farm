@@ -1,13 +1,36 @@
+Skip to content
+Search or jump to…
+
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@DCHitch092 
+marcjrayner
+/
+magic_farm
+3
+00
+ Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
+magic_farm/client/src/index.css
+@weinbecher weinbecher Merge branch 'development' into feature/css
+550fb34 6 minutes ago
+@DCHitch092@weinbecher@marcjrayner
+199 lines (153 sloc)  3.34 KB
+  
 body {
   padding: 10px;
   margin: 0;
-font-family: 'Quicksand', sans-serif;  -webkit-font-smoothing: antialiased;
+  font-family: 'Quicksand', sans-serif;
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%);
   grid-template-areas:
   'game-board-container game-board-container game-board-container game-board-container'
   'choice-card-container right right'
   'menu footer footer footer footer footer';
+
 }
 
 code {
@@ -15,18 +38,25 @@ code {
     monospace;
 }
 
+
 #app-container{
   display: grid;
-  grid-template-columns: 12fr 3fr;
-  grid-template-rows: 2fr 1fr;
-  grid-template-areas: "game-board game-board inventory" "choice-card choice-card inventory" "footer footer footer";
+    grid-template-areas: "nav nav nav"
+    "game-board game-board inventory"
+    "choice-card choice-card inventory"
+    "footer footer footer";
 } 
+
+.hidden{
+  visibility: hidden
+}
 
 #game-board-container { 
   grid-area: game-board; 
   padding-left: 25px; 
   padding-right: 25px;
   margin: 5px;
+
 }
 
 #choice-card-container { 
@@ -39,8 +69,10 @@ code {
   flex-direction: column;
 }
 
-#choice-card
-
+#current-cards{
+  display: flex;
+  flex-direction: row;
+}
 
 #inventory-container h3{
   text-align: center;
@@ -52,7 +84,6 @@ code {
     padding-right: 20px;
     padding-bottom: 20px;
     grid-area: inventory;
-
 }
 
 #level-container {grid-area: level; }
@@ -61,17 +92,16 @@ code {
   padding: 10px;
   border: 1px solid black; 
   margin: 0 15%;
+  /* display: grid; */
+  /* grid-gap: 1px; */
 }
 
 
 .cell {
   width: 100%;
   height: 100%;
-  /* background: rgb(150, 131, 131); */
   background:rgba(28, 107, 40, 0.09);
-
 }
-
 
 .cell-hover {
   opacity: 0.2; 
@@ -96,12 +126,10 @@ code {
 }
 
 #game-board-container {
-
   background: linear-gradient(90deg, rgba(57,181,74,1) 0%, rgba(126,197,97,1) 35%);
 }
 
 #inventory-container {
-  /* background: linear-gradient(90deg, rgba(135,202,241,1) 0%, rgba(145,213,223,1) 35%); */
   background-color: #F2DF8F;  
 }
 
@@ -114,12 +142,15 @@ code {
 
 .card {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color:#F2DF8F;
-  
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    min-width: 10rem;
+    box-sizing: border-box;
+    border: 5px #e89337d9 solid;
 }
+
 .selected-card{
   background-color: lightblue;
 }
@@ -128,22 +159,12 @@ code {
   opacity: 0.6;
 }
 
-/* #choice-card-container {
-  display: flex;
-  
-} */
-
 #choice-card-container > * {
     width: 20%;
     margin: 1rem;
     padding-bottom: 2rem;
     box-sizing: border-box;
     background-color:#F2DF8F;
-
 }
 
-.room-card-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 20px);
-  grid-template-rows: repeat(5, 20px);
-}
+

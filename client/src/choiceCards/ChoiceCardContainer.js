@@ -1,48 +1,40 @@
 import React, {Component} from 'react';
 import ChoiceCard from './ChoiceCard';
+import GenerateChoicesButton from './GenerateChoicesButton';
 
 class ChoiceCardContainer extends Component {
 
     constructor(props){
         super(props);
         this.state ={
-            objects: [
-
-                // {
-                //     "cellArray": [],
-                //     "roomMaxHeight": 1,
-                //     "area": 1,
-                //     "roomStatus": "room",
-                //     "roomType": "red",
-                //     "roomName": "roomOneOne",
-                //     "roomMaxWith": 1,
-                //     "_links": {}
-                // },
-
-            ]
+            objects: [],
+            choices: [],
+            level: 1,
+            buttonVisible: true
         }
         this.makeCardSelection = this.makeCardSelection.bind(this);
         this.generateRoomChoices = this.generateRoomChoices.bind(this);
     }
 
     componentDidMount() {
-        const url = 'http://localhost:8080/roomTypes';
+        const url = 'http://localhost:8080/roomTypes/';
 
         fetch(url)
             .then(res => res.json())
             .then(roomTypes => this.setState({ objects: roomTypes._embedded.roomTypes }))
             .catch(err => console.err());
     }
+    
     /// This is the new develop branch 
     generateRoomChoices(x){
-        const roomTypes = this.state.ob;
+        const roomTypes = this.state.objects;
         var length = roomTypes.length;
         const choices = []
         for (var i = 0; i < x; i++){
             var index = (Math.random() * length + 1);
             choices.push(roomTypes[index]);
         }
-        return choices;
+        this.state.choices = choices;
     }
 
     makeCardSelection(card){
@@ -50,8 +42,9 @@ class ChoiceCardContainer extends Component {
     }
 
     render() {
-
-        const cards = this.state.objects.map((card, index) => {
+        var cards;
+        if (this.state.choices.length != 0){
+        cards = this.state.objects.map((card, index) => {
             return (
 
                 <ChoiceCard
@@ -68,15 +61,19 @@ class ChoiceCardContainer extends Component {
                 ></ChoiceCard>
             )
 
-        });
+        });}
 
             return (
                 <>
 
                 <section id="choice-card-container">
-                    <button id="generate-room-choice" className={this.state.buttonVisible ? '' : 'hidden '} onClick={this.generateRoomChoices}>Get Room Choices</button>
+                   <GenerateChoicesButton
+                   objects={this.state.objects}
+                   level={this.state.level}
+                   visible={this.state.buttonVisible}
+                   clickMethod={this.generateRoomChoices}/>
                     <section id="current-cards">
-                        {cards} 
+                        {cards}
                     </section>
                 </section>
                 </>
