@@ -68,10 +68,9 @@ REQUEST BODY
 *** where room looks like ***
 
     {
-        id: ID,
         objectType: 'room',
         position: [int,int],
-        objectData: {RoomType}
+        objectData: { an object of a RoomType}
     }
 
 2 endpoint GET /choiceSets/getRandomAnimals
