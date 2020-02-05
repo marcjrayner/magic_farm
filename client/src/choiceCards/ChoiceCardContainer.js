@@ -6,7 +6,7 @@ class ChoiceCardContainer extends Component {
     constructor(props){
         super(props);
         this.state ={
-            roomTypes: []
+            objects: []
         }
         this.makeCardSelection = this.makeCardSelection.bind(this);
         this.generateRoomChoices = this.generateRoomChoices.bind(this);
@@ -17,12 +17,12 @@ class ChoiceCardContainer extends Component {
 
         fetch(url)
             .then(res => res.json())
-            .then(roomTypes => this.setState({ roomTypes: roomTypes._embedded }))
+            .then(roomTypes => this.setState({ objects: roomTypes._embedded.roomTypes }))
             .catch(err => console.err());
     }
     /// This is the new develop branch 
     generateRoomChoices(x){
-        const roomTypes = this.state.roomTypes;
+        const roomTypes = this.state.ob;
         var length = roomTypes.length;
         const choices = []
         for (var i = 0; i < x; i++){
@@ -38,12 +38,12 @@ class ChoiceCardContainer extends Component {
 
     render() {
 
-        const cards = this.props.choiceCardData.cardArray.map((card, index) => {
+        const cards = this.state.objects.map((card, index) => {
             return (
 
                 <ChoiceCard
                     cellSize={this.props.cellSize}
-                    key={card.id}
+                    key={index}
                     value={card.id}
                     type={this.props.choiceType}
                     choiceData={card}
