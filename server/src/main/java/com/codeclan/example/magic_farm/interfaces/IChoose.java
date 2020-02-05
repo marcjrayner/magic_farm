@@ -1,5 +1,5 @@
-package com.codeclan.example.magic_farm.interfaces;
-
-public interface IChoose {
-    public String displayType();
-}
+//package com.codeclan.example.magic_farm.interfaces;
+//
+//public interface IChoose {
+//    public String displayType();
+//}
