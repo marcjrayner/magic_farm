@@ -229,7 +229,7 @@ class MainBox extends Component {
 
     render() {
         return(
-            <>  
+            <main id="app-container">  
                 <InventoryContainer
                     userInventoryData={this.state.userInventoryData}
                     gameBoard={this.state.gameBoardData.gridData}
@@ -248,7 +248,7 @@ class MainBox extends Component {
                     selectedCard={this.state.selectedCardID}
                     clearSelection={this.clearCardChoice} />
         
-            </>
+            </main>
 
         )
     }
