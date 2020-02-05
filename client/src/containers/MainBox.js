@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import GameBoardContainer from '../gameBoard/GameBoardContainer';
 import ChoiceCardContainer from '../choiceCards/ChoiceCardContainer';
 import InventoryContainer from '../inventory/InventoryContainer';
-import update from 'immutability-helper';
 
 class MainBox extends Component {
 
@@ -15,7 +14,7 @@ class MainBox extends Component {
         this.state = {
             selectedCardID: null,
             mouseObject: null,
-            selectedOnGameBoardContainer: {type:'', ref:''},
+            selectedOnGameBoardContainer: null,
             hoverGameBoardLocation: null,
             gameBoardData: {
                 gridData: {
@@ -134,9 +133,9 @@ class MainBox extends Component {
             this.setState({ selectedCardID: cardID});
             this.setState(
                 {mouseObject:{
+                    objectData: cardObject,
                     objectType: cardType,
-                    placedStatus: 'possible',
-                    objectData: cardObject
+                    placedStatus: 'possible'                   
                     }
                 }
             )
@@ -151,14 +150,6 @@ class MainBox extends Component {
 
     handleClickBoardObject(cellAnimalOrRoomDataObject){
         console.log(cellAnimalOrRoomDataObject.type + ' has been clicked at ' + cellAnimalOrRoomDataObject.position[0]);
-        switch(cellAnimalOrRoomDataObject.type){
-            case 'room': 
-                this.setState({selectedOnGameBoardContainer: cellAnimalOrRoomDataObject })
-                break;
-            ;
-            default: 
-            return null;
-        }
     }
 
     handleGameBoardSelection(choice){
@@ -188,13 +179,11 @@ class MainBox extends Component {
                 roomName: room.objectData.roomName
             }
         }
-
         newArray.push(newRoom);
         this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
         this.setState({mouseObject: null});
         this.setState({selectedCardID: null});
         this.setState({selectedOnChoiceCardContainer: null});
-
         this.setState({choiceContainerData: {
             choiceType: 'room',
             cardArray: [
@@ -234,18 +223,13 @@ class MainBox extends Component {
                     }
                 }
             ]
-        }})
 
-        // update gameData
-        const rooms = this.state.gameBoardData.objectsArray.length;
-        const newData = update(this.state.userInventoryData, {
-            numberOfRooms: { $set: rooms } });      
-        this.setState(prevState => ({ userInventoryData: newData }));
+        }})
     }
 
     render() {
         return(
-            <section id="app-container">  
+            <>  
                 <InventoryContainer
                     userInventoryData={this.state.userInventoryData}
                     gameBoard={this.state.gameBoardData.gridData}
@@ -253,7 +237,6 @@ class MainBox extends Component {
                 <GameBoardContainer
                     hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
-                    selectedOnBoard={this.state.selectedOnGameBoardContainer}
                     clickMethod={this.handleClickBoardObject}
                     hoverMethod={this.handleHoverGameBoardLocation}
                     gameBoardData={this.state.gameBoardData}
@@ -264,11 +247,9 @@ class MainBox extends Component {
                     choiceCardData={this.state.choiceContainerData}
                     selectedCard={this.state.selectedCardID}
                     clearSelection={this.clearCardChoice} />
-                <footer id="footer"> Magic Farm built by T'MASH</footer>  
-            </section>
-            
+        
+            </>
 
-            
         )
     }
 }

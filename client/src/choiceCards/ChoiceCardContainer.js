@@ -6,70 +6,37 @@ class ChoiceCardContainer extends Component {
     constructor(props){
         super(props);
         this.state ={
-            roomTypes: [{
-                cellArray: [[1,1]],
-                roomMaxWidth: 1,
-                roomMaxHeight: 1,
-                roomArea: 1,
-                roomName: 'ONExONE'},
+            objects: [
 
-                {
-                    cellArray: [[1, 1], [1, 2], [2, 1], [2, 2]],
-                    roomMaxWidth: 2,
-                    roomMaxHeight: 2,
-                    roomArea: 4,
-                    roomName: 'TWOxTWO'
-                },
+                // {
+                //     "cellArray": [],
+                //     "roomMaxHeight": 1,
+                //     "area": 1,
+                //     "roomStatus": "room",
+                //     "roomType": "red",
+                //     "roomName": "roomOneOne",
+                //     "roomMaxWith": 1,
+                //     "_links": {}
+                // },
 
-                {
-                    cellArray: [[1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]],
-                    roomMaxWidth: 3,
-                    roomMaxHeight: 3,
-                    roomArea: 9,
-                    roomName: 'THREExTHREE'
-                },
-
-                { cellArray: [[1,1],[2,1]],
-                    roomMaxWidth: 2,
-                    roomMaxHeight: 1,
-                    roomArea: 2,
-                    roomName: 'ONExTWO'
-                },
-
-                {
-                    cellArray: [[1, 1], [2, 1], [3, 1]],
-                    roomMaxWidth: 3,
-                    roomMaxHeight: 1,
-                    roomArea: 3,
-                    roomName: 'ONExTHREE'
-                },
-
-                {
-                    cellArray: [[1, 1], [1, 2]],
-                    roomMaxWidth: 1,
-                    roomMaxHeight: 2,
-                    roomArea: 2,
-                    roomName: 'TWOxONE'
-                },
-
-                {
-                    cellArray: [[1, 1], [1, 2], [1,3]],
-                    roomMaxWidth: 1,
-                    roomMaxHeight: 3,
-                    roomArea: 3,
-                    roomName: 'THREExONE'
-                }
-            
-            ],
-            buttonVisible: true  
+            ]
         }
         this.makeCardSelection = this.makeCardSelection.bind(this);
         this.generateRoomChoices = this.generateRoomChoices.bind(this);
     }
 
-    /// This is the new develop branch 
+    componentDidMount() {
+        const url = 'http://localhost:8080/roomTypes';
+
+        fetch(url)
+            .then(res => res.json())
+            .then(roomTypes => this.setState({ objects: roomTypes._embedded.roomTypes }))
+            .catch(err => console.err());
+    }
+    
+    /// This is the new develop branch
     generateRoomChoices(x){
-        const roomTypes = this.state.roomTypes;
+        const roomTypes = this.state.ob;
         var length = roomTypes.length;
         const choices = []
         for (var i = 0; i < x; i++){
@@ -85,13 +52,14 @@ class ChoiceCardContainer extends Component {
 
     render() {
 
-        const cards = this.props.choiceCardData.cardArray.map((card, index) => {
+        const cards = this.state.objects.map((card, index) => {
             return (
 
                 <ChoiceCard
                     cellSize={this.props.cellSize}
-                    key={card.id}
-                    value={card.id}
+                    id={index}
+                    key={index}
+                    value={index}
                     type={this.props.choiceType}
                     choiceData={card}
                     clickMethod={this.makeCardSelection}
@@ -104,13 +72,15 @@ class ChoiceCardContainer extends Component {
         });
 
             return (
-                <>
+
 
                 <section id="choice-card-container">
-                        <button id="generate-room-choice" className={this.state.buttonVisible ? '' : 'hidden '} onClick={this.generateRoomChoices}>Get Room Choices</button>
-                    {cards} 
+                    <button id="generate-room-choice" className={this.state.buttonVisible ? '' : 'hidden '} onClick={this.generateRoomChoices}>Get Room Choices</button>
+                    <section id="current-cards">
+                        {cards}
+                    </section>
                 </section>
-                </>
+              
             )
         }
     }

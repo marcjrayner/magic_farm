@@ -5,7 +5,7 @@ import MainBox from './containers/MainBox';
 function App() {
   return (
     <>
-    <MainBox />
+    <MainBox className="main-box" />
     </>
   );
 }

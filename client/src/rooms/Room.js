@@ -14,19 +14,25 @@ class Room extends Component {
 
     makeCellClickWholeRoom = function (cellObject) {
 
-        // if (this.state.selectedRoom === null) {
-        //     this.setState(
-        //         {selectedRoom: true}
-        //  );
+        if (this.state.selectedRoom === null) {
+            
+            this.setState(
+                {selectedRoom: true}
+         );
 
-            this.props.clickMethod(
-                {'position': [this.props.room.cellArray],
+         
+
+            var roomClickedObject = {
+                'position': [this.props.room.cellArray],
                 'type': 'room',
                 'hover-position': this.props.hoverPosition,
-                'ref': this.props.id}
-                
-                )
-        // }
+                'ref': this.props.key
+            };
+
+            console.log(roomClickedObject);
+
+            this.props.clickMethod( roomClickedObject)
+        }
 
         return null;
     };
@@ -54,10 +60,12 @@ class Room extends Component {
     const translateY = initialPosition[0];
     const translateX = initialPosition[1];
 
-    const roomRender = room.cellArray.map( (roomCell, index) => {
+    // console.log(this.props.room.roomName + props:' + this.props.room.cellArray);
+    // console.log(this.props.room.cellArray)
+    const roomRender = this.props.room.cellArray.map( (roomCell, index) => {
         
         const position = [roomCell[0], roomCell[1]];
-        const name = ('' + room.roomType + ' ' + room.roomStatus + '-' + position)
+        const name = ('' + this.props.room.roomType + ' ' + this.props.room.roomStatus + '-' + position)
 
         const cell = {
             'empty': true,
@@ -88,9 +96,7 @@ class Room extends Component {
 
         <>
         <aside className={"room "
-        + (this.props.amISelected ? 'room-selected ' : '')
-        + this.props.placedStatus
-         }
+        + this.props.placedStatus}
         style={roomStyle}
         id={"["+translateX+","+translateY+"]"} >
             {roomRender}

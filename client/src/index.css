@@ -17,6 +17,48 @@ code {
     monospace;
 }
 
+#app-container{
+  display: grid;
+  grid-template-columns: 12fr 3fr;
+  grid-template-rows: 2fr 1fr;
+  grid-template-areas: "game-board game-board inventory" "choice-card choice-card inventory" "footer footer footer";
+} 
+
+#game-board-container { 
+  grid-area: game-board; 
+  padding-left: 25px; 
+  padding-right: 25px;
+  margin: 5px;
+}
+
+#choice-card-container { 
+  grid-area: choice-card;
+  padding-left: 25px; 
+  padding-right: 25px;
+  margin: 5px;
+  display: flex;
+  background-color:#F2DF8F;
+  flex-direction: column;
+}
+
+#choice-card
+
+
+#inventory-container h3{
+  text-align: center;
+}
+
+#inventory-container { 
+      margin: 5px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    grid-area: inventory;
+
+}
+
+#level-container {grid-area: level; }
+
 #game-board {
   padding: 10px;
   border: 1px solid black; 
@@ -105,11 +147,6 @@ code {
     box-sizing: border-box;
     background-color:#F2DF8F;
 }
-
-#choice-card-container {
-  display: flex;
-  background-color:#F2DF8F;
-}  
 
 .room-card-grid {
   display: grid;
