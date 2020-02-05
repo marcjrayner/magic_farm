@@ -39,18 +39,7 @@ class Room extends Component {
     };
 
     hoverRelativePosition = function (cellPosition){
-        // let currentPosition = [];
-        // if (cellPosition)
-        // if (this.props.position = null){
-        //     currentPosition = [1,1]
-        // } else {
-        //     currentPosition = this.props.position;
-        // }
-        // //need to add relative co-ordinates
-        // let newPosition = [
-        //     (currentPsition[0]),
-        //     (this.props.position[1])]
-        // this.props.hoverMethod(newPosition);
+       
     }
 
     render() {
@@ -60,9 +49,7 @@ class Room extends Component {
         if (this.props.position !== null){ initialPosition = this.props.position;} 
     const translateY = initialPosition[0];
     const translateX = initialPosition[1];
-
-    // console.log(this.props.room.roomName + props:' + this.props.room.cellArray);
-    // console.log(this.props.room.cellArray)
+    
     const roomRender = this.props.room.cellArray.map( (roomCell, index) => {
         
         const position = [roomCell[0], roomCell[1]];

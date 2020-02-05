@@ -34,7 +34,7 @@ class ChoiceCardContainer extends Component {
             var index = (Math.random() * length + 1);
             choices.push(roomTypes[index]);
         }
-        this.setState({choices: choices});
+        this.state.choices = choices;
     }
 
     makeCardSelection(card){
@@ -42,8 +42,9 @@ class ChoiceCardContainer extends Component {
     }
 
     render() {
-
-        const cards = this.state.choices.map((card, index) => {
+        var cards;
+        if (this.state.choices.length != 0){
+        cards = this.state.objects.map((card, index) => {
             return (
 
                 <ChoiceCard
@@ -60,17 +61,19 @@ class ChoiceCardContainer extends Component {
                 ></ChoiceCard>
             )
 
-        });
+        });}
 
             return (
                 <>
 
                 <section id="choice-card-container">
-                   <GenerateChoicesButton objects={this.state.objects}
-                   level={this.state.level} visible={this.state.buttonVisible}
+                   <GenerateChoicesButton
+                   objects={this.state.objects}
+                   level={this.state.level}
+                   visible={this.state.buttonVisible}
                    clickMethod={this.generateRoomChoices}/>
                     <section id="current-cards">
-                        {cards} 
+                        {cards}
                     </section>
                 </section>
                 </>

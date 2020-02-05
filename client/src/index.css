@@ -62,7 +62,13 @@ code {
   flex-direction: column;
 }
 
-#choice-card
+#current-cards{
+  display: flex;
+  flex-direction: row;
+}
+
+
+#choice-card{}
 
 
 #inventory-container h3{
@@ -141,11 +147,13 @@ code {
 
 .card {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  /* background-color:#F2DF8F; */
-  
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    min-width: 10rem;
+    box-sizing: border-box;
+    border: 5px #e89337d9 solid;
 }
 
 .selected-card{
@@ -184,6 +192,10 @@ code {
   align-items: start;
 
 } 
+
+.hidden{
+  visibility: hidden
+}
 
 #game-board-container { 
   grid-area: game-board; 
