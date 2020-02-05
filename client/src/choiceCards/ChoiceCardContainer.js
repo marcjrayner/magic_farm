@@ -7,27 +7,27 @@ class ChoiceCardContainer extends Component {
     constructor(props){
         super(props);
         this.state ={
-            objects: [],
+            // objects: [],
             choices: [],
             level: 1,
-            buttonVisible: true
+            // buttonVisible: true
         }
         this.makeCardSelection = this.makeCardSelection.bind(this);
         this.generateRoomChoices = this.generateRoomChoices.bind(this);
     }
 
-    componentDidMount() {
-        const url = 'http://localhost:8080/roomTypes/';
+    // componentDidMount() {
+    //     const url = 'http://localhost:8080/roomTypes/';
 
-        fetch(url)
-            .then(res => res.json())
-            .then(roomTypes => this.setState({ objects: roomTypes._embedded.roomTypes }))
-            .catch(err => console.err());
-    }
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(roomTypes => this.setState({ objects: roomTypes._embedded.roomTypes }))
+    //         .catch(err => console.err());
+    // }
     
     /// This is the new develop branch 
     generateRoomChoices(x){
-        const roomTypes = this.state.objects;
+        const roomTypes = this.props.objects;
         var length = roomTypes.length;
         const choices = []
         for (var i = 0; i < x; i++){
@@ -42,9 +42,10 @@ class ChoiceCardContainer extends Component {
     }
 
     render() {
-        var cards;
-        if (this.state.choices.length != 0){
-        cards = this.state.objects.map((card, index) => {
+        var cards = [];
+        // if (this.state.choices.length != 0){
+        if (this.props.objects.length > 0){
+            cards = this.props.objects.map((card, index) => {
             return (
 
                 <ChoiceCard
@@ -61,17 +62,12 @@ class ChoiceCardContainer extends Component {
                 ></ChoiceCard>
             )
 
-        });}
+        })};
 
             return (
                 <>
 
                 <section id="choice-card-container">
-                   <GenerateChoicesButton
-                   objects={this.state.objects}
-                   level={this.state.level}
-                   visible={this.state.buttonVisible}
-                   clickMethod={this.generateRoomChoices}/>
                     <section id="current-cards">
                         {cards}
                     </section>

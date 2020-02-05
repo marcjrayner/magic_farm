@@ -1,24 +1,4 @@
-Skip to content
-Search or jump to…
 
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@DCHitch092 
-marcjrayner
-/
-magic_farm
-3
-00
- Code Issues 0 Pull requests 0 Actions Projects 0 Wiki Security Insights
-magic_farm/client/src/index.css
-@weinbecher weinbecher Merge branch 'development' into feature/css
-550fb34 6 minutes ago
-@DCHitch092@weinbecher@marcjrayner
-199 lines (153 sloc)  3.34 KB
-  
 body {
   padding: 10px;
   margin: 0;
@@ -30,14 +10,11 @@ body {
   'game-board-container game-board-container game-board-container game-board-container'
   'choice-card-container right right'
   'menu footer footer footer footer footer';
-
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
 }
-
 
 #app-container{
   display: grid;
@@ -148,7 +125,7 @@ code {
     padding: 1rem;
     min-width: 10rem;
     box-sizing: border-box;
-    border: 5px #e89337d9 solid;
+    /* border: 5px #e89337d9 solid; */
 }
 
 .selected-card{

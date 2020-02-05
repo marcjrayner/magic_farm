@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import GameBoardContainer from '../gameBoard/GameBoardContainer';
 import ChoiceCardContainer from '../choiceCards/ChoiceCardContainer';
 import InventoryContainer from '../inventory/InventoryContainer';
+import Request from '../helpers/request';
 
 class MainBox extends Component {
 
@@ -61,6 +62,7 @@ class MainBox extends Component {
                 //     }
                 ]
             },
+            choiceObjects: [],
             choiceContainerData: {
                 choiceType: 'room',
                 cardArray: [
@@ -116,7 +118,25 @@ class MainBox extends Component {
         this.clearCardChoice = this.clearCardChoice.bind(this);
         this.handlePlaceRoom = this.handlePlaceRoom.bind(this);
         this.handleClickBoardObject = this.handleClickBoardObject.bind(this);
+        this.handleLoadSomeChoices = this.handleLoadSomeChoices.bind(this);
     }
+
+    handleLoadSomeChoices(){
+        const request = new Request();
+        const choices = []
+
+        for (var i = 0; i < 3; i++){
+        let index = (Math.floor(Math.random() * 10)+1);
+        request.get('http://localhost:8080/roomTypes/'+index)
+            .then((data) => {
+                choices.push(data);
+            })
+        }
+
+        this.setState({choiceObjects: choices})
+    }
+
+
 
     handleHoverGameBoardLocation(positionArray) {
         this.setState({ hoverGameBoardLocation: positionArray })
@@ -140,6 +160,10 @@ class MainBox extends Component {
                 }
             )
         }   
+    }
+
+    handleLoadData(){
+        
     }
 
     handleMouseObject(){
@@ -233,8 +257,10 @@ class MainBox extends Component {
                 <InventoryContainer
                     userInventoryData={this.state.userInventoryData}
                     gameBoard={this.state.gameBoardData.gridData}
+                    loadChoices={this.handleLoadSomeChoices}
                 />
                 <GameBoardContainer
+
                     hoverLocation={this.state.hoverGameBoardLocation}
                     mouseObject={this.state.mouseObject}
                     clickMethod={this.handleClickBoardObject}
@@ -246,7 +272,8 @@ class MainBox extends Component {
                     clickMethod={this.handleChoiceCardSelection}
                     choiceCardData={this.state.choiceContainerData}
                     selectedCard={this.state.selectedCardID}
-                    clearSelection={this.clearCardChoice} />
+                    clearSelection={this.clearCardChoice}
+                    objects={this.state.choiceObjects}/>
         
             </main>
 
