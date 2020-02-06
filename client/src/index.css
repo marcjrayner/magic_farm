@@ -184,11 +184,20 @@ font-size: 4rem;
 } 
 
 .chicken{
-  width: 30px;
+  width: 100%;
+    grid-area: animal;
+}
+
+.animal{
+  grid-template-areas: 'animal';
 }
 
 .dragon{
-  width: 90px;}
+  width: 300%;
+    grid-area: animal;
+    z-index: 100;
+    justify-content: center;
+    align-items: center;}
 
 #game-board-container {
   background: linear-gradient(90deg, rgba(57,181,74,1) 0%, rgba(126,197,97,1) 35%);

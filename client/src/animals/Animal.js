@@ -23,6 +23,7 @@ class Animal extends Component {
             var cellArray = [];
             var imgSrc = animal.imgSrc;
             var imageStyle = {}
+            
             if(animal.animalName === 'dragon') {
                 cellArray = [[1,1], [1,2], [1,3], [2,1], [2,2], [2,3], [3,1], [3,3],[3,2]];
                 const imageStyle={
@@ -44,7 +45,7 @@ class Animal extends Component {
             const animalRender = cellArray.map((roomCell, index) => {
             
                 const position = [roomCell[0], roomCell[1]];
-                    const name = ('' + animal.animalType + ' ' + animal.animalName + '-' + position[0]+'-'+position[1])
+                    const name = ('' + animal.animalType + ' hidden ' + animal.animalName + '-' + position[0]+'-'+position[1])
 
                     const cell = {
                         'empty': false,
@@ -56,8 +57,8 @@ class Animal extends Component {
                     return (
 
                         <Cell key={index} cell={cell}
-                            clickMethod={this.props.doNothing}
-                            hoverMethod={this.props.doNothing}
+                            clickMethod={this.props.clickMethod}
+                            hoverMethod={this.props.hoverMethod}
                         />
                     )
                 });
