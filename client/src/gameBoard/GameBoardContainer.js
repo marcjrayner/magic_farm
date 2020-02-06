@@ -29,7 +29,11 @@ const GameBoardContainer = (props) => {
 
             // props.clearMouseObject()
             // force user information to update.
-                default:
+                case "animal":
+
+                props.placeRoom(props.mouseObject, props.hoverLocation);
+                break;
+            default:
                     return null;
             }
         } else if (props.mouseObject === null)

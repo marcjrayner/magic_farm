@@ -46,6 +46,7 @@ class MainBox extends Component {
         this.handleClickBoardObject = this.handleClickBoardObject.bind(this);
         this.handleLoadSomeChoices = this.handleLoadSomeChoices.bind(this);
         this.tryAnimals = this.tryAnimals.bind(this);
+        this.handlePlaceAnimal = this.handlePlaceAnimal.bind(this);
     }
 
     tryAnimals() {
@@ -135,6 +136,54 @@ class MainBox extends Component {
         this.setState({mouseObject: null});
     }
 
+    handlePlaceAnimal(animal, newPosition){
+        let gridData = {
+            width: this.state.gameBoardData.gridData.width,
+            height: this.state.gameBoardData.gridData.height,
+            cellSize: this.state.gameBoardData.gridData.cellSize
+        }
+        let newArray = this.state.gameBoardData.objectsArray;
+        let newAnimal = {
+            id: Date.now(),
+            objectType: 'animal',
+            objectPosition: newPosition,
+            objectData: {
+                cellArray: animal.objectData.cellArray,
+                animalMaxWidth: animal.objectData.animalMaxWidth,
+                animalMaxHeight: animal.objectData.animalMaxHeight,
+                animalStatus: animal.objectData.animalStatus,
+                animalType: animal.objectData.animalType,
+                animalName: animal.objectData.animalName
+            }
+        }
+
+        newArray.push(newAnimal);
+        this.setState({ gameBoardData: { gridData: gridData, objectsArray: newArray } });
+
+        // updateRoomTotal & Area
+        const roomTotal = this.state.userInventoryData
+        roomTotal.animals += 1;
+        // roomTotal.coins -= room.cost;
+        const newScore = (roomTotal.areaCovered * (roomTotal.animals + roomTotal.numberOfRooms))
+        roomTotal.score += newScore;
+        this.setState({ userInventoryData: roomTotal })
+
+        this.setState({ mouseObject: null });
+        this.setState({ selectedCardID: null });
+        this.setState({ selectedOnChoiceCardContainer: null });
+        this.setState({ choiceObjects: [] });
+        if (this.state.userInventoryData.tryAnimals === false) {
+            this.handleLoadSomeChoices();
+        }
+        else {
+            this.handleLoadSomeAnimalChoices();
+            const tryAnimalsState = this.state.userInventoryData
+            tryAnimalsState.tryAnimals = false;
+            this.setState({ userInventoryData: tryAnimalsState })
+        };
+
+    }
+
     handlePlaceRoom(room, newPosition){
         let gridData = { width: this.state.gameBoardData.gridData.width,
             height: this.state.gameBoardData.gridData.height,
@@ -154,22 +203,7 @@ class MainBox extends Component {
                 roomName: room.objectData.roomName
             }           
         }
-        // let postRoom = {
-        //     "cellArray": [
-        //         [
-        //             1,
-        //             1
-        //         ]
-        //     ],
-        //     "roomMaxWidth": 1,
-        //     "roomMaxHeight": 1,
-        //     "area": 1,
-        //     "roomStatus": "room",
-        //     "roomType": "red",
-        //     "roomName": "roomOneOne"
-        // }
-        // const request = new Request();
-        // request.post('http://localhost:8080/rooms', postRoom);
+       
         newArray.push(newRoom);
         this.setState({gameBoardData:{gridData: gridData, objectsArray: newArray}});
         
