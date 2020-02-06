@@ -46,7 +46,7 @@ const ChoiceCard = (props) => {
 
     var imgSrc = () => {return null};
     const cardData = () => {
-        if (props.dataType == "room") {
+        if (props.dataType === "room") {
 
             return(
             <Room

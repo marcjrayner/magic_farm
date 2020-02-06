@@ -177,6 +177,7 @@ class MainBox extends Component {
         const roomTotal = this.state.userInventoryData
         roomTotal.numberOfRooms += 1;
         roomTotal.areaCovered += room.objectData.area;
+        // roomTotal.coins -= room.cost;
         const newScore = (roomTotal.areaCovered * roomTotal.numberOfRooms)
         roomTotal.score += newScore;
         this.setState({userInventoryData: roomTotal})

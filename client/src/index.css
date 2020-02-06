@@ -177,6 +177,19 @@ font-size: 4rem;
   z-index: 1;
 }
 
+.chicken-1-1{
+  background: url(/public/chicken.png);
+  width: 100;
+  object-fit: cover;
+} 
+
+.chicken{
+  width: 30px;
+}
+
+.dragon{
+  width: 90px;}
+
 #game-board-container {
   background: linear-gradient(90deg, rgba(57,181,74,1) 0%, rgba(126,197,97,1) 35%);
 }

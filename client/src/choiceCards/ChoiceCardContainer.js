@@ -37,7 +37,7 @@ class ChoiceCardContainer extends Component {
     // }
 
     makeCardSelection(card){
-        this.props.clickMethod(card.id, this.props.choiceCardData.choiceType, card.objectData, card.cost);
+        this.props.clickMethod(card.id, this.props.choiceCardData.choiceType, card.objectData);
     }
 
     render() {

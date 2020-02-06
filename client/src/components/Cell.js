@@ -53,8 +53,10 @@ const Cell = (props) => {
                 className={`cell `
                 + (props.cell.empty ? `empty ` : `full `)
                 + (props.cell.affiliation !== null ? (props.cell.affiliation +' ') : 'none')
-                + ( (hover && props.cell.affiliation === null) ? '.cell-hover ' : '') }
-         />
+                + ( (hover) ? '.cell-hover ' : '') }
+         >
+             
+         </article>
         )
 }
 
